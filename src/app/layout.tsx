@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Space_Mono, Archivo_Black, Playfair_Display, Cormorant_Garamond, Quicksand } from "next/font/google";
+import {
+  Inter,
+  Space_Mono,
+  Archivo_Black,
+  Playfair_Display,
+  Cormorant_Garamond,
+  Quicksand,
+  Plus_Jakarta_Sans,
+  Lora,
+} from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart";
 import { DesignSwitcher } from "@/components/preview/design-switcher";
@@ -43,6 +52,18 @@ const rounded = Quicksand({
   display: "swap",
 });
 
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "TASTRA — Skincare Lokal, Hasil Beneran.",
   description:
@@ -54,7 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="id"
-      className={`${sans.variable} ${mono.variable} ${display.variable} ${serif.variable} ${serifAlt.variable} ${rounded.variable} h-full`}
+      className={`${sans.variable} ${mono.variable} ${display.variable} ${serif.variable} ${serifAlt.variable} ${rounded.variable} ${jakarta.variable} ${lora.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
         <CartProvider>
