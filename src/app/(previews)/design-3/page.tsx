@@ -1,0 +1,482 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { PRODUCTS } from "@/lib/products";
+import { discountPercent, formatRupiah } from "@/lib/format";
+import { Loader3 } from "@/components/preview/loader-3";
+import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
+
+const PEACH = "#fff5ee";
+const PEACH_DEEP = "#ffe0d0";
+const ROSE = "#f4a8a4";
+const ROSE_DEEP = "#e88c89";
+const INK = "#3a2a1f";
+const MINT = "#cfe6db";
+const EASE = [0.22, 1, 0.36, 1] as const;
+const SPRING = { type: "spring" as const, stiffness: 200, damping: 20 };
+
+function Sparkle({ className = "", size = 16 }: { className?: string; size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M12 2 L13 10 L21 11 L13 13 L12 22 L11 13 L3 11 L11 10 Z" />
+    </svg>
+  );
+}
+
+function Blob({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 200 200" className={className} aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M52.7,-58.6C66.2,-46.2,73.5,-27.7,74.8,-9.4C76.1,8.9,71.5,27.1,60.6,40.5C49.7,53.9,32.5,62.6,14.2,67.8C-4.1,72.9,-23.5,74.6,-37.6,66.1C-51.6,57.6,-60.4,38.9,-65.4,19.4C-70.4,-0.1,-71.7,-20.5,-63.9,-35.1C-56.1,-49.7,-39.2,-58.5,-22.4,-65.4C-5.5,-72.4,11.3,-77.6,26.7,-74.4C42.1,-71.2,56.2,-59.5,52.7,-58.6Z"
+        transform="translate(100 100)"
+      />
+    </svg>
+  );
+}
+
+export default function Design3() {
+  const featured = PRODUCTS.slice(0, 4);
+  return (
+    <>
+      <Loader3 />
+      <div className="font-[family-name:var(--font-rounded)]" style={{ background: PEACH, color: INK }}>
+        {/* TOP BAR */}
+        <div
+          className="text-center py-2.5 text-xs flex items-center justify-center gap-2"
+          style={{ background: ROSE, color: "#fff" }}
+        >
+          <Sparkle size={12} />
+          <span className="font-semibold">Free ongkir + diskon hingga 50% — buruan, ya!</span>
+          <Sparkle size={12} />
+        </div>
+
+        {/* NAV */}
+        <header className="sticky top-0 z-40 backdrop-blur" style={{ background: `${PEACH}E6` }}>
+          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 flex items-center justify-between">
+            <Link
+              href="/design-3"
+              className="text-2xl font-extrabold tracking-tight flex items-center gap-1.5"
+              style={{ color: INK }}
+            >
+              tastra
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                className="inline-flex w-6 h-6 rounded-full items-center justify-center text-white"
+                style={{ background: ROSE }}
+              >
+                <Sparkle size={12} />
+              </motion.span>
+            </Link>
+            <nav className="hidden md:flex items-center gap-8 text-sm font-semibold" style={{ color: INK }}>
+              <a href="#shop" className="hover:opacity-60">Produk</a>
+              <a href="#kenapa" className="hover:opacity-60">Kenapa Tastra</a>
+              <a href="#kontak" className="hover:opacity-60">Sapa kami</a>
+            </nav>
+            <Link
+              href="/cart"
+              className="rounded-full px-5 py-2.5 text-sm font-bold flex items-center gap-2 transition-transform hover:scale-105"
+              style={{ background: INK, color: PEACH }}
+            >
+              Tas <span className="rounded-full px-1.5 text-[11px]" style={{ background: ROSE }}>0</span>
+            </Link>
+          </div>
+        </header>
+
+        {/* HERO */}
+        <section className="relative overflow-hidden">
+          <motion.div
+            animate={{ y: [0, 16, 0], x: [0, -8, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-32 -left-32 w-[500px] h-[500px] opacity-50 -z-0"
+            style={{ color: ROSE }}
+            aria-hidden
+          >
+            <Blob className="w-full h-full" />
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-40 -right-32 w-[400px] h-[400px] opacity-40 -z-0"
+            style={{ color: MINT }}
+            aria-hidden
+          >
+            <Blob className="w-full h-full" />
+          </motion.div>
+
+          <div className="relative mx-auto max-w-6xl px-6 lg:px-8 pt-12 pb-20 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <motion.span
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6, ease: EASE }}
+                className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold mb-6"
+                style={{ background: "#fff", color: ROSE_DEEP }}
+              >
+                <Sparkle size={12} /> Halo, kulit baru
+              </motion.span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
+                <motion.span
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35, duration: 0.7, ease: EASE }}
+                  className="block"
+                >
+                  Skincare yang
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.7, rotate: -8 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  transition={{ delay: 0.55, ...SPRING }}
+                  className="inline-block px-3 py-1 rounded-2xl my-1"
+                  style={{ background: ROSE, color: "#fff" }}
+                >
+                  ramah
+                </motion.span>{" "}
+                <motion.span
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.7, ease: EASE }}
+                  className="inline-block"
+                >
+                  sama kulit kamu.
+                </motion.span>
+              </h1>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.95, duration: 0.7 }}
+                className="mt-6 max-w-md text-lg leading-relaxed"
+                style={{ color: `${INK}CC` }}
+              >
+                Bahan alami, formula yang nggak nyiksa, dan harga yang masuk
+                akal. Buat kulit yang lagi cari teman — bukan musuh baru.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.1, duration: 0.7 }}
+                className="mt-8 flex flex-wrap gap-3"
+              >
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.2, ease: EASE }}
+                  href="#shop"
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm"
+                  style={{ background: INK, color: PEACH }}
+                >
+                  Lihat produknya <span aria-hidden>→</span>
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ duration: 0.2, ease: EASE }}
+                  href="#kenapa"
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm border-2"
+                  style={{ borderColor: INK, color: INK, background: "transparent" }}
+                >
+                  Kenapa Tastra?
+                </motion.a>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.7 }}
+                className="mt-12 flex flex-wrap gap-6 text-sm"
+              >
+                <Pill icon="🌿" text="100% bahan alami" />
+                <Pill icon="✨" text="Cocok kulit sensitif" />
+                <Pill icon="🇮🇩" text="Bikinan lokal" />
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.9, ease: EASE }}
+              className="relative aspect-square max-w-md mx-auto w-full"
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-4 rounded-[40%_60%_55%_45%/55%_45%_60%_40%]"
+                style={{ background: PEACH_DEEP }}
+              />
+              <motion.div
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src="/products/uv-protector.webp"
+                  alt="UV Protector"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 500px"
+                  className="object-contain p-12 relative"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0, rotate: 0 }}
+                animate={{ opacity: 1, scale: 1, rotate: 12 }}
+                transition={{ delay: 1.0, ...SPRING }}
+                whileHover={{ scale: 1.1, rotate: 0 }}
+                className="absolute -top-2 -right-2 rounded-full w-24 h-24 flex flex-col items-center justify-center text-white text-center font-bold leading-tight"
+                style={{ background: ROSE }}
+              >
+                <span className="text-[10px] uppercase tracking-wider opacity-80">Best</span>
+                <span className="text-2xl">SPF50+</span>
+                <span className="text-[10px] uppercase tracking-wider opacity-80">PA++++</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: 1.2, ...SPRING }}
+                whileHover={{ scale: 1.05, y: -3 }}
+                className="absolute -bottom-2 -left-2 rounded-2xl px-4 py-3 shadow-lg"
+                style={{ background: "#fff", color: INK }}
+              >
+                <p className="text-xs font-bold opacity-60">Rating ★★★★★</p>
+                <p className="text-sm font-bold">2.847 ulasan</p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* PRODUCTS */}
+        <section id="shop" className="relative">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
+            <Reveal>
+              <div className="text-center mb-12">
+                <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
+                  <Sparkle size={14} /> Best sellers <Sparkle size={14} />
+                </p>
+                <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
+                  Pilihan yang lagi <em className="italic" style={{ color: ROSE_DEEP }}>hits</em> banget
+                </h2>
+                <p className="mt-4 max-w-md mx-auto" style={{ color: `${INK}99` }}>
+                  Mulai dari yang paling banyak dipakai. Aman buat pemula.
+                </p>
+              </div>
+            </Reveal>
+
+            <RevealStagger stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-5">
+              {featured.map((p) => {
+                const off = discountPercent(p.price, p.originalPrice);
+                return (
+                  <RevealItem key={p.slug}>
+                    <motion.div
+                      whileHover={{ y: -6, scale: 1.02 }}
+                      transition={{ duration: 0.25, ease: EASE }}
+                    >
+                      <Link
+                        href={`/shop/${p.slug}`}
+                        className="group block rounded-3xl p-3 hover:shadow-xl transition-shadow"
+                        style={{ background: "#fff" }}
+                      >
+                        <div
+                          className="relative aspect-square rounded-2xl overflow-hidden mb-3"
+                          style={{ background: PEACH_DEEP }}
+                        >
+                          <Image
+                            src={p.images[0]}
+                            alt={p.name}
+                            fill
+                            sizes="25vw"
+                            className="object-contain p-4 transition-transform duration-300 group-hover:scale-110"
+                          />
+                          {off > 0 && (
+                            <span
+                              className="absolute top-3 left-3 rounded-full px-2.5 py-1 text-[11px] font-bold text-white"
+                              style={{ background: ROSE }}
+                            >
+                              -{off}%
+                            </span>
+                          )}
+                        </div>
+                        <div className="px-2 pb-2">
+                          <p className="text-[11px] font-bold uppercase tracking-wider" style={{ color: `${INK}80` }}>
+                            {p.category}
+                          </p>
+                          <h3 className="font-extrabold text-lg mt-0.5">{p.name}</h3>
+                          <p className="text-xs mt-1.5 line-clamp-2 min-h-[32px]" style={{ color: `${INK}99` }}>
+                            {p.tagline}
+                          </p>
+                          <div className="mt-3 flex items-center justify-between">
+                            <span className="font-extrabold">{formatRupiah(p.price)}</span>
+                            <span
+                              className="rounded-full w-8 h-8 flex items-center justify-center text-white text-lg leading-none transition-transform group-hover:rotate-90"
+                              style={{ background: ROSE }}
+                              aria-hidden
+                            >
+                              +
+                            </span>
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  </RevealItem>
+                );
+              })}
+            </RevealStagger>
+          </div>
+        </section>
+
+        {/* KENAPA TASTRA */}
+        <section id="kenapa" className="relative" style={{ background: "#fff" }}>
+          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+            <Reveal>
+              <div className="text-center mb-16">
+                <p className="text-sm font-bold mb-3" style={{ color: ROSE_DEEP }}>
+                  ✨ Kenapa Tastra
+                </p>
+                <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-[1.1]">
+                  Karena kulit kamu deserve<br />
+                  yang <em className="italic" style={{ color: ROSE_DEEP }}>lebih dari biasa</em>.
+                </h2>
+              </div>
+            </Reveal>
+
+            <RevealStagger stagger={0.15} className="grid md:grid-cols-3 gap-6">
+              {[
+                { icon: "🌿", title: "Alami beneran", body: "Bahan aktifnya jelas, bukan cuma bahan pengisi yang nempel di label." },
+                { icon: "💧", title: "Ringan di kulit", body: "Tekstur water-based yang langsung meresap. Nggak lengket, nggak white-cast." },
+                { icon: "💛", title: "Harga jujur", body: "Kualitasnya internasional, harganya tetap masuk akal buat kantong lokal." },
+              ].map((x) => (
+                <RevealItem key={x.title}>
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.25, ease: EASE }}
+                    className="rounded-3xl p-7 h-full"
+                    style={{ background: PEACH }}
+                  >
+                    <div
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5"
+                      style={{ background: "#fff" }}
+                      aria-hidden
+                    >
+                      {x.icon}
+                    </div>
+                    <h3 className="text-xl font-extrabold">{x.title}</h3>
+                    <p className="mt-2 leading-relaxed text-sm" style={{ color: `${INK}99` }}>
+                      {x.body}
+                    </p>
+                  </motion.div>
+                </RevealItem>
+              ))}
+            </RevealStagger>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL CTA */}
+        <section className="relative overflow-hidden">
+          <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
+            <Reveal y={40}>
+              <div
+                className="relative rounded-[36px] p-10 md:p-16 text-center overflow-hidden"
+                style={{ background: ROSE, color: "#fff" }}
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute -top-12 -left-12 w-40 h-40 opacity-20"
+                  style={{ color: "#fff" }}
+                  aria-hidden
+                >
+                  <Blob className="w-full h-full" />
+                </motion.div>
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  className="absolute -bottom-12 -right-12 w-48 h-48 opacity-20"
+                  style={{ color: "#fff" }}
+                  aria-hidden
+                >
+                  <Blob className="w-full h-full" />
+                </motion.div>
+                <Sparkle size={24} className="mx-auto mb-6 opacity-90" />
+                <p className="text-2xl md:text-4xl font-extrabold leading-tight max-w-3xl mx-auto">
+                  &ldquo;Kulit aku biasanya gampang break out tiap pakai sunscreen baru.
+                  Sama Tastra? Aman, ringan, dan glowy.&rdquo;
+                </p>
+                <p className="mt-6 text-sm font-bold opacity-90">— Anya · 23 thn · Jakarta</p>
+                <div className="mt-10 flex flex-wrap gap-3 justify-center">
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ duration: 0.2, ease: EASE }}
+                    href="#shop"
+                    className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm"
+                    style={{ background: "#fff", color: ROSE_DEEP }}
+                  >
+                    Coba sekarang <span aria-hidden>→</span>
+                  </motion.a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer id="kontak" style={{ background: INK, color: PEACH }}>
+          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
+            <Reveal>
+              <div className="grid md:grid-cols-3 gap-10">
+                <div>
+                  <p className="text-3xl font-extrabold flex items-center gap-2">
+                    tastra
+                    <motion.span
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                      className="inline-flex w-7 h-7 rounded-full items-center justify-center"
+                      style={{ background: ROSE }}
+                    >
+                      <Sparkle size={14} />
+                    </motion.span>
+                  </p>
+                  <p className="mt-3 text-sm opacity-70 max-w-xs leading-relaxed">
+                    Skincare lokal yang ramah sama kulit kamu. Mulai dari sini.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider opacity-50 mb-4">Belanja</p>
+                  <ul className="space-y-2 text-sm">
+                    <li><Link href="/shop?cat=sunscreen" className="hover:opacity-60">Sunscreen</Link></li>
+                    <li><Link href="/shop?cat=moisturizer" className="hover:opacity-60">Moisturizer</Link></li>
+                    <li><Link href="/shop?cat=cleanser" className="hover:opacity-60">Cleanser</Link></li>
+                    <li><Link href="/shop?cat=package" className="hover:opacity-60">Paket hemat</Link></li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider opacity-50 mb-4">Sapa kami</p>
+                  <ul className="space-y-2 text-sm">
+                    <li>halo@tastraofficial.com</li>
+                    <li><a href="https://instagram.com/tastraofficial" target="_blank" rel="noopener noreferrer" className="hover:opacity-60">Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@tastra_official" target="_blank" rel="noopener noreferrer" className="hover:opacity-60">TikTok</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs opacity-50">
+                <span>© {new Date().getFullYear()} Tastra · Made with love in Indonesia</span>
+                <span>Sayang kulit, sayang bumi 🌎</span>
+              </div>
+            </Reveal>
+          </div>
+        </footer>
+      </div>
+    </>
+  );
+}
+
+function Pill({ icon, text }: { icon: string; text: string }) {
+  return (
+    <div className="flex items-center gap-2 font-semibold">
+      <span aria-hidden className="text-base">{icon}</span>
+      <span>{text}</span>
+    </div>
+  );
+}
