@@ -41,11 +41,15 @@ export function Loader5() {
           aria-hidden
           style={{ color: INK }}
         >
-          <div className="flex items-baseline gap-1 overflow-hidden">
+          <div className="flex items-baseline text-5xl sm:text-6xl tracking-[0.15em] font-light leading-none">
             {"TASTRA".split("").map((c, i) => (
-              <span key={i} className="overflow-hidden inline-block" style={{ height: "1em", lineHeight: 1 }}>
+              <span
+                key={i}
+                className="overflow-hidden inline-block"
+                style={{ height: "1.1em", lineHeight: 1 }}
+              >
                 <motion.span
-                  className="block text-5xl sm:text-6xl tracking-[0.15em] font-light"
+                  className="block"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 + i * 0.06, ease: EASE }}
