@@ -37,7 +37,7 @@ export default function Design6Contact() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
             ⸻ A Word, If You Wish
           </p>
@@ -52,7 +52,7 @@ export default function Design6Contact() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-[1fr_360px] gap-16">
+        <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28 grid lg:grid-cols-[1fr_360px] gap-16 lg:gap-24">
           {sent ? (
             <div className="border-t pt-10" style={{ borderColor: `${INK}33` }}>
               <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-6" style={{ color: OCHRE }}>

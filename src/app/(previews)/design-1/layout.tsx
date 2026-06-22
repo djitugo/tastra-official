@@ -57,7 +57,7 @@ export default function Design1Layout({ children }: { children: React.ReactNode 
 
         {/* NAV */}
         <header className="bg-white border-b-2 border-black sticky top-0 z-30">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 h-16 flex items-center justify-between gap-4">
             <Link href="/design-1" className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl tracking-tighter shrink-0">
               TASTRA<span className="inline-block ml-1 w-2 h-2 bg-black align-middle" />
             </Link>
@@ -140,7 +140,7 @@ export default function Design1Layout({ children }: { children: React.ReactNode 
 
         {/* FOOTER */}
         <footer className="bg-black text-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-4">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 grid gap-12 md:grid-cols-4">
             <div className="md:col-span-2">
               <p className="font-[family-name:var(--font-display)] uppercase text-5xl tracking-tighter">TASTRA</p>
               <p className="mt-4 max-w-md text-white/70 text-sm leading-relaxed">
@@ -166,7 +166,7 @@ export default function Design1Layout({ children }: { children: React.ReactNode 
             </div>
           </div>
           <div className="border-t border-white/20">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row gap-4 justify-between items-center text-xs font-[family-name:var(--font-mono)] uppercase tracking-widest text-white/50">
+            <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-6 flex flex-col md:flex-row gap-4 justify-between items-center text-xs font-[family-name:var(--font-mono)] uppercase tracking-widest text-white/50">
               <span>© {new Date().getFullYear()} TASTRA. All rights reserved.</span>
               <span>Made in Indonesia ★</span>
             </div>

@@ -36,6 +36,50 @@ function Blob({ className = "" }: { className?: string }) {
   );
 }
 
+const ICON_PROPS = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.7,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": "true" as const,
+};
+
+function LeafIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...ICON_PROPS}>
+      <path d="M5 18c0-7 5-12 14-13 1 9-4 15-12 15a6 6 0 0 1-2-2Z" />
+      <path d="M6 19c3.5-4 7-6.5 11-8" />
+    </svg>
+  );
+}
+
+function DropletIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...ICON_PROPS}>
+      <path d="M12 3.5c3.2 3.8 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.3-6.2 5.5-10Z" />
+      <path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5" />
+    </svg>
+  );
+}
+
+function HeartIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...ICON_PROPS}>
+      <path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20Z" />
+    </svg>
+  );
+}
+
+function PinIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" className={className} {...ICON_PROPS}>
+      <path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z" />
+      <circle cx="12" cy="10" r="2.6" />
+    </svg>
+  );
+}
+
 export default function Design3Home() {
   const featured = PRODUCTS.slice(0, 4);
   return (
@@ -61,7 +105,7 @@ export default function Design3Home() {
           <Blob className="w-full h-full" />
         </motion.div>
 
-        <div className="relative mx-auto max-w-6xl px-6 lg:px-8 pt-12 pb-20 md:py-24 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="relative w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 pt-16 pb-24 md:py-32 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <motion.span
               initial={{ opacity: 0, y: 12 }}
@@ -140,9 +184,9 @@ export default function Design3Home() {
               transition={{ delay: 1.3, duration: 0.7 }}
               className="mt-12 flex flex-wrap gap-6 text-sm"
             >
-              <Pill icon="🌿" text="100% natural ingredients" />
-              <Pill icon="✨" text="Safe for sensitive skin" />
-              <Pill icon="🇮🇩" text="Made locally" />
+              <Pill icon={<LeafIcon size={18} />} text="100% natural ingredients" />
+              <Pill icon={<Sparkle size={16} />} text="Safe for sensitive skin" />
+              <Pill icon={<PinIcon size={18} />} text="Made locally" />
             </motion.div>
           </div>
 
@@ -201,9 +245,9 @@ export default function Design3Home() {
 
       {/* PRODUCTS */}
       <section className="relative">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal>
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
                 <Sparkle size={14} /> Best sellers <Sparkle size={14} />
               </p>
@@ -216,7 +260,7 @@ export default function Design3Home() {
             </div>
           </Reveal>
 
-          <RevealStagger stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <RevealStagger stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
             {featured.map((p) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (
@@ -292,11 +336,11 @@ export default function Design3Home() {
 
       {/* WHY TASTRA */}
       <section className="relative" style={{ background: "#fff" }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal>
             <div className="text-center mb-16">
-              <p className="text-sm font-bold mb-3" style={{ color: ROSE_DEEP }}>
-                ✨ Why Tastra
+              <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
+                <Sparkle size={14} /> Why Tastra
               </p>
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-[1.1]">
                 Because your skin deserves<br />
@@ -307,9 +351,9 @@ export default function Design3Home() {
 
           <RevealStagger stagger={0.15} className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: "🌿", title: "Truly natural", body: "Real active ingredients you can name, not just filler that looks nice on a label." },
-              { icon: "💧", title: "Light on skin", body: "Water based textures that absorb fast. No sticky feeling, no white cast." },
-              { icon: "💛", title: "Honest pricing", body: "International quality at prices that still make sense for a local budget." },
+              { icon: <LeafIcon size={26} />, title: "Truly natural", body: "Real active ingredients you can name, not just filler that looks nice on a label." },
+              { icon: <DropletIcon size={26} />, title: "Light on skin", body: "Water based textures that absorb fast. No sticky feeling, no white cast." },
+              { icon: <HeartIcon size={26} />, title: "Honest pricing", body: "International quality at prices that still make sense for a local budget." },
             ].map((x) => (
               <RevealItem key={x.title}>
                 <motion.div
@@ -319,8 +363,8 @@ export default function Design3Home() {
                   style={{ background: PEACH }}
                 >
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5"
-                    style={{ background: "#fff" }}
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                    style={{ background: "#fff", color: ROSE_DEEP }}
                     aria-hidden
                   >
                     {x.icon}
@@ -338,7 +382,7 @@ export default function Design3Home() {
 
       {/* TESTIMONIAL CTA */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal y={40}>
             <div
               className="relative rounded-[36px] p-10 md:p-16 text-center overflow-hidden"
@@ -387,10 +431,10 @@ export default function Design3Home() {
   );
 }
 
-function Pill({ icon, text }: { icon: string; text: string }) {
+function Pill({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
     <div className="flex items-center gap-2 font-semibold">
-      <span aria-hidden className="text-base">{icon}</span>
+      <span aria-hidden style={{ color: ROSE_DEEP }}>{icon}</span>
       <span>{text}</span>
     </div>
   );

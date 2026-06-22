@@ -20,6 +20,26 @@ function Sparkle({ size = 16 }: { size?: number }) {
   );
 }
 
+function FlowerIcon({ size = 48 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="2.4" />
+      <path d="M12 9.6c.9-2.3-.3-4.6-2.3-4.6S7.6 7.3 9.6 9.6" />
+      <path d="M14.4 12c2.3-.9 4.6.3 4.6 2.3s-2.3 3.1-4.6 1.1" />
+      <path d="M12 14.4c-.9 2.3.3 4.6 2.3 4.6s2.1-2.3.1-4.6" />
+      <path d="M9.6 12c-2.3.9-4.6-.3-4.6-2.3s2.3-3.1 4.6-1.1" />
+    </svg>
+  );
+}
+
+function CloseIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
 export default function Design3Cart() {
   const { lines, setQty, remove, ready } = useCart();
 
@@ -34,8 +54,8 @@ export default function Design3Cart() {
 
   return (
     <>
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Your bag <Sparkle size={14} />
           </p>
@@ -45,13 +65,13 @@ export default function Design3Cart() {
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <section className="pb-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           {!ready ? (
             <p className="text-center text-sm font-semibold opacity-60">Loading...</p>
           ) : items.length === 0 ? (
             <div className="rounded-3xl p-12 text-center" style={{ background: "#fff" }}>
-              <div className="text-5xl mb-4" aria-hidden>🌸</div>
+              <div className="flex justify-center mb-4" style={{ color: ROSE }} aria-hidden><FlowerIcon size={48} /></div>
               <p className="text-2xl font-extrabold mb-3">Your bag is empty</p>
               <p className="text-base mb-6 max-w-md mx-auto" style={{ color: `${INK}99` }}>
                 Pick something that suits your skin. There are budget friendly bundles for anyone just starting out.
@@ -110,11 +130,11 @@ export default function Design3Cart() {
                           <button
                             type="button"
                             onClick={() => remove(line.slug)}
-                            className="rounded-full w-9 h-9 flex items-center justify-center text-white text-xs font-bold transition-transform hover:scale-110"
+                            className="rounded-full w-9 h-9 flex items-center justify-center text-white transition-transform hover:scale-110"
                             style={{ background: ROSE }}
                             aria-label={`Remove ${product.name}`}
                           >
-                            ✕
+                            <CloseIcon size={14} />
                           </button>
                         </div>
                       </div>
@@ -134,7 +154,7 @@ export default function Design3Cart() {
                   </div>
                   <div className="flex justify-between">
                     <dt style={{ color: `${INK}99` }}>Shipping</dt>
-                    <dd className="font-bold uppercase" style={{ color: ROSE_DEEP }}>Free 🎉</dd>
+                    <dd className="font-bold uppercase inline-flex items-center gap-1.5" style={{ color: ROSE_DEEP }}>Free <Sparkle size={12} /></dd>
                   </div>
                   <div className="border-t pt-3 flex justify-between items-baseline" style={{ borderColor: `${INK}1A` }}>
                     <dt className="font-extrabold text-base">Total</dt>

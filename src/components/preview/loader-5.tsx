@@ -3,32 +3,21 @@
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const KEY = "tastra-loader-5-seen";
 const EASE = [0.22, 1, 0.36, 1] as const;
 const INK = "#0a0a0a";
 
 export function Loader5() {
   const reduced = useReducedMotion();
-  const [show, setShow] = useState<boolean | null>(null);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (reduced) {
       setShow(false);
       return;
     }
-    if (sessionStorage.getItem(KEY)) {
-      setShow(false);
-      return;
-    }
-    setShow(true);
-    const t = setTimeout(() => {
-      sessionStorage.setItem(KEY, "1");
-      setShow(false);
-    }, 2400);
+    const t = setTimeout(() => setShow(false), 2400);
     return () => clearTimeout(t);
   }, [reduced]);
-
-  if (show === null) return null;
 
   return (
     <AnimatePresence>

@@ -35,11 +35,11 @@ export default function Design1Login() {
         <form onSubmit={onSubmit} className="mt-8 space-y-4">
           <label className="block">
             <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest block mb-1">Username</span>
-            <input name="username" required autoComplete="username" className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)] focus:outline-none focus:[box-shadow:4px_4px_0_0_#000]" />
+            <input name="username" required autoComplete="username" className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)]" />
           </label>
           <label className="block">
             <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest block mb-1">Password</span>
-            <input name="password" type="password" required autoComplete="current-password" className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)] focus:outline-none focus:[box-shadow:4px_4px_0_0_#000]" />
+            <input name="password" type="password" required autoComplete="current-password" className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)]" />
           </label>
           {error && <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-red-600">Wrong username or password.</p>}
           <button type="submit" className="btn btn-invert w-full" disabled={busy}>{busy ? "Signing in..." : "Sign in →"}</button>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const PEACH_DEEP = "#ffe0d0";
@@ -23,8 +23,8 @@ export default function Design3Blog() {
   const [featured, ...rest] = POSTS;
   return (
     <>
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-24">
+        <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 lg:px-16 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Journal <Sparkle size={14} />
           </p>
@@ -39,15 +39,15 @@ export default function Design3Blog() {
 
       {/* FEATURED */}
       <section className="pb-6">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <Reveal>
             <Link
               href={`/design-3/blog/${featured.slug}`}
               className="group grid md:grid-cols-2 rounded-[36px] overflow-hidden transition-all hover:shadow-xl"
               style={{ background: "#fff" }}
             >
-              <div className="relative aspect-[16/10] md:aspect-auto overflow-hidden" style={{ background: PEACH_DEEP }}>
-                <SmartImage src={featured.cover} alt={featured.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div className="relative aspect-[16/10] md:aspect-auto overflow-hidden">
+                <PlaceholderGraphic bg={PEACH_DEEP} fg={INK} label={featured.category} />
               </div>
               <div className="p-7 md:p-10 flex flex-col justify-center">
                 <p className="text-xs font-bold uppercase tracking-wider" style={{ color: ROSE_DEEP }}>
@@ -65,9 +65,9 @@ export default function Design3Blog() {
       </section>
 
       {/* GRID */}
-      <section className="pb-20 pt-6">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 gap-6">
+      <section className="pb-24 pt-6">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {rest.map((post) => (
               <RevealItem key={post.slug}>
                 <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.25, ease: EASE }} className="h-full">
@@ -76,8 +76,8 @@ export default function Design3Blog() {
                     className="group block rounded-3xl overflow-hidden h-full transition-shadow hover:shadow-xl"
                     style={{ background: "#fff" }}
                   >
-                    <div className="relative aspect-[16/9] overflow-hidden" style={{ background: PEACH_DEEP }}>
-                      <SmartImage src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <PlaceholderGraphic bg={PEACH_DEEP} fg={INK} label={post.category} />
                     </div>
                     <div className="p-6">
                       <p className="text-xs font-bold uppercase tracking-wider" style={{ color: ROSE_DEEP }}>

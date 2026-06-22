@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const GREEN = "#2d5a3d";
@@ -30,8 +30,8 @@ export default function Design4About() {
   return (
     <>
       {/* HERO */}
-      <section className="py-16 md:py-24" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-28 border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ About</p>
           <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight max-w-4xl" style={{ color: INK }}>
             Skincare made right here, for skin like yours.
@@ -45,11 +45,11 @@ export default function Design4About() {
       </section>
 
       {/* PREMISE */}
-      <section className="py-16 md:py-20" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-20 md:py-28 border-b" style={{ background: CREAM, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <Reveal>
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden" style={{ background: GREEN_LIGHT }}>
-              <SmartImage src="/products/banner-1.webp" alt="Tastra product lineup" fill sizes="(max-width: 1024px) 100vw, 600px" className="object-cover" />
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
+              <PlaceholderGraphic bg={GREEN_LIGHT} fg={GREEN} label="Tastra Studio" />
             </div>
           </Reveal>
           <div>
@@ -74,15 +74,15 @@ export default function Design4About() {
       </section>
 
       {/* COMMITMENT */}
-      <section className="py-20 md:py-28" style={{ background: GREEN, color: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32" style={{ background: GREEN, color: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <Reveal>
-            <div className="text-center mb-14">
+            <div className="text-center mb-16">
               <p className="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">✦ Our commitment</p>
               <h2 className="text-3xl md:text-5xl font-extrabold max-w-3xl mx-auto leading-[1.1]">Four things we never compromise</h2>
             </div>
           </Reveal>
-          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               { label: "Halal certified", body: "Certified Halal by the MUI. Safe and permissible for everyone." },
               { label: "Tested ingredients", body: "Every active has research behind it. Trialed on real Indonesian skin." },
@@ -104,8 +104,8 @@ export default function Design4About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-20 text-center" style={{ background: GREEN_SOFT }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 text-center" style={{ background: GREEN_SOFT }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight" style={{ color: INK }}>Want to try it?</h2>
           <p className="mt-4 text-base md:text-lg" style={{ color: `${INK}99` }}>Start with the Daily Essentials Pack, our most affordable two product set.</p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">

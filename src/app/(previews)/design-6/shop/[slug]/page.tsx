@@ -32,7 +32,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase opacity-60">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase opacity-60">
           <Link href="/design-6/shop" className="hover:opacity-100">Range</Link>
           <span className="mx-3">⸻</span>
           <span style={{ color: INK }}>{product.name}</span>
@@ -40,7 +40,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
       </section>
 
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28 grid lg:grid-cols-12 gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
 
       {related.length > 0 && (
         <section>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28">
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: OCHRE }}>
               ⸻ Of Companion ⸻
             </p>
@@ -172,10 +172,15 @@ function ActionButtons({ slug }: { slug: string }) {
         type="button"
         onClick={onAdd}
         disabled={adding}
-        className="min-h-11 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase transition-opacity disabled:opacity-50"
+        className="min-h-11 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase transition-opacity disabled:opacity-50 inline-flex items-center justify-center gap-2"
         style={{ background: INK, color: CREAM }}
       >
-        {done ? "✓ Added to Cart" : "Add to Cart"}
+        {done && (
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+        )}
+        {done ? "Added to Cart" : "Add to Cart"}
       </button>
       <Link
         href="/design-6/cart"

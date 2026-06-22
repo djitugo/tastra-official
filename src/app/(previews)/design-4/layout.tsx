@@ -42,13 +42,13 @@ export default function Design4Layout({ children }: { children: React.ReactNode 
       <Loader4 />
       <div className="font-[family-name:var(--font-jakarta)] flex flex-col flex-1" style={{ background: CREAM, color: INK }}>
         {/* ANNOUNCEMENT BAR */}
-        <div className="text-center py-2.5 text-xs font-medium" style={{ background: GREEN, color: CREAM }}>
+        <div className="text-center py-3 text-[11px] font-medium tracking-wider" style={{ background: GREEN, color: CREAM }}>
           ✦ Free Shipping Nationwide · Halal Certified by MUI ✦
         </div>
 
         {/* HEADER */}
-        <header className="sticky top-0 z-40 border-b" style={{ background: CREAM, borderColor: `${INK}1A` }}>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <header className="sticky top-0 z-40 border-b" style={{ background: CREAM, borderColor: `${INK}14` }}>
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 h-20 flex items-center justify-between gap-4">
             <Link href="/design-4" className="flex items-center gap-2 shrink-0">
               <span className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: GREEN, color: CREAM }}>
                 <span className="text-lg font-extrabold">T</span>
@@ -114,24 +114,24 @@ export default function Design4Layout({ children }: { children: React.ReactNode 
 
           {/* MOBILE SEARCH */}
           {searchOpen && (
-            <div className="md:hidden border-t p-4" style={{ borderColor: `${INK}1A` }}>
+            <div className="md:hidden border-t p-4" style={{ borderColor: `${INK}14` }}>
               <SearchBox design="design-4" theme={SEARCH_THEME} />
             </div>
           )}
 
           {/* MOBILE / TABLET MENU */}
           {menuOpen && (
-            <nav className="lg:hidden border-t" style={{ background: CREAM, borderColor: `${INK}1A` }} aria-label="Mobile">
+            <nav className="lg:hidden border-t" style={{ background: CREAM, borderColor: `${INK}14` }} aria-label="Mobile">
               <ul className="flex flex-col">
                 {NAV.map((l) => (
                   <li key={l.href} className="border-b" style={{ borderColor: `${INK}0D` }}>
-                    <Link href={l.href} onClick={() => setMenuOpen(false)} className="block px-6 py-4 text-sm font-semibold">
+                    <Link href={l.href} onClick={() => setMenuOpen(false)} className="block px-5 sm:px-8 py-4 text-sm font-semibold">
                       {l.label}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link href="/design-4/login" onClick={() => setMenuOpen(false)} className="block px-6 py-4 text-sm font-semibold opacity-70">
+                  <Link href="/design-4/login" onClick={() => setMenuOpen(false)} className="block px-5 sm:px-8 py-4 text-sm font-semibold opacity-70">
                     Admin Login
                   </Link>
                 </li>
@@ -144,8 +144,8 @@ export default function Design4Layout({ children }: { children: React.ReactNode 
 
         {/* FOOTER */}
         <footer style={{ background: INK, color: CREAM }}>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-            <div className="grid md:grid-cols-4 gap-10">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
+            <div className="grid md:grid-cols-4 gap-10 lg:gap-16">
               <div className="md:col-span-1">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: GREEN }}>
@@ -184,7 +184,7 @@ export default function Design4Layout({ children }: { children: React.ReactNode 
                 </ul>
               </div>
             </div>
-            <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs opacity-60">
+            <div className="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs opacity-60">
               <span>© {new Date().getFullYear()} Tastra Beauty. All rights reserved.</span>
               <span>✦ Halal Green Beauty ✦ Made in Indonesia</span>
             </div>

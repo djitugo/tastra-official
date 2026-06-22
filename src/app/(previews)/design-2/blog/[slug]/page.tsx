@@ -5,10 +5,11 @@ import { use } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { getPost, POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 
 const INK = "#1a1a1a";
 const GOLD = "#9a7b4f";
+const CREAM_DEEP = "#ede5d3";
 const EASE = [0.22, 1, 0.36, 1] as const;
 type Params = Promise<{ slug: string }>;
 
@@ -21,7 +22,7 @@ export default function Design2BlogPost({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
           <Link href="/design-2/blog" className="hover:opacity-100">
             Journal
           </Link>
@@ -31,7 +32,7 @@ export default function Design2BlogPost({ params }: { params: Params }) {
       </section>
 
       <article className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-24">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-20 md:py-28">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
             <p className="text-[10px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
               {post.category} · {post.readMinutes} min read
@@ -43,9 +44,8 @@ export default function Design2BlogPost({ params }: { params: Params }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             className="relative aspect-[16/9] mt-10 overflow-hidden"
-            style={{ background: "#fff" }}
           >
-            <SmartImage src={post.cover} alt={post.title} fill priority sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+            <PlaceholderGraphic bg={CREAM_DEEP} fg={INK} label={post.category} />
           </motion.div>
           <div className="mt-12 space-y-6 text-lg leading-[1.9]" style={{ color: `${INK}CC` }}>
             {post.body.map((para, i) => (
@@ -56,7 +56,7 @@ export default function Design2BlogPost({ params }: { params: Params }) {
       </article>
 
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16 md:py-24">
           <p className="text-[10px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
             ⸻ Keep reading
           </p>

@@ -44,7 +44,7 @@ export default function Design3Login() {
   }
 
   return (
-    <section className="min-h-[70vh] flex items-center justify-center px-6 py-16">
+    <section className="min-h-[70vh] flex items-center justify-center px-5 sm:px-8 py-20">
       <motion.div
         initial={{ opacity: 0, y: 20, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}

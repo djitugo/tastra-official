@@ -5,7 +5,7 @@ import { use } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { getPost, POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 
 const GREEN = "#2d5a3d";
 const GREEN_LIGHT = "#e8efe8";
@@ -24,8 +24,8 @@ export default function Design4BlogPost({ params }: { params: Params }) {
 
   return (
     <>
-      <section className="border-b" style={{ borderColor: `${INK}1A`, background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-3 text-xs font-semibold" style={{ color: `${INK}99` }}>
+      <section className="border-b" style={{ borderColor: `${INK}14`, background: CREAM }}>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-4 text-xs font-semibold" style={{ color: `${INK}99` }}>
           <Link href="/design-4/blog" className="hover:opacity-60">Blog</Link>
           <span className="mx-2">·</span>
           <span style={{ color: INK }}>{post.category}</span>
@@ -33,7 +33,7 @@ export default function Design4BlogPost({ params }: { params: Params }) {
       </section>
 
       <article style={{ background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16 md:py-24">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: GREEN }}>{post.category} · {post.readMinutes} min read</p>
             <h1 className="text-3xl md:text-5xl font-extrabold mt-3 leading-tight tracking-tight" style={{ color: INK }}>{post.title}</h1>
@@ -43,9 +43,8 @@ export default function Design4BlogPost({ params }: { params: Params }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             className="relative aspect-[16/9] rounded-3xl overflow-hidden mt-8"
-            style={{ background: GREEN_LIGHT }}
           >
-            <SmartImage src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+            <PlaceholderGraphic bg={GREEN_LIGHT} fg={GREEN} label={post.category} />
           </motion.div>
           <div className="mt-10 space-y-6 text-lg leading-relaxed" style={{ color: `${INK}CC` }}>
             {post.body.map((para, i) => <p key={i}>{para}</p>)}
@@ -53,8 +52,8 @@ export default function Design4BlogPost({ params }: { params: Params }) {
         </div>
       </article>
 
-      <section className="pb-16" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <section className="pb-20 md:pb-28" style={{ background: CREAM }}>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8">
           <h2 className="text-2xl font-extrabold mb-6" style={{ color: INK }}>Keep reading</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {more.map((p) => (

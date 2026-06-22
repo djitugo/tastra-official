@@ -82,14 +82,14 @@ export default function Design1Checkout() {
   return (
     <>
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-20">
           <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">★ Checkout</p>
           <h1 className="font-[family-name:var(--font-display)] uppercase text-5xl md:text-7xl mt-3 tracking-tighter">Complete order.</h1>
         </div>
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-24">
           <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_400px] gap-8">
             <div className="space-y-8">
               <Fieldset legend="01 / Contact">
@@ -159,7 +159,7 @@ function Input({ name, label, type = "text", required = false, autoComplete, inp
   return (
     <label className="block">
       <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest block mb-1">{label}{required && <span aria-hidden className="ml-1">*</span>}</span>
-      <input name={name} type={type} required={required} autoComplete={autoComplete} inputMode={inputMode} className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)] focus:outline-none focus:[box-shadow:4px_4px_0_0_#000]" />
+      <input name={name} type={type} required={required} autoComplete={autoComplete} inputMode={inputMode} className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)]" />
     </label>
   );
 }

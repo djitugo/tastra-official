@@ -38,7 +38,7 @@ export default function Design2Contact() {
     <>
       {/* HEADER */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
             Contact
           </p>
@@ -53,11 +53,14 @@ export default function Design2Contact() {
 
       {/* BODY */}
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-[1fr_360px] gap-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28 grid lg:grid-cols-[1fr_420px] gap-16 lg:gap-24">
           {sent ? (
             <div className="border p-12 text-center self-start" style={{ borderColor: INK }}>
-              <p className="font-[family-name:var(--font-serif)] text-3xl mb-3">
-                ✓ <em className="font-[family-name:var(--font-serif-alt)] font-light">Sent.</em>
+              <p className="font-[family-name:var(--font-serif)] text-3xl mb-3 flex items-center justify-center gap-3">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+                  <path d="m5 12 5 5L20 7" />
+                </svg>
+                <em className="font-[family-name:var(--font-serif-alt)] font-light">Sent.</em>
               </p>
               <p className="leading-[1.8]" style={{ color: `${INK}B3` }}>
                 Your message is in. We reply within 2 business days.
@@ -81,17 +84,18 @@ export default function Design2Contact() {
                   name="message"
                   required
                   rows={6}
-                  className="w-full bg-white px-4 py-3 text-base leading-[1.7] outline-none focus:ring-1"
+                  className="w-full bg-white px-4 py-3 text-base leading-[1.7] outline-none"
                   style={{ border: `1px solid ${INK}`, color: INK }}
                 />
               </label>
               <button
                 type="submit"
                 disabled={busy}
-                className="inline-flex items-center min-h-[48px] px-8 py-3 text-[12px] tracking-[0.3em] uppercase disabled:opacity-50"
+                className="inline-flex items-center gap-2 min-h-[48px] px-8 py-3 text-[12px] tracking-[0.3em] uppercase disabled:opacity-50"
                 style={{ background: INK, color: CREAM }}
               >
-                {busy ? "Sending..." : "Send message →"}
+                {busy ? "Sending..." : "Send message"}
+                {!busy && <Arrow />}
               </button>
             </form>
           )}
@@ -145,5 +149,14 @@ function Info({ label, value, href }: { label: string; value: string; href?: str
       </p>
       {body}
     </div>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+      <path d="M5 12h13" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

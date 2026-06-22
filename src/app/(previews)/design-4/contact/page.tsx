@@ -21,6 +21,14 @@ const SELECT_THEME: SelectTheme = {
 
 const TOPICS = ["Product question", "Order help", "Partnership", "Press", "Other"];
 
+function CheckIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
 export default function Design4Contact() {
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -38,8 +46,8 @@ export default function Design4Contact() {
 
   return (
     <>
-      <section className="py-16 md:py-24" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-28 border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Contact</p>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight" style={{ color: INK }}>Say hello</h1>
           <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed" style={{ color: `${INK}99` }}>
@@ -48,11 +56,11 @@ export default function Design4Contact() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1fr_360px] gap-10">
+      <section className="py-16 md:py-24" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 grid lg:grid-cols-[1fr_380px] gap-10 lg:gap-16">
           {sent ? (
             <div className="rounded-2xl p-10 text-center" style={{ background: GREEN_SOFT }}>
-              <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-extrabold" style={{ background: GREEN, color: CREAM }}>✓</div>
+              <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center" style={{ background: GREEN, color: CREAM }}><CheckIcon /></div>
               <p className="text-2xl font-extrabold mb-3" style={{ color: INK }}>Message sent</p>
               <p style={{ color: `${INK}99` }}>Your message is in. We reply within 2 business days.</p>
             </div>
@@ -66,7 +74,7 @@ export default function Design4Contact() {
               </label>
               <label className="block">
                 <span className="text-xs font-bold uppercase tracking-wider block mb-1.5" style={{ color: `${INK}99` }}>Message *</span>
-                <textarea name="message" required rows={6} className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none focus:ring-2" style={{ borderColor: "#d6e0d6", color: INK }} />
+                <textarea name="message" required rows={6} className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none" style={{ borderColor: "#d6e0d6", color: INK }} />
               </label>
               <button
                 type="submit"
@@ -101,7 +109,7 @@ function Field({ label, name, type = "text", required = false }: { label: string
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none focus:ring-2"
+        className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none"
         style={{ borderColor: "#d6e0d6", color: INK }}
       />
     </label>

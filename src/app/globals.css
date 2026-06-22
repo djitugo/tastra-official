@@ -45,10 +45,19 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Focus ring — never remove */
-:where(a, button, input, textarea, select, [role="button"]):focus-visible {
-  outline: 3px solid #000;
+/* Keyboard focus for buttons and links (not text fields). */
+:where(a, button, [role="button"]):focus-visible {
+  outline: 2px solid currentColor;
   outline-offset: 3px;
+}
+
+/* Form fields: no heavy focus border or shadow on click. Clean and quiet. */
+input:focus,
+textarea:focus,
+select:focus,
+[contenteditable]:focus {
+  outline: none;
+  box-shadow: none !important;
 }
 
 ::selection {

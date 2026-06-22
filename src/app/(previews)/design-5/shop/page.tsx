@@ -17,7 +17,7 @@ export default function Design5Shop() {
     <>
       {/* HEADER */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-6">Shop</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl leading-[1.05]">
             The <span className="italic font-[family-name:var(--font-serif-alt)]">collection.</span>
@@ -31,7 +31,7 @@ export default function Design5Shop() {
 
       {/* FILTER */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-6 flex flex-wrap gap-x-8 gap-y-3">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-6 flex flex-wrap gap-x-8 gap-y-3">
           <Chip on={active === "all"} onClick={() => setActive("all")}>All</Chip>
           {CATEGORIES.map((c) => (
             <Chip key={c.slug} on={active === c.slug} onClick={() => setActive(c.slug)}>{c.label}</Chip>
@@ -41,7 +41,7 @@ export default function Design5Shop() {
 
       {/* GRID */}
       <section>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 md:py-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-20">
           <RevealStagger stagger={0.08} className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {items.map((p, i) => (
               <RevealItem key={p.slug}>

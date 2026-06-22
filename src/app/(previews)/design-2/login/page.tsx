@@ -76,13 +76,23 @@ export default function Design2Login() {
           <button
             type="submit"
             disabled={busy}
-            className="flex items-center justify-center w-full min-h-[48px] py-4 text-[12px] tracking-[0.3em] uppercase disabled:opacity-50"
+            className="flex items-center justify-center gap-2 w-full min-h-[48px] py-4 text-[12px] tracking-[0.3em] uppercase disabled:opacity-50"
             style={{ background: INK, color: CREAM }}
           >
-            {busy ? "Signing in..." : "Sign in →"}
+            {busy ? "Signing in..." : "Sign in"}
+            {!busy && <Arrow />}
           </button>
         </form>
       </div>
     </section>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+      <path d="M5 12h13" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

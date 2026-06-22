@@ -25,7 +25,7 @@ export default function Design2Cart() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
             Your Bag
           </p>
@@ -36,7 +36,7 @@ export default function Design2Cart() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20">
           {!ready ? (
             <p className="text-sm tracking-wider opacity-60">Loading...</p>
           ) : items.length === 0 ? (
@@ -56,7 +56,7 @@ export default function Design2Cart() {
               </Link>
             </div>
           ) : (
-            <div className="grid lg:grid-cols-[1fr_360px] gap-16">
+            <div className="grid lg:grid-cols-[1fr_420px] gap-16 lg:gap-24">
               <ul className="border-t" style={{ borderColor: `${INK}1A` }}>
                 {items.map(({ line, product }) => (
                   <li key={line.slug} className="py-8 border-b flex gap-6" style={{ borderColor: `${INK}1A` }}>

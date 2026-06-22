@@ -35,8 +35,8 @@ export default function Design4Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <section className="relative overflow-hidden border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <motion.span
               initial={{ opacity: 0, x: -12 }}
@@ -138,15 +138,15 @@ export default function Design4Home() {
       </section>
 
       {/* CATEGORIES */}
-      <section className="py-16 md:py-20" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-28 border-b" style={{ background: CREAM, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <Reveal>
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Categories</p>
               <h2 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Find what fits you</h2>
             </div>
           </Reveal>
-          <RevealStagger stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <RevealStagger stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
             {CATEGORIES.map((c, i) => {
               const sample = PRODUCTS.find((p) => p.category === c.slug);
               return (
@@ -170,10 +170,10 @@ export default function Design4Home() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="py-16 md:py-20" style={{ background: GREEN_SOFT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-20 md:py-28 border-b" style={{ background: GREEN_SOFT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <Reveal>
-            <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
+            <div className="flex items-end justify-between flex-wrap gap-4 mb-14">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: GREEN }}>✦ Best Sellers</p>
                 <h2 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Customer favorites</h2>
@@ -181,7 +181,7 @@ export default function Design4Home() {
               <Link href="/design-4/shop" className="text-sm font-bold underline underline-offset-4" style={{ color: GREEN }}>View all →</Link>
             </div>
           </Reveal>
-          <RevealStagger stagger={0.1} className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          <RevealStagger stagger={0.1} className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {featured.map((p) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (
@@ -215,15 +215,15 @@ export default function Design4Home() {
       </section>
 
       {/* WHY */}
-      <section className="py-20 md:py-24" style={{ background: GREEN, color: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32" style={{ background: GREEN, color: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <Reveal>
-            <div className="text-center mb-14">
+            <div className="text-center mb-16">
               <p className="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">✦ Why Tastra</p>
               <h2 className="text-3xl md:text-5xl font-extrabold max-w-3xl mx-auto leading-[1.1]">Our commitment to your skin</h2>
             </div>
           </Reveal>
-          <RevealStagger stagger={0.12} className="grid md:grid-cols-4 gap-6">
+          <RevealStagger stagger={0.12} className="grid md:grid-cols-4 gap-6 md:gap-8">
             {[
               { label: "Halal MUI", body: "Certified Halal by the Indonesian Council of Ulama (MUI)." },
               { label: "Natural", body: "Niacinamide, Centella, and Ceramide. Active ingredients that are proven to work." },
@@ -245,14 +245,14 @@ export default function Design4Home() {
       </section>
 
       {/* NEWSLETTER */}
-      <section className="py-16 md:py-20" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-24 md:py-32" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 text-center">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Newsletter</p>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: INK }}>Get the latest news and offers</h2>
-            <p className="text-base mb-8" style={{ color: `${INK}99` }}>Subscribe for product updates, skincare tips, and special deals.</p>
+            <p className="text-base mb-10" style={{ color: `${INK}99` }}>Subscribe for product updates, skincare tips, and special deals.</p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" placeholder="you@email.com" aria-label="Email" className="flex-1 px-5 py-3.5 rounded-full text-sm border-2 focus:outline-none focus:ring-2 focus:ring-offset-2" style={{ borderColor: `${GREEN}33`, background: "#fff" }} />
+              <input type="email" placeholder="you@email.com" aria-label="Email" className="flex-1 px-5 py-3.5 rounded-full text-sm border-2 focus:outline-none" style={{ borderColor: `${GREEN}33`, background: "#fff" }} />
               <button type="submit" className="rounded-full px-7 py-3.5 text-sm font-bold whitespace-nowrap" style={{ background: GREEN, color: CREAM }}>Subscribe</button>
             </form>
           </Reveal>

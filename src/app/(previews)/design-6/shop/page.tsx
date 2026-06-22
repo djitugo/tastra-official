@@ -21,7 +21,7 @@ export default function Design6Shop() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
             ⸻ The Complete Catalogue
           </p>
@@ -37,7 +37,7 @@ export default function Design6Shop() {
       </section>
 
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-5 flex flex-wrap gap-3">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-5 flex flex-wrap gap-3">
           <Chip on={active === "all"} onClick={() => setActive("all")}>All</Chip>
           {CATEGORIES.map((c) => (
             <Chip key={c.slug} on={active === c.slug} onClick={() => setActive(c.slug)}>{c.label}</Chip>
@@ -46,8 +46,8 @@ export default function Design6Shop() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
-          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
+          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
             {items.map((p) => {
               const n = String(PRODUCTS.findIndex((x) => x.slug === p.slug) + 1).padStart(2, "0");
               return (

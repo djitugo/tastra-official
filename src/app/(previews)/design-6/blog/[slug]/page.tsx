@@ -5,9 +5,8 @@ import { use } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { getPost, POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 
-const CREAM_DEEP = "#ebe2cf";
 const INK = "#2a1f17";
 const OCHRE = "#b8956a";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -23,15 +22,18 @@ export default function Design6BlogPost({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-4 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase opacity-60">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-4 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase opacity-60">
+          <div className="mx-auto max-w-3xl">
           <Link href="/design-6/blog" className="hover:opacity-100">Reading Room</Link>
           <span className="mx-3">⸻</span>
           <span style={{ color: INK }}>{post.category}</span>
+          </div>
         </div>
       </section>
 
       <article className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-24">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-20 md:py-28">
+          <div className="mx-auto max-w-3xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }} className="text-center">
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-6" style={{ color: OCHRE }}>
               {post.category} · {post.readMinutes} min read
@@ -44,9 +46,8 @@ export default function Design6BlogPost({ params }: { params: Params }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             className="relative aspect-[16/9] mt-12 overflow-hidden"
-            style={{ background: CREAM_DEEP }}
           >
-            <SmartImage src={post.cover} alt={post.title} fill priority sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+            <PlaceholderGraphic bg="#ebe2cf" fg="#2a1f17" label={post.title} />
           </motion.div>
 
           <div className="mt-14 space-y-7 text-[17px] leading-[1.95]" style={{ color: `${INK}CC` }}>
@@ -69,12 +70,14 @@ export default function Design6BlogPost({ params }: { params: Params }) {
           <div className="mt-16 pt-6 border-t text-center font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase" style={{ borderColor: `${INK}33`, color: OCHRE }}>
             ⸻ Of Ingredient & Restraint ⸻
           </div>
+          </div>
         </div>
       </article>
 
       {more.length > 0 && (
         <section>
-          <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 md:py-20">
+          <div className="w-full px-5 sm:px-8 lg:px-16 py-20 md:py-24">
+            <div className="mx-auto max-w-3xl">
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
               ⸻ Continue Reading
             </p>
@@ -85,6 +88,7 @@ export default function Design6BlogPost({ params }: { params: Params }) {
                   <h3 className="font-[family-name:var(--font-lora)] text-xl leading-tight group-hover:opacity-70 transition-opacity">{p.title}</h3>
                 </Link>
               ))}
+            </div>
             </div>
           </div>
         </section>

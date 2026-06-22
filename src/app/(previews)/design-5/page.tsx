@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { PRODUCTS } from "@/lib/products";
 import { formatRupiah } from "@/lib/format";
 import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem, LineRise } from "@/components/preview/reveal";
 
 const BEIGE_SOFT = "#f7f2e8";
@@ -18,18 +19,18 @@ export default function Design5Home() {
     <>
       {/* HERO */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-20 pb-24 md:pt-28 md:pb-32">
-          <div className="grid md:grid-cols-12 gap-12 items-end">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 pt-12 pb-16 md:pt-16 md:pb-20">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
             <div className="md:col-span-5">
               <motion.p
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.7 }}
-                className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-10"
+                className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-6"
               >
                 Spring Edition · 2026
               </motion.p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
                 <LineRise delay={0.35} duration={1.0}>Made for</LineRise>
                 <LineRise delay={0.5} duration={1.0}>
                   <span className="italic font-[family-name:var(--font-serif-alt)]">women</span>
@@ -40,7 +41,7 @@ export default function Design5Home() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.8 }}
-                className="mt-12 max-w-md text-base leading-[1.8] opacity-70"
+                className="mt-8 max-w-md text-base leading-[1.8] opacity-70"
               >
                 Skincare for women who know what they put on their skin. Functional
                 formulas, designed for a modern rhythm, with nothing to hide and
@@ -50,7 +51,7 @@ export default function Design5Home() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.3, duration: 0.7 }}
-                className="mt-12 flex flex-wrap items-center gap-8"
+                className="mt-10 flex flex-wrap items-center gap-8"
               >
                 <Link href="/design-5/shop" className="text-[11px] tracking-[0.3em] uppercase border-b border-black pb-1.5 hover:opacity-60 transition-opacity">
                   Shop the edit
@@ -65,7 +66,7 @@ export default function Design5Home() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 1.2, ease: EASE }}
-              className="md:col-span-7 relative aspect-[4/5] md:aspect-[5/6]"
+              className="md:col-span-7 relative aspect-[4/5] md:aspect-[4/3] lg:aspect-[3/2]"
               style={{ background: BEIGE_SOFT }}
             >
               <SmartImage src="/products/uv-protector.webp" alt="Tastra Spring Edition" fill priority sizes="(max-width: 768px) 100vw, 60vw" className="object-contain p-12 md:p-20" />
@@ -79,7 +80,7 @@ export default function Design5Home() {
 
       {/* SHOP THE EDIT (DUAL ANGLE GRID) */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal>
             <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
               <div className="md:col-span-5">
@@ -127,11 +128,11 @@ export default function Design5Home() {
 
       {/* EDITORIAL ABOUT */}
       <section className="border-b border-black/5" style={{ background: BEIGE_SOFT }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             <Reveal>
-              <div className="relative aspect-[4/5] bg-white">
-                <SmartImage src="/products/banner-1.webp" alt="Tastra products" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+              <div className="relative aspect-[4/5]">
+                <PlaceholderGraphic bg="#f7f2e8" fg="#0a0a0a" label="The Studio" />
               </div>
             </Reveal>
             <div>
@@ -160,7 +161,7 @@ export default function Design5Home() {
 
       {/* TESTIMONIAL */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32 text-center">
           <Reveal>
             <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-10">Loved by women across Indonesia</p>
             <blockquote className="text-2xl md:text-4xl leading-[1.4] max-w-3xl mx-auto">
@@ -169,9 +170,13 @@ export default function Design5Home() {
             <p className="mt-10 text-[11px] tracking-[0.3em] uppercase opacity-50">Sarah W. · Verified Customer</p>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="mt-12 flex justify-center items-center gap-8 opacity-40">
-              {[1, 2, 3, 4, 5].map((i) => (<span key={i} className="text-base">★</span>))}
-              <span className="text-[11px] tracking-[0.3em] uppercase ml-2">2,847 reviews</span>
+            <div className="mt-12 flex justify-center items-center gap-3 opacity-40">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <svg key={i} width={14} height={14} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 18.6 6.1 21.3l1.2-6.6L2.5 9.5l6.6-.9L12 2.5z" />
+                </svg>
+              ))}
+              <span className="text-[11px] tracking-[0.3em] uppercase ml-3">2,847 reviews</span>
             </div>
           </Reveal>
         </div>
@@ -179,7 +184,7 @@ export default function Design5Home() {
 
       {/* RITUAL / PACKAGES */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24">
           <Reveal>
             <div className="text-center mb-16">
               <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-4">Featured this season</p>
@@ -209,7 +214,7 @@ export default function Design5Home() {
 
       {/* CTA */}
       <section className="border-b border-black/5" style={{ background: BEIGE_SOFT }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 grid md:grid-cols-2 gap-8 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 grid md:grid-cols-2 gap-8 items-center">
           <p className="text-2xl md:text-4xl leading-[1.2]">
             Begin with a single piece you <span className="italic font-[family-name:var(--font-serif-alt)]">trust.</span>
           </p>

@@ -56,7 +56,7 @@ export default function Design2Checkout() {
   if (placedId) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 md:py-32 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-28 md:py-36 text-center">
           <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
             Order placed
           </p>
@@ -82,10 +82,11 @@ export default function Design2Checkout() {
             </Link>
             <Link
               href="/design-2/admin"
-              className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+              className="inline-flex items-center gap-2 min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
               style={{ borderColor: INK }}
             >
-              View dashboard →
+              View dashboard
+              <Arrow />
             </Link>
           </div>
         </div>
@@ -96,7 +97,7 @@ export default function Design2Checkout() {
   if (ready && items.length === 0) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 md:py-32 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-28 md:py-36 text-center">
           <h1 className="font-[family-name:var(--font-serif)] text-4xl md:text-6xl leading-[1.05]">
             Your bag is <em className="font-[family-name:var(--font-serif-alt)] font-light">empty.</em>
           </h1>
@@ -118,7 +119,7 @@ export default function Design2Checkout() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
           <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
             Checkout
           </p>
@@ -129,8 +130,8 @@ export default function Design2Checkout() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
-          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20">
+          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_420px] gap-16 lg:gap-24">
             <div className="space-y-12">
               <Fieldset legend="I. Contact">
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -198,10 +199,11 @@ export default function Design2Checkout() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="flex items-center justify-center w-full mt-8 min-h-[48px] py-4 text-[12px] tracking-[0.3em] uppercase disabled:opacity-50"
+                className="flex items-center justify-center gap-2 w-full mt-8 min-h-[48px] py-4 text-[12px] tracking-[0.3em] uppercase disabled:opacity-50"
                 style={{ background: INK, color: CREAM }}
               >
-                {submitting ? "Processing..." : "Pay and place order →"}
+                {submitting ? "Processing..." : "Pay and place order"}
+                {!submitting && <Arrow />}
               </button>
             </aside>
           </form>
@@ -255,5 +257,14 @@ function Input({
         style={{ border: `1px solid ${INK}`, color: INK, minHeight: 48 }}
       />
     </label>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+      <path d="M5 12h13" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

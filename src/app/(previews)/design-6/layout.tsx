@@ -51,7 +51,7 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
 
         {/* HEADER */}
         <header className="border-b sticky top-0 z-30" style={{ borderColor: `${INK}1F`, background: CREAM }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-5 flex items-center justify-between gap-6">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-5 flex items-center justify-between gap-6">
             <Link href="/design-6" className="font-[family-name:var(--font-lora)] text-2xl tracking-tight shrink-0" style={{ color: INK }}>
               Tastra<span className="italic" style={{ color: OCHRE }}>.</span>
             </Link>
@@ -109,7 +109,7 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
 
           {/* MOBILE SEARCH */}
           {searchOpen && (
-            <div className="md:hidden border-t px-6 py-4" style={{ borderColor: `${INK}1F` }}>
+            <div className="md:hidden border-t px-5 sm:px-8 py-4" style={{ borderColor: `${INK}1F` }}>
               <SearchBox design="design-6" theme={SEARCH_THEME} />
             </div>
           )}
@@ -123,7 +123,7 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
                     <Link
                       href={l.href}
                       onClick={() => setMenuOpen(false)}
-                      className="block px-6 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase"
+                      className="block px-5 sm:px-8 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase"
                     >
                       {l.label}
                     </Link>
@@ -133,7 +133,7 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
                   <Link
                     href="/design-6/login"
                     onClick={() => setMenuOpen(false)}
-                    className="block px-6 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase opacity-60"
+                    className="block px-5 sm:px-8 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase opacity-60"
                   >
                     Admin Login
                   </Link>
@@ -147,7 +147,7 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
 
         {/* FOOTER */}
         <footer style={{ background: INK, color: CREAM }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24">
             <div className="grid md:grid-cols-12 gap-10">
               <div className="md:col-span-5">
                 <p className="font-[family-name:var(--font-lora)] text-3xl tracking-tight">

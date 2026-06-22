@@ -29,8 +29,17 @@ function Sparkle({ size = 16 }: { size?: number }) {
   );
 }
 
+function MailIcon({ size = 48 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="m3.5 7 8.5 6 8.5-6" />
+    </svg>
+  );
+}
+
 const fieldClass =
-  "w-full rounded-2xl bg-white px-4 py-3 text-base outline-none transition-shadow focus:ring-2";
+  "w-full rounded-2xl bg-white px-4 py-3 text-base outline-none";
 
 export default function Design3Contact() {
   const [sent, setSent] = useState(false);
@@ -49,8 +58,8 @@ export default function Design3Contact() {
 
   return (
     <>
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-24">
+        <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 lg:px-16 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Say hello <Sparkle size={14} />
           </p>
@@ -63,11 +72,11 @@ export default function Design3Contact() {
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 grid lg:grid-cols-[1fr_380px] gap-8">
+      <section className="pb-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 grid lg:grid-cols-[1fr_380px] gap-8 lg:gap-12">
           {sent ? (
             <div className="rounded-3xl p-10 text-center flex flex-col items-center justify-center" style={{ background: "#fff" }}>
-              <div className="text-5xl mb-4" aria-hidden>💌</div>
+              <div className="mb-4" style={{ color: ROSE_DEEP }} aria-hidden><MailIcon size={48} /></div>
               <p className="text-2xl font-extrabold mb-2">Message sent!</p>
               <p style={{ color: `${INK}99` }}>Your message is in. We reply within 2 business days.</p>
             </div>

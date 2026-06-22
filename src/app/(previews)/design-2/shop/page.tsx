@@ -21,7 +21,7 @@ export default function Design2Shop() {
     <>
       {/* HEADER */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
             The Collection
           </p>
@@ -36,7 +36,7 @@ export default function Design2Shop() {
 
       {/* FILTER */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-6 flex flex-wrap gap-3">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-6 flex flex-wrap gap-3">
           <Chip on={active === "all"} onClick={() => setActive("all")}>
             All
           </Chip>
@@ -50,8 +50,8 @@ export default function Design2Shop() {
 
       {/* GRID */}
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
-          <RevealStagger stagger={0.1} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
+          <RevealStagger stagger={0.1} className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-14">
             {items.map((p, i) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (

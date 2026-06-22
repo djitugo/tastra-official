@@ -16,6 +16,14 @@ const INK = "#1a1f1a";
 const CREAM = "#fafaf6";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
+function CheckIcon({ size = 14, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
 type Params = Promise<{ slug: string }>;
 
 export default function Design4ProductPage({ params }: { params: Params }) {
@@ -30,8 +38,8 @@ export default function Design4ProductPage({ params }: { params: Params }) {
 
   return (
     <>
-      <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 text-xs font-semibold" style={{ color: `${INK}99` }}>
+      <section className="border-b" style={{ borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 text-xs font-semibold" style={{ color: `${INK}99` }}>
           <Link href="/design-4/shop" className="hover:opacity-60">Shop</Link>
           <span className="mx-2">·</span>
           <span style={{ color: INK }}>{product.name}</span>
@@ -39,14 +47,14 @@ export default function Design4ProductPage({ params }: { params: Params }) {
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-16 grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-12 md:py-20 grid lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
             <div className="relative aspect-square rounded-3xl overflow-hidden" style={{ background: GREEN_LIGHT }}>
               <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0">
                 <SmartImage src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12" />
               </motion.div>
-              <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider" style={{ background: CREAM, color: GREEN }}>
-                ✓ Halal MUI
+              <span className="absolute top-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider" style={{ background: CREAM, color: GREEN }}>
+                <CheckIcon /> Halal MUI
               </span>
               {off > 0 && (
                 <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold" style={{ background: GREEN, color: CREAM }}>
@@ -82,7 +90,7 @@ export default function Design4ProductPage({ params }: { params: Params }) {
             <div className="mt-10 flex flex-wrap gap-3">
               {["Halal MUI", "Alcohol Free", "Natural", "Cruelty Free"].map((b) => (
                 <span key={b} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold" style={{ background: GREEN_LIGHT, color: GREEN }}>
-                  ✓ {b}
+                  <CheckIcon /> {b}
                 </span>
               ))}
             </div>
@@ -93,7 +101,7 @@ export default function Design4ProductPage({ params }: { params: Params }) {
               <div className="rounded-2xl p-5" style={{ background: GREEN_SOFT }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: GREEN }}>Best for</p>
                 <ul className="space-y-1.5 text-sm">
-                  {product.bestFor.map((b) => <li key={b} className="flex gap-2"><span aria-hidden style={{ color: GREEN }}>✓</span>{b}</li>)}
+                  {product.bestFor.map((b) => <li key={b} className="flex gap-2"><span className="mt-1 shrink-0" style={{ color: GREEN }}><CheckIcon /></span>{b}</li>)}
                 </ul>
               </div>
               <div className="rounded-2xl p-5" style={{ background: GREEN_SOFT }}>
@@ -115,10 +123,10 @@ export default function Design4ProductPage({ params }: { params: Params }) {
       </section>
 
       {related.length > 0 && (
-        <section className="py-16" style={{ background: GREEN_SOFT }}>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-extrabold mb-8" style={{ color: INK }}>You might also like</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <section className="py-20 md:py-28" style={{ background: GREEN_SOFT }}>
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+            <h2 className="text-2xl md:text-3xl font-extrabold mb-10" style={{ color: INK }}>You might also like</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {related.map((p) => {
                 const o = discountPercent(p.price, p.originalPrice);
                 return (
@@ -164,10 +172,10 @@ function ActionButtons({ slug }: { slug: string }) {
         type="button"
         onClick={onAdd}
         disabled={adding}
-        className="rounded-full px-7 py-3.5 font-bold text-sm transition-transform hover:scale-[1.02] disabled:opacity-50"
+        className="inline-flex items-center justify-center gap-1.5 rounded-full px-7 py-3.5 font-bold text-sm transition-transform hover:scale-[1.02] disabled:opacity-50"
         style={{ background: GREEN, color: CREAM }}
       >
-        {done ? "✓ Added" : "Add to cart"}
+        {done ? <><CheckIcon size={16} /> Added</> : "Add to cart"}
       </button>
       <Link
         href="/design-4/cart"

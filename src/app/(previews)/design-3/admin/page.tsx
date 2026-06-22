@@ -19,6 +19,28 @@ function Sparkle({ size = 16 }: { size?: number }) {
   );
 }
 
+function LockIcon({ size = 48 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+      <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" />
+      <path d="M12 14.5v2.5" />
+    </svg>
+  );
+}
+
+function FlowerIcon({ size = 40 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="2.4" />
+      <path d="M12 9.6c.9-2.3-.3-4.6-2.3-4.6S7.6 7.3 9.6 9.6" />
+      <path d="M14.4 12c2.3-.9 4.6.3 4.6 2.3s-2.3 3.1-4.6 1.1" />
+      <path d="M12 14.4c-.9 2.3.3 4.6 2.3 4.6s2.1-2.3.1-4.6" />
+      <path d="M9.6 12c-2.3.9-4.6-.3-4.6-2.3s2.3-3.1 4.6-1.1" />
+    </svg>
+  );
+}
+
 export default function Design3Admin() {
   const { authed, ready, logout } = useAuth();
   const { orders, ready: ordersReady } = useOrders();
@@ -29,7 +51,7 @@ export default function Design3Admin() {
     return (
       <Centered>
         <div className="rounded-[36px] p-10 text-center max-w-md" style={{ background: "#fff" }}>
-          <div className="text-5xl mb-4" aria-hidden>🔒</div>
+          <div className="flex justify-center mb-4" style={{ color: ROSE_DEEP }} aria-hidden><LockIcon size={48} /></div>
           <h1 className="text-3xl font-extrabold tracking-tight mb-2">Members only</h1>
           <p className="mb-6" style={{ color: `${INK}99` }}>You need to sign in to view the dashboard.</p>
           <Link
@@ -49,7 +71,7 @@ export default function Design3Admin() {
 
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 py-12">
+      <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16">
         <div className="flex items-end justify-between flex-wrap gap-4">
           <div>
             <p className="text-sm font-bold mb-2 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
@@ -78,7 +100,7 @@ export default function Design3Admin() {
             <p className="text-sm font-semibold opacity-60">Loading orders...</p>
           ) : orders.length === 0 ? (
             <div className="rounded-3xl p-12 text-center" style={{ background: "#fff" }}>
-              <div className="text-4xl mb-3" aria-hidden>🌸</div>
+              <div className="flex justify-center mb-3" style={{ color: ROSE }} aria-hidden><FlowerIcon size={40} /></div>
               <p className="text-2xl font-extrabold mb-2">No orders yet</p>
               <p style={{ color: `${INK}99` }}>Orders placed at checkout will appear here.</p>
             </div>

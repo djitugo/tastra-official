@@ -21,14 +21,14 @@ export default function Design1Cart() {
   return (
     <>
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">★ Cart</p>
           <h1 className="font-[family-name:var(--font-display)] uppercase text-6xl md:text-8xl mt-3 tracking-tighter">Your cart.</h1>
         </div>
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-24">
           {!ready ? (
             <p className="font-[family-name:var(--font-mono)] text-sm">Loading...</p>
           ) : items.length === 0 ? (

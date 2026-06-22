@@ -3,7 +3,6 @@
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const KEY = "tastra-loader-3-seen";
 const SPRING = { type: "spring" as const, stiffness: 220, damping: 18 };
 const PEACH = "#fff5ee";
 const PEACH_DEEP = "#ffe0d0";
@@ -12,26 +11,16 @@ const INK = "#3a2a1f";
 
 export function Loader3() {
   const reduced = useReducedMotion();
-  const [show, setShow] = useState<boolean | null>(null);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (reduced) {
       setShow(false);
       return;
     }
-    if (sessionStorage.getItem(KEY)) {
-      setShow(false);
-      return;
-    }
-    setShow(true);
-    const t = setTimeout(() => {
-      sessionStorage.setItem(KEY, "1");
-      setShow(false);
-    }, 2200);
+    const t = setTimeout(() => setShow(false), 2200);
     return () => clearTimeout(t);
   }, [reduced]);
-
-  if (show === null) return null;
 
   return (
     <AnimatePresence>

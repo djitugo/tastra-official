@@ -12,6 +12,14 @@ const GREEN_SOFT = "#f4f7f3";
 const INK = "#1a1f1a";
 const CREAM = "#fafaf6";
 
+function CheckIcon({ size = 14, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
 export default function Design4Cart() {
   const { lines, setQty, remove, ready } = useCart();
 
@@ -26,15 +34,15 @@ export default function Design4Cart() {
 
   return (
     <>
-      <section className="py-12 md:py-16" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Shopping Cart</p>
           <h1 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Your cart</h1>
         </div>
       </section>
 
-      <section className="py-12 md:py-16" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           {!ready ? (
             <p className="text-sm font-semibold opacity-60">Loading...</p>
           ) : items.length === 0 ? (
@@ -52,7 +60,7 @@ export default function Design4Cart() {
               </Link>
             </div>
           ) : (
-            <div className="grid lg:grid-cols-[1fr_360px] gap-6">
+            <div className="grid lg:grid-cols-[1fr_380px] gap-6 lg:gap-10">
               <ul className="space-y-4">
                 {items.map(({ line, product }) => (
                   <li key={line.slug} className="rounded-2xl p-4 flex gap-4 sm:gap-6 items-center" style={{ background: CREAM, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
@@ -118,7 +126,7 @@ export default function Design4Cart() {
                   </div>
                   <div className="flex justify-between">
                     <dt style={{ color: `${INK}99` }}>Shipping</dt>
-                    <dd className="font-bold uppercase" style={{ color: GREEN }}>Free ✓</dd>
+                    <dd className="inline-flex items-center gap-1.5 font-bold uppercase" style={{ color: GREEN }}>Free <CheckIcon /></dd>
                   </div>
                   <div className="border-t pt-3 flex justify-between items-baseline" style={{ borderColor: `${INK}1A` }}>
                     <dt className="font-extrabold text-base">Total</dt>

@@ -29,7 +29,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
           <Link href="/design-2/shop" className="hover:opacity-100">
             Shop
           </Link>
@@ -39,7 +39,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
       </section>
 
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28 grid lg:grid-cols-12 gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
 
       {related.length > 0 && (
         <section>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-32">
             <p className="text-[10px] tracking-[0.4em] uppercase mb-4 text-center" style={{ color: GOLD }}>
               You might also consider
             </p>
@@ -188,10 +188,15 @@ function ActionButtons({ slug }: { slug: string }) {
         type="button"
         onClick={onAdd}
         disabled={adding}
-        className="min-h-[48px] text-[12px] tracking-[0.3em] uppercase py-4 transition-colors disabled:opacity-50"
+        className="inline-flex items-center justify-center gap-2 min-h-[48px] text-[12px] tracking-[0.3em] uppercase py-4 transition-colors disabled:opacity-50"
         style={{ background: INK, color: CREAM }}
       >
-        {done ? "✓ Added to bag" : "Add to bag"}
+        {done && (
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" aria-hidden>
+            <path d="m5 12 5 5L20 7" />
+          </svg>
+        )}
+        {done ? "Added to bag" : "Add to bag"}
       </button>
       <Link
         href="/design-2/cart"

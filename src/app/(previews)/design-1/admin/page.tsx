@@ -28,7 +28,7 @@ export default function Design1Admin() {
 
   return (
     <section>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-20">
         <div className="flex items-end justify-between flex-wrap gap-4 border-b-2 border-black pb-6">
           <div>
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">★ Dashboard</p>

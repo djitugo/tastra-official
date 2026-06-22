@@ -5,7 +5,7 @@ import { use } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { getPost, POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 
 const BEIGE_SOFT = "#f7f2e8";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -40,7 +40,7 @@ export default function Design5BlogPost({ params }: { params: Params }) {
             className="relative aspect-[16/9] mt-10 overflow-hidden"
             style={{ background: BEIGE_SOFT }}
           >
-            <SmartImage src={post.cover} alt={post.title} fill priority sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+            <PlaceholderGraphic bg="#f7f2e8" fg="#0a0a0a" label={post.category} />
           </motion.div>
           <div className="mt-12 space-y-6 text-lg leading-[1.9] opacity-80">
             {post.body.map((para, i) => <p key={i}>{para}</p>)}

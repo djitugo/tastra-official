@@ -26,7 +26,7 @@ export default function Design6Cart() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
             ⸻ Of Your Selection
           </p>
@@ -37,7 +37,7 @@ export default function Design6Cart() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+        <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
           {!ready ? (
             <p className="font-[family-name:var(--font-mono)] text-sm tracking-wider opacity-60">Loading...</p>
           ) : items.length === 0 ? (

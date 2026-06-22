@@ -54,7 +54,7 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
 
         {/* HEADER */}
         <header className="border-b sticky top-0 z-30" style={{ borderColor: `${INK}1A`, background: CREAM }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-6 flex items-center justify-between gap-6">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-6 flex items-center justify-between gap-6">
             <Link
               href="/design-2"
               className="font-[family-name:var(--font-serif)] text-3xl tracking-[0.15em] shrink-0"
@@ -119,7 +119,7 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
 
           {/* MOBILE SEARCH */}
           {searchOpen && (
-            <div className="md:hidden border-t px-6 py-4" style={{ borderColor: `${INK}1A` }}>
+            <div className="md:hidden border-t px-5 sm:px-8 py-4" style={{ borderColor: `${INK}1A` }}>
               <SearchBox design="design-2" theme={SEARCH_THEME} />
             </div>
           )}
@@ -133,7 +133,7 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
                     <Link
                       href={l.href}
                       onClick={() => setMenuOpen(false)}
-                      className="block px-6 py-4 text-[13px] tracking-[0.25em] uppercase"
+                      className="block px-5 sm:px-8 py-4 text-[13px] tracking-[0.25em] uppercase"
                     >
                       {l.label}
                     </Link>
@@ -143,7 +143,7 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
                   <Link
                     href="/design-2/login"
                     onClick={() => setMenuOpen(false)}
-                    className="block px-6 py-4 text-[13px] tracking-[0.25em] uppercase opacity-60"
+                    className="block px-5 sm:px-8 py-4 text-[13px] tracking-[0.25em] uppercase opacity-60"
                   >
                     Admin
                   </Link>
@@ -157,17 +157,17 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
 
         {/* FOOTER */}
         <footer style={{ background: INK, color: CREAM }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20">
-            <div className="grid md:grid-cols-3 gap-12">
-              <div>
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24">
+            <div className="grid md:grid-cols-12 gap-12">
+              <div className="md:col-span-5">
                 <p className="font-[family-name:var(--font-serif)] text-3xl tracking-[0.15em]">TASTRA</p>
-                <p className="mt-4 text-sm leading-[1.8] opacity-70 max-w-xs">
+                <p className="mt-5 text-sm leading-[1.9] opacity-70 max-w-sm">
                   Skincare that honors the complexity of Indonesian skin. Composed with patience, presented without excess.
                 </p>
               </div>
-              <div>
-                <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-4">Atelier</p>
-                <ul className="space-y-2 text-sm">
+              <div className="md:col-span-3 md:col-start-7">
+                <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-5">Atelier</p>
+                <ul className="space-y-2.5 text-sm">
                   {NAV.map((l) => (
                     <li key={l.href}>
                       <Link href={l.href} className="hover:opacity-60">
@@ -177,9 +177,9 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
                   ))}
                 </ul>
               </div>
-              <div>
-                <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-4">Reach us</p>
-                <ul className="space-y-2 text-sm">
+              <div className="md:col-span-3">
+                <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-5">Reach us</p>
+                <ul className="space-y-2.5 text-sm">
                   <li>halo@tastraofficial.com</li>
                   <li>
                     <a href="https://instagram.com/tastraofficial" target="_blank" rel="noopener noreferrer" className="hover:opacity-60">

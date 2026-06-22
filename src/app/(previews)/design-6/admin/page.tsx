@@ -47,7 +47,7 @@ export default function Design6Admin() {
 
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
+      <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
         <div className="flex items-end justify-between flex-wrap gap-6 border-b pb-8" style={{ borderColor: `${INK}1F` }}>
           <div>
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: OCHRE }}>
@@ -137,7 +137,7 @@ export default function Design6Admin() {
 }
 
 function Centered({ children }: { children: React.ReactNode }) {
-  return <section className="min-h-[60vh] flex items-center justify-center px-6">{children}</section>;
+  return <section className="min-h-[60vh] flex items-center justify-center px-5 sm:px-8 lg:px-16">{children}</section>;
 }
 
 function Stat({ roman, label, value }: { roman: string; label: string; value: string }) {

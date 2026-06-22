@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const PEACH = "#fff5ee";
@@ -33,6 +33,57 @@ function Blob({ className = "" }: { className?: string }) {
   );
 }
 
+const ICON_PROPS = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.7,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": "true" as const,
+};
+
+function BeakerIcon({ size = 26 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <path d="M9 3h6" />
+      <path d="M10 3v6.5L5.5 17a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 9.5V3" />
+      <path d="M7.5 14h9" />
+    </svg>
+  );
+}
+
+function PalmIcon({ size = 26 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <path d="M12 21c0-5 0-8 .5-10" />
+      <path d="M12 11c-1.6-2.4-4-3.6-7-3.5 1.4 2.6 3.8 4 7 3.5Z" />
+      <path d="M12 11c1.6-2.4 4-3.6 7-3.5-1.4 2.6-3.8 4-7 3.5Z" />
+      <path d="M12 11c0-2.9 1.2-5.3 3.5-7-2.3.4-3.5 2.4-3.5 7Z" />
+      <path d="M9.5 21h5" />
+    </svg>
+  );
+}
+
+function RabbitIcon({ size = 26 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <path d="M9 11c-1.5-2.5-2-5-1-8 2 1.5 3 4 3 7" />
+      <path d="M14 10c0-3 1-5.5 3-7 1 3 .5 5.5-1 8" />
+      <path d="M7 13a5 5 0 0 0 5 5 5 5 0 0 0 5-5c0-1.6-.9-3-2.3-3.7" />
+      <path d="M7 13c-1.4.6-2.3 2-2.3 3.7A2.3 2.3 0 0 0 7 19" />
+      <circle cx="14.5" cy="14" r="0.7" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function HeartIcon({ size = 26 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20Z" />
+    </svg>
+  );
+}
+
 export default function Design3About() {
   return (
     <>
@@ -47,7 +98,7 @@ export default function Design3About() {
         >
           <Blob className="w-full h-full" />
         </motion.div>
-        <div className="relative mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24 text-center">
+        <div className="relative w-full max-w-3xl mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-32 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Our story <Sparkle size={14} />
           </p>
@@ -63,10 +114,10 @@ export default function Design3About() {
 
       {/* STORY */}
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-12 md:py-16 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <Reveal>
-            <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden" style={{ background: PEACH_DEEP }}>
-              <SmartImage src="/products/banner-1.webp" alt="Tastra product lineup" fill sizes="(max-width: 1024px) 100vw, 600px" className="object-cover" />
+            <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden">
+              <PlaceholderGraphic bg={PEACH_DEEP} fg={INK} label="Our studio" />
             </div>
           </Reveal>
           <div>
@@ -91,10 +142,10 @@ export default function Design3About() {
 
       {/* STANDARDS */}
       <section style={{ background: "#fff" }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal>
-            <div className="text-center mb-14">
-              <p className="text-sm font-bold mb-3" style={{ color: ROSE_DEEP }}>✨ Our standards</p>
+            <div className="text-center mb-16">
+              <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}><Sparkle size={14} /> Our standards</p>
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-[1.1]">
                 Four things we never <em className="italic" style={{ color: ROSE_DEEP }}>compromise</em>.
               </h2>
@@ -102,10 +153,10 @@ export default function Design3About() {
           </Reveal>
           <RevealStagger stagger={0.12} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: "🔬", title: "Verified ingredients", body: "Every active has research behind it, not just hype." },
-              { icon: "🌴", title: "Tested in Indonesia", body: "Trialed on local skin in real climate, not a dry lab." },
-              { icon: "🐰", title: "Cruelty free", body: "No animal testing. Never has been, never will be." },
-              { icon: "💛", title: "Honest pricing", body: "Pay for the formula, not the packaging or influencers." },
+              { icon: <BeakerIcon size={26} />, title: "Verified ingredients", body: "Every active has research behind it, not just hype." },
+              { icon: <PalmIcon size={26} />, title: "Tested in Indonesia", body: "Trialed on local skin in real climate, not a dry lab." },
+              { icon: <RabbitIcon size={26} />, title: "Cruelty free", body: "No animal testing. Never has been, never will be." },
+              { icon: <HeartIcon size={26} />, title: "Honest pricing", body: "Pay for the formula, not the packaging or influencers." },
             ].map((x) => (
               <RevealItem key={x.title}>
                 <motion.div
@@ -114,7 +165,7 @@ export default function Design3About() {
                   className="rounded-3xl p-7 h-full"
                   style={{ background: PEACH }}
                 >
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style={{ background: "#fff" }} aria-hidden>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ background: "#fff", color: ROSE_DEEP }} aria-hidden>
                     {x.icon}
                   </div>
                   <h3 className="text-xl font-extrabold">{x.title}</h3>
@@ -128,7 +179,7 @@ export default function Design3About() {
 
       {/* CTA */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 py-20 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal y={40}>
             <div className="relative rounded-[36px] p-10 md:p-16 text-center overflow-hidden" style={{ background: MINT, color: INK }}>
               <Sparkle size={24} className="mx-auto mb-6" />

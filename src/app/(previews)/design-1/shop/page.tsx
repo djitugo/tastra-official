@@ -17,19 +17,19 @@ export default function Design1Shop() {
   return (
     <>
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">★ Shop</p>
           <h1 className="font-[family-name:var(--font-display)] uppercase text-6xl md:text-8xl lg:text-9xl mt-3 tracking-tighter">
             All <span className="inline-block bg-black text-white px-2">products.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-black/70 text-base md:text-lg">
+          <p className="mt-6 max-w-3xl text-black/70 text-base md:text-lg">
             Six core products, no bloat. Pick one, or grab a bundle. Everything is 45 to 50 percent off during launch.
           </p>
         </div>
       </section>
 
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-2">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-5 flex flex-wrap gap-2">
           <Chip on={active === "all"} onClick={() => setActive("all")}>All</Chip>
           {CATEGORIES.map((c) => (
             <Chip key={c.slug} on={active === c.slug} onClick={() => setActive(c.slug)}>{c.label}</Chip>
@@ -38,8 +38,8 @@ export default function Design1Shop() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <RevealStagger stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
+          <RevealStagger stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
             {items.map((p) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (

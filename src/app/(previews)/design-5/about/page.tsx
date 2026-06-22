@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const BEIGE_SOFT = "#f7f2e8";
@@ -18,7 +18,7 @@ export default function Design5About() {
     <>
       {/* HERO */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-32">
           <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-8">Our story</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl">
             Skincare born <span className="italic font-[family-name:var(--font-serif-alt)]">right here.</span>
@@ -33,10 +33,10 @@ export default function Design5About() {
 
       {/* PREMISE */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32 grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <Reveal>
-            <div className="relative aspect-[4/5]" style={{ background: BEIGE_SOFT }}>
-              <SmartImage src="/products/banner-1.webp" alt="Tastra product lineup" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <div className="relative aspect-[4/5]">
+              <PlaceholderGraphic bg="#f7f2e8" fg="#0a0a0a" label="In the Studio" />
             </div>
           </Reveal>
           <div>
@@ -59,7 +59,7 @@ export default function Design5About() {
 
       {/* STANDARDS */}
       <section className="border-b border-black/5" style={{ background: BEIGE_SOFT }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal>
             <div className="max-w-3xl mb-16">
               <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-6">Our standards</p>
@@ -85,7 +85,7 @@ export default function Design5About() {
 
       {/* CTA */}
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-5xl px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32 text-center">
           <h2 className="text-3xl md:text-5xl leading-[1.15]">
             Want to <span className="italic font-[family-name:var(--font-serif-alt)]">try it?</span>
           </h2>

@@ -55,7 +55,7 @@ export default function Design5Checkout() {
   if (placedId) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32 text-center">
           <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-6">Order placed</p>
           <h1 className="text-4xl md:text-6xl leading-[1.05]">
             Thank <span className="italic font-[family-name:var(--font-serif-alt)]">you.</span>
@@ -83,7 +83,7 @@ export default function Design5Checkout() {
   if (ready && items.length === 0) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-24 md:py-32 text-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32 text-center">
           <h1 className="text-4xl md:text-5xl leading-[1.05] mb-6">
             Your bag is <span className="italic font-[family-name:var(--font-serif-alt)]">empty.</span>
           </h1>
@@ -99,7 +99,7 @@ export default function Design5Checkout() {
   return (
     <>
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
           <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-6">Checkout</p>
           <h1 className="text-4xl md:text-6xl leading-[1.05]">
             Complete your <span className="italic font-[family-name:var(--font-serif-alt)]">order.</span>
@@ -108,7 +108,7 @@ export default function Design5Checkout() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16">
           <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-16">
             <div className="space-y-12">
               <Fieldset legend="01 · Contact">

@@ -21,8 +21,8 @@ export default function Design4Shop() {
 
   return (
     <>
-      <section className="py-12 md:py-16" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Shop</p>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold" style={{ color: INK }}>All products</h1>
           <p className="mt-5 max-w-2xl text-base md:text-lg leading-relaxed" style={{ color: `${INK}99` }}>
@@ -31,8 +31,8 @@ export default function Design4Shop() {
         </div>
       </section>
 
-      <section className="pt-8" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap gap-2.5">
+      <section className="pt-12" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 flex flex-wrap gap-2.5">
           <Chip on={active === "all"} onClick={() => setActive("all")}>All</Chip>
           {CATEGORIES.map((c) => (
             <Chip key={c.slug} on={active === c.slug} onClick={() => setActive(c.slug)}>{c.label}</Chip>
@@ -40,9 +40,9 @@ export default function Design4Shop() {
         </div>
       </section>
 
-      <section className="py-10 md:py-14" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <RevealStagger stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <section className="py-12 md:py-20" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+          <RevealStagger stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {items.map((p) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const GREEN = "#2d5a3d";
@@ -16,8 +16,8 @@ export default function Design4Blog() {
   const [featured, ...rest] = POSTS;
   return (
     <>
-      <section className="py-12 md:py-16" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Journal</p>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold" style={{ color: INK }}>The blog</h1>
           <p className="mt-5 max-w-2xl text-base md:text-lg leading-relaxed" style={{ color: `${INK}99` }}>
@@ -27,16 +27,16 @@ export default function Design4Blog() {
       </section>
 
       {/* FEATURED */}
-      <section className="py-12" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-20" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <Reveal>
             <Link
               href={`/design-4/blog/${featured.slug}`}
               className="group grid md:grid-cols-2 rounded-3xl overflow-hidden transition-transform hover:-translate-y-1"
               style={{ background: CREAM, boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
             >
-              <div className="relative aspect-[16/10] md:aspect-auto overflow-hidden" style={{ background: GREEN_LIGHT }}>
-                <SmartImage src={featured.cover} alt={featured.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[320px] overflow-hidden">
+                <PlaceholderGraphic bg={GREEN_LIGHT} fg={GREEN} label={featured.category} />
               </div>
               <div className="p-6 md:p-10 flex flex-col justify-center">
                 <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: GREEN }}>{featured.category} · {featured.readMinutes} min read</p>
@@ -50,9 +50,9 @@ export default function Design4Blog() {
       </section>
 
       {/* GRID */}
-      <section className="pb-16 md:pb-20" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 gap-6">
+      <section className="pb-20 md:pb-28" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {rest.map((post) => (
               <RevealItem key={post.slug}>
                 <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.25, ease: EASE }}>
@@ -61,8 +61,8 @@ export default function Design4Blog() {
                     className="group block rounded-2xl overflow-hidden h-full"
                     style={{ background: CREAM, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
                   >
-                    <div className="relative aspect-[16/9] overflow-hidden" style={{ background: GREEN_LIGHT }}>
-                      <SmartImage src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <PlaceholderGraphic bg={GREEN_LIGHT} fg={GREEN} label={post.category} />
                     </div>
                     <div className="p-6">
                       <p className="text-[11px] font-bold uppercase tracking-widest" style={{ color: GREEN }}>{post.category} · {post.readMinutes} min</p>

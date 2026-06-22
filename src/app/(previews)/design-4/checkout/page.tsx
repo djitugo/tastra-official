@@ -14,6 +14,14 @@ const GREEN_SOFT = "#f4f7f3";
 const INK = "#1a1f1a";
 const CREAM = "#fafaf6";
 
+function CheckIcon({ size = 30, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
 export default function Design4Checkout() {
   const { lines, ready, clear } = useCart();
   const { addOrder } = useOrders();
@@ -58,8 +66,8 @@ export default function Design4Checkout() {
   if (placedId) {
     return (
       <section style={{ background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center text-3xl font-extrabold" style={{ background: GREEN, color: CREAM }}>✓</div>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-24 text-center">
+          <div className="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: GREEN, color: CREAM }}><CheckIcon /></div>
           <p className="text-xs font-bold uppercase tracking-widest" style={{ color: GREEN }}>✦ Order placed</p>
           <h1 className="text-4xl md:text-5xl font-extrabold mt-3 tracking-tight" style={{ color: INK }}>Payment done</h1>
           <p className="mt-4 text-lg" style={{ color: `${INK}99` }}>Thank you. Your order is confirmed and now visible in the admin dashboard.</p>
@@ -79,7 +87,7 @@ export default function Design4Checkout() {
   if (ready && items.length === 0) {
     return (
       <section style={{ background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-24 text-center">
           <h1 className="text-4xl font-extrabold mb-4 tracking-tight" style={{ color: INK }}>Your cart is empty</h1>
           <p className="mb-6" style={{ color: `${INK}99` }}>Add a product before checking out.</p>
           <Link href="/design-4/shop" className="inline-flex rounded-full px-7 py-3.5 text-sm font-bold transition-transform hover:scale-105" style={{ background: GREEN, color: CREAM }}>Shop →</Link>
@@ -90,16 +98,16 @@ export default function Design4Checkout() {
 
   return (
     <>
-      <section className="py-12" style={{ background: GREEN_LIGHT }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-16 md:py-24 border-b" style={{ background: GREEN_LIGHT, borderColor: `${INK}14` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Checkout</p>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight" style={{ color: INK }}>Complete your order</h1>
         </div>
       </section>
 
-      <section className="py-10 md:py-14" style={{ background: CREAM }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-8">
+      <section className="py-12 md:py-20" style={{ background: CREAM }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_380px] gap-8 lg:gap-12">
             <div className="space-y-6">
               <Card legend="1. Contact">
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -185,7 +193,7 @@ function Input({ name, label, type = "text", required = false, autoComplete, inp
         required={required}
         autoComplete={autoComplete}
         inputMode={inputMode}
-        className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none focus:ring-2"
+        className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none"
         style={{ borderColor: "#d6e0d6", color: INK }}
       />
     </label>

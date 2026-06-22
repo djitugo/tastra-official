@@ -25,6 +25,40 @@ function Sparkle({ size = 16 }: { size?: number }) {
   );
 }
 
+const LIST_ICON_PROPS = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.7,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": "true" as const,
+};
+
+function HeartIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...LIST_ICON_PROPS}>
+      <path d="M12 20s-7-4.6-7-9.5A4 4 0 0 1 12 7a4 4 0 0 1 7 3.5C19 15.4 12 20 12 20Z" />
+    </svg>
+  );
+}
+
+function LeafIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...LIST_ICON_PROPS}>
+      <path d="M5 18c0-7 5-12 14-13 1 9-4 15-12 15a6 6 0 0 1-2-2Z" />
+      <path d="M6 19c3.5-4 7-6.5 11-8" />
+    </svg>
+  );
+}
+
+function CheckIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...LIST_ICON_PROPS}>
+      <path d="m5 12 4.5 4.5L19 7" />
+    </svg>
+  );
+}
+
 type Params = Promise<{ slug: string }>;
 
 export default function Design3ProductPage({ params }: { params: Params }) {
@@ -40,7 +74,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
   return (
     <>
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 text-xs font-semibold" style={{ color: `${INK}99` }}>
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-6 text-xs font-semibold" style={{ color: `${INK}99` }}>
           <Link href="/design-3/shop" className="hover:opacity-60">Shop</Link>
           <span className="mx-2">·</span>
           <span style={{ color: INK }}>{product.name}</span>
@@ -48,7 +82,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-8 md:py-16 grid lg:grid-cols-2 gap-10 items-start">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-10 md:py-20 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -67,10 +101,10 @@ export default function Design3ProductPage({ params }: { params: Params }) {
                   initial={{ scale: 0, rotate: -15 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ delay: 0.4, ...SPRING }}
-                  className="absolute top-6 left-6 rounded-full px-4 py-2 text-xs font-bold text-white"
+                  className="absolute top-6 left-6 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold text-white"
                   style={{ background: ROSE }}
                 >
-                  Save {off}% 🎉
+                  <Sparkle size={12} /> Save {off}%
                 </motion.span>
               )}
             </div>
@@ -122,7 +156,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
                 </p>
                 <ul className="space-y-1.5 text-sm">
                   {product.bestFor.map((b) => (
-                    <li key={b} className="flex gap-2"><span aria-hidden>💕</span>{b}</li>
+                    <li key={b} className="flex gap-2 items-start"><span aria-hidden className="mt-0.5 shrink-0" style={{ color: ROSE_DEEP }}><HeartIcon size={15} /></span>{b}</li>
                   ))}
                 </ul>
               </div>
@@ -132,7 +166,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
                 </p>
                 <ul className="space-y-1.5 text-sm">
                   {product.ingredients.map((b) => (
-                    <li key={b} className="flex gap-2"><span aria-hidden>🌿</span>{b}</li>
+                    <li key={b} className="flex gap-2 items-start"><span aria-hidden className="mt-0.5 shrink-0" style={{ color: ROSE_DEEP }}><LeafIcon size={15} /></span>{b}</li>
                   ))}
                 </ul>
               </div>
@@ -152,11 +186,11 @@ export default function Design3ProductPage({ params }: { params: Params }) {
 
       {related.length > 0 && (
         <section style={{ background: "#fff" }}>
-          <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12">
               You might also <em className="italic" style={{ color: ROSE_DEEP }}>love</em>
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6">
               {related.map((p) => (
                 <Link key={p.slug} href={`/design-3/shop/${p.slug}`} className="group rounded-3xl p-3 transition-all hover:-translate-y-1 hover:shadow-xl" style={{ background: PEACH }}>
                   <div className="relative aspect-square rounded-2xl overflow-hidden mb-3" style={{ background: PEACH_DEEP }}>
@@ -200,10 +234,10 @@ function ActionButtons({ slug }: { slug: string }) {
         type="button"
         onClick={onAdd}
         disabled={adding}
-        className="rounded-full px-7 py-4 font-bold text-sm disabled:opacity-50"
+        className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 font-bold text-sm disabled:opacity-50"
         style={{ background: INK, color: PEACH }}
       >
-        {done ? "✓ Added to bag" : "Add to bag 💕"}
+        {done ? (<><CheckIcon size={16} /> Added to bag</>) : (<>Add to bag <HeartIcon size={15} /></>)}
       </motion.button>
       <Link
         href="/design-3/cart"

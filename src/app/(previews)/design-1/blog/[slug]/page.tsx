@@ -5,7 +5,7 @@ import { use } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { getPost, POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 type Params = Promise<{ slug: string }>;
@@ -19,7 +19,7 @@ export default function Design1BlogPost({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-3 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-4 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">
           <Link href="/design-1/blog" className="hover:underline">Blog</Link>
           <span className="mx-2">/</span>
           <span className="text-black">{post.category}</span>
@@ -27,7 +27,7 @@ export default function Design1BlogPost({ params }: { params: Params }) {
       </section>
 
       <article className="border-b-2 border-black">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16 md:py-24">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-widest text-black/50">{post.category} · {post.readMinutes} min read</p>
             <h1 className="font-[family-name:var(--font-display)] uppercase text-4xl md:text-6xl mt-3 tracking-tighter">{post.title}</h1>
@@ -36,9 +36,9 @@ export default function Design1BlogPost({ params }: { params: Params }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-            className="relative aspect-[16/9] border-2 border-black bg-white mt-8 overflow-hidden"
+            className="relative aspect-[16/9] border-2 border-black mt-8 overflow-hidden"
           >
-            <SmartImage src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+            <PlaceholderGraphic bg="#000000" fg="#ffffff" label={post.category} />
           </motion.div>
           <div className="mt-10 space-y-6 text-lg leading-relaxed text-black/80">
             {post.body.map((para, i) => <p key={i}>{para}</p>)}
@@ -47,8 +47,8 @@ export default function Design1BlogPost({ params }: { params: Params }) {
       </article>
 
       <section>
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
-          <h2 className="font-[family-name:var(--font-display)] uppercase text-2xl tracking-tight mb-6">Keep reading</h2>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-16 md:py-20">
+          <h2 className="font-[family-name:var(--font-display)] uppercase text-2xl tracking-tight mb-8">Keep reading</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {more.map((p) => (
               <Link key={p.slug} href={`/design-1/blog/${p.slug}`} className="block border-2 border-black p-5 hover:[box-shadow:6px_6px_0_0_#000] transition-shadow">

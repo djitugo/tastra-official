@@ -33,18 +33,21 @@ export default function Design1Contact() {
   return (
     <>
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">★ Contact</p>
           <h1 className="font-[family-name:var(--font-display)] uppercase text-6xl md:text-8xl mt-3 tracking-tighter">Say hello.</h1>
-          <p className="mt-6 max-w-xl text-base md:text-lg text-black/70">Questions about products, partnerships, or just want to share your routine. We read everything.</p>
+          <p className="mt-6 max-w-2xl text-base md:text-lg text-black/70">Questions about products, partnerships, or just want to share your routine. We read everything.</p>
         </div>
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid lg:grid-cols-[1fr_400px] gap-10">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28 grid lg:grid-cols-[1fr_400px] gap-12 lg:gap-16">
           {sent ? (
             <div className="border-2 border-black p-10 text-center">
-              <p className="font-[family-name:var(--font-display)] uppercase text-3xl mb-3 tracking-tight">✓ Sent.</p>
+              <p className="font-[family-name:var(--font-display)] uppercase text-3xl mb-3 tracking-tight inline-flex items-center gap-3">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M20 6 9 17l-5-5" /></svg>
+                Sent.
+              </p>
               <p className="text-black/70">Your message is in. We reply within 2 business days.</p>
             </div>
           ) : (
@@ -57,7 +60,7 @@ export default function Design1Contact() {
               </label>
               <label className="block">
                 <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest block mb-1">Message *</span>
-                <textarea name="message" required rows={6} className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)] focus:outline-none focus:[box-shadow:4px_4px_0_0_#000]" />
+                <textarea name="message" required rows={6} className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)]" />
               </label>
               <button type="submit" className="btn btn-invert" disabled={busy}>{busy ? "Sending..." : "Send message →"}</button>
             </form>
@@ -79,7 +82,7 @@ function Field({ label, name, type = "text", required = false }: { label: string
   return (
     <label className="block">
       <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest block mb-1">{label}{required && <span aria-hidden className="ml-1">*</span>}</span>
-      <input name={name} type={type} required={required} className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)] focus:outline-none focus:[box-shadow:4px_4px_0_0_#000]" />
+      <input name={name} type={type} required={required} className="w-full border-2 border-black bg-white px-3 py-3 text-base font-[family-name:var(--font-mono)]" />
     </label>
   );
 }

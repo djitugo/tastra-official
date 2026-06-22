@@ -3,33 +3,22 @@
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const KEY = "tastra-loader-4-seen";
 const GREEN = "#2d5a3d";
 const GREEN_DEEP = "#1f4029";
 const CREAM = "#fafaf6";
 
 export function Loader4() {
   const reduced = useReducedMotion();
-  const [show, setShow] = useState<boolean | null>(null);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (reduced) {
       setShow(false);
       return;
     }
-    if (sessionStorage.getItem(KEY)) {
-      setShow(false);
-      return;
-    }
-    setShow(true);
-    const t = setTimeout(() => {
-      sessionStorage.setItem(KEY, "1");
-      setShow(false);
-    }, 2200);
+    const t = setTimeout(() => setShow(false), 2200);
     return () => clearTimeout(t);
   }, [reduced]);
-
-  if (show === null) return null;
 
   return (
     <AnimatePresence>

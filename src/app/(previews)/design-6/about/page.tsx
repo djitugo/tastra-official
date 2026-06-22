@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const CREAM_DEEP = "#ebe2cf";
@@ -14,7 +14,7 @@ export default function Design6About() {
     <>
       {/* HERO */}
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-32 grid lg:grid-cols-12 gap-10">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-36 grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8">
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-10" style={{ color: OCHRE }}>
               ⸻ Of Origin and Intent
@@ -34,10 +34,10 @@ export default function Design6About() {
 
       {/* PREMISE */}
       <section className="border-b" style={{ borderColor: `${INK}1F`, background: CREAM_DEEP }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-32 grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <Reveal>
-            <div className="relative aspect-[4/5]" style={{ background: "#f7f1e6" }}>
-              <SmartImage src="/products/banner-1.webp" alt="The Tastra collection" fill sizes="(max-width: 1024px) 100vw, 600px" className="object-cover" />
+            <div className="relative aspect-[4/5]">
+              <PlaceholderGraphic bg="#ebe2cf" fg="#2a1f17" label="The Tastra collection" />
             </div>
           </Reveal>
           <div>
@@ -70,7 +70,7 @@ export default function Design6About() {
 
       {/* STANDARDS */}
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-32">
           <Reveal>
             <div className="text-center mb-16">
               <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: OCHRE }}>
@@ -100,9 +100,10 @@ export default function Design6About() {
         </div>
       </section>
 
-      {/* CLOSE */}
+      {/* CLOSE (reading column kept narrow inside full-width section) */}
       <section className="border-b" style={{ borderColor: `${INK}1F`, background: CREAM_DEEP }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 text-center">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-28 text-center">
+          <div className="mx-auto max-w-3xl">
           <Reveal>
             <h2 className="font-[family-name:var(--font-lora)] text-3xl md:text-5xl leading-[1.2]">
               Inclined to <span className="italic" style={{ color: OCHRE }}>try?</span>
@@ -124,6 +125,7 @@ export default function Design6About() {
               </Link>
             </div>
           </Reveal>
+          </div>
         </div>
       </section>
     </>

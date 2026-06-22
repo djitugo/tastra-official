@@ -23,14 +23,26 @@ function Sparkle({ size = 16 }: { size?: number }) {
   );
 }
 
+function FlowerIcon({ size = 40 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="2.4" />
+      <path d="M12 9.6c.9-2.3-.3-4.6-2.3-4.6S7.6 7.3 9.6 9.6" />
+      <path d="M14.4 12c2.3-.9 4.6.3 4.6 2.3s-2.3 3.1-4.6 1.1" />
+      <path d="M12 14.4c-.9 2.3.3 4.6 2.3 4.6s2.1-2.3.1-4.6" />
+      <path d="M9.6 12c-2.3.9-4.6-.3-4.6-2.3s2.3-3.1 4.6-1.1" />
+    </svg>
+  );
+}
+
 export default function Design3Shop() {
   const [active, setActive] = useState<Category | "all">("all");
   const items = active === "all" ? PRODUCTS : PRODUCTS.filter((p) => p.category === active);
 
   return (
     <>
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-24">
+        <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 lg:px-16 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Shop <Sparkle size={14} />
           </p>
@@ -44,7 +56,7 @@ export default function Design3Shop() {
       </section>
 
       <section className="pb-4">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 flex flex-wrap gap-2 justify-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 flex flex-wrap gap-2 justify-center">
           <Chip on={active === "all"} onClick={() => setActive("all")}>All</Chip>
           {CATEGORIES.map((c) => (
             <Chip key={c.slug} on={active === c.slug} onClick={() => setActive(c.slug)}>{c.label}</Chip>
@@ -52,9 +64,9 @@ export default function Design3Shop() {
         </div>
       </section>
 
-      <section className="pb-20 pt-8">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <RevealStagger stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <section className="pb-24 pt-10">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+          <RevealStagger stagger={0.08} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
             {items.map((p) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (
@@ -93,7 +105,7 @@ export default function Design3Shop() {
 
           {items.length === 0 && (
             <div className="rounded-3xl p-12 text-center" style={{ background: "#fff" }}>
-              <div className="text-4xl mb-3" aria-hidden>🌸</div>
+              <div className="flex justify-center mb-3" style={{ color: ROSE }} aria-hidden><FlowerIcon size={40} /></div>
               <p className="text-xl font-extrabold">Nothing here yet</p>
               <p className="mt-2 text-sm" style={{ color: `${INK}99` }}>Try another category.</p>
             </div>

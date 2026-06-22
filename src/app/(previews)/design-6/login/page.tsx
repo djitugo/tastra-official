@@ -31,7 +31,7 @@ export default function Design6Login() {
   }
 
   return (
-    <section className="min-h-[70vh] flex items-center justify-center px-6 py-20">
+    <section className="min-h-[70vh] flex items-center justify-center px-5 sm:px-8 lg:px-16 py-24">
       <div className="w-full max-w-md">
         <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8 text-center" style={{ color: OCHRE }}>
           ⸻ For Staff Alone ⸻

@@ -15,7 +15,7 @@ export default function Design1Home() {
     <>
       {/* HERO */}
       <section className="border-b-2 border-black overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 grid lg:grid-cols-2 gap-8 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative">
             <motion.span
               initial={{ opacity: 0, scale: 0.6, rotate: -30 }}
@@ -84,7 +84,7 @@ export default function Design1Home() {
 
       {/* PRODUCTS */}
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <Reveal>
             <div className="flex items-end justify-between flex-wrap gap-4">
               <div>
@@ -94,7 +94,7 @@ export default function Design1Home() {
               <Link href="/design-1/shop" className="font-[family-name:var(--font-mono)] text-sm uppercase tracking-widest underline underline-offset-4">View all →</Link>
             </div>
           </Reveal>
-          <RevealStagger stagger={0.1} className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <RevealStagger stagger={0.1} className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
             {featured.map((p) => {
               const off = discountPercent(p.price, p.originalPrice);
               return (
@@ -121,7 +121,7 @@ export default function Design1Home() {
 
       {/* MANIFESTO */}
       <section className="bg-black text-white border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-40">
           <Reveal>
             <p className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-white/60 mb-6">★ Manifesto</p>
             <h2 className="font-[family-name:var(--font-display)] uppercase text-5xl md:text-7xl lg:text-8xl tracking-tighter max-w-5xl">
@@ -148,7 +148,7 @@ export default function Design1Home() {
 
       {/* CTA */}
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid md:grid-cols-2 gap-8 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 grid md:grid-cols-2 gap-8 items-center">
           <p className="font-[family-name:var(--font-display)] uppercase text-3xl md:text-5xl tracking-tighter">Start with a bundle. Save 50%.</p>
           <div className="flex md:justify-end">
             <Link href="/design-1/shop" className="btn btn-invert">See bundles →</Link>

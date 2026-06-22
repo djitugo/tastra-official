@@ -30,10 +30,11 @@ export default function Design2Admin() {
           </p>
           <Link
             href="/design-2/login"
-            className="mt-10 inline-flex items-center min-h-[48px] px-8 py-3 text-[12px] tracking-[0.3em] uppercase"
+            className="mt-10 inline-flex items-center gap-2 min-h-[48px] px-8 py-3 text-[12px] tracking-[0.3em] uppercase"
             style={{ background: INK, color: CREAM }}
           >
-            Go to sign in →
+            Go to sign in
+            <Arrow />
           </Link>
         </div>
       </Centered>
@@ -45,7 +46,7 @@ export default function Design2Admin() {
 
   return (
     <section>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+      <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
         <div className="flex items-end justify-between flex-wrap gap-6 border-b pb-8" style={{ borderColor: `${INK}1A` }}>
           <div>
             <p className="text-[11px] tracking-[0.4em] uppercase mb-4" style={{ color: GOLD }}>
@@ -65,7 +66,7 @@ export default function Design2Admin() {
           </button>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-12 mt-12">
+        <div className="grid sm:grid-cols-3 gap-12 lg:gap-20 mt-14">
           <Stat label="Total orders" value={String(orders.length)} />
           <Stat label="Units sold" value={String(units)} />
           <Stat label="Revenue" value={formatRupiah(revenue)} />
@@ -146,5 +147,14 @@ function Stat({ label, value }: { label: string; value: string }) {
       </p>
       <p className="font-[family-name:var(--font-serif)] text-3xl md:text-4xl mt-3">{value}</p>
     </div>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+      <path d="M5 12h13" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

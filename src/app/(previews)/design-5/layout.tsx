@@ -46,7 +46,7 @@ export default function Design5Layout({ children }: { children: React.ReactNode 
 
         {/* HEADER */}
         <header className="sticky top-0 z-40 bg-white border-b border-black/5">
-          <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between gap-6">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 h-20 flex items-center justify-between gap-6">
             {/* Left: nav (desktop) + hamburger (tablet/mobile) */}
             <div className="flex items-center gap-4 flex-1 min-w-0">
               <button
@@ -142,7 +142,7 @@ export default function Design5Layout({ children }: { children: React.ReactNode 
 
         {/* FOOTER */}
         <footer style={{ background: BEIGE_SOFT, color: INK }}>
-          <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-5">
                 <p className="text-2xl tracking-[0.25em]">TASTRA</p>

@@ -28,7 +28,7 @@ export default function Design5ProductPage({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
           <Link href="/design-5/shop" className="hover:opacity-100">Shop</Link>
           <span className="mx-3">/</span>
           <span style={{ color: INK }}>{product.name}</span>
@@ -36,7 +36,7 @@ export default function Design5ProductPage({ params }: { params: Params }) {
       </section>
 
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-12 md:py-20 grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-12 md:py-20 grid lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.0, ease: EASE }}>
             <div className="relative aspect-[4/5]" style={{ background: BEIGE_SOFT }}>
               <SmartImage src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12 md:p-20" />
@@ -101,7 +101,7 @@ export default function Design5ProductPage({ params }: { params: Params }) {
 
       {related.length > 0 && (
         <section>
-          <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24">
             <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-4 text-center">From the same edit</p>
             <h2 className="text-2xl md:text-4xl text-center mb-14">
               <span className="italic font-[family-name:var(--font-serif-alt)]">Complements.</span>

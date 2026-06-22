@@ -23,7 +23,7 @@ export default function Design1ProductPage({ params }: { params: Params }) {
   return (
     <>
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 font-[family-name:var(--font-mono)] text-xs uppercase tracking-widest text-black/60">
           <Link href="/design-1/shop" className="hover:underline">Shop</Link>
           <span className="mx-2">/</span>
           <span className="text-black">{product.name}</span>
@@ -31,7 +31,7 @@ export default function Design1ProductPage({ params }: { params: Params }) {
       </section>
 
       <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-12 md:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE }}>
             <div className="relative aspect-square border-2 border-black bg-white">
               <SmartImage src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-8 md:p-12" />
@@ -90,9 +90,9 @@ export default function Design1ProductPage({ params }: { params: Params }) {
 
       {related.length > 0 && (
         <section>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-            <h2 className="font-[family-name:var(--font-display)] uppercase text-4xl md:text-5xl mb-8 tracking-tighter">You might also like</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
+            <h2 className="font-[family-name:var(--font-display)] uppercase text-4xl md:text-5xl mb-12 tracking-tighter">You might also like</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
               {related.map((p) => {
                 const o = discountPercent(p.price, p.originalPrice);
                 return (
@@ -134,7 +134,14 @@ function ActionButtons({ slug }: { slug: string }) {
 
   return (
     <div className="mt-8 grid grid-cols-2 gap-3">
-      <button type="button" onClick={onAdd} disabled={adding} className="btn btn-invert w-full">{done ? "✓ Added" : "Add to cart"}</button>
+      <button type="button" onClick={onAdd} disabled={adding} className="btn btn-invert w-full">
+        {done ? (
+          <span className="inline-flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M20 6 9 17l-5-5" /></svg>
+            Added
+          </span>
+        ) : "Add to cart"}
+      </button>
       <Link href="/design-1/cart" className="btn w-full">View cart</Link>
     </div>
   );

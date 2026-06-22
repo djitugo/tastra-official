@@ -24,7 +24,7 @@ export default function Design5Cart() {
   return (
     <>
       <section className="border-b border-black/5">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
           <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-6">Your bag</p>
           <h1 className="text-4xl md:text-6xl leading-[1.05]">
             The <span className="italic font-[family-name:var(--font-serif-alt)]">edit.</span>
@@ -33,7 +33,7 @@ export default function Design5Cart() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16">
           {!ready ? (
             <p className="text-sm tracking-wider opacity-60">Loading...</p>
           ) : items.length === 0 ? (

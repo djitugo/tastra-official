@@ -1,19 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const CREAM = "#f5f1ea";
 const INK = "#1a1a1a";
 const GOLD = "#9a7b4f";
+const CREAM_DEEP = "#ede5d3";
 
 export default function Design2About() {
   return (
     <>
       {/* HERO */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 pt-24 pb-28 md:pt-32 md:pb-40">
           <p className="text-[11px] tracking-[0.4em] uppercase mb-8" style={{ color: GOLD }}>
             Our Story
           </p>
@@ -28,10 +29,10 @@ export default function Design2About() {
 
       {/* PREMISE */}
       <section className="border-b" style={{ borderColor: `${INK}1A`, background: "#fff" }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-32 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-36 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <Reveal>
-            <div className="relative aspect-[4/5]" style={{ background: CREAM }}>
-              <SmartImage src="/products/banner-1.webp" alt="The Tastra collection" fill sizes="(max-width: 1024px) 100vw, 600px" className="object-cover" />
+            <div className="relative aspect-[4/5]">
+              <PlaceholderGraphic bg={CREAM_DEEP} fg={INK} label="The Tastra Collection" />
             </div>
           </Reveal>
           <div>
@@ -57,7 +58,7 @@ export default function Design2About() {
 
       {/* STANDARDS */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-36">
           <Reveal>
             <p className="text-[11px] tracking-[0.4em] uppercase mb-6 text-center" style={{ color: GOLD }}>
               Our Standards
@@ -91,7 +92,7 @@ export default function Design2About() {
 
       {/* CTA */}
       <section style={{ background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-28 md:py-32 text-center">
           <Reveal>
             <h2 className="font-[family-name:var(--font-serif)] text-3xl md:text-5xl">
               Care to <em className="font-[family-name:var(--font-serif-alt)] font-light">begin?</em>
@@ -111,15 +112,25 @@ export default function Design2About() {
               </Link>
               <Link
                 href="/design-2/contact"
-                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+                className="inline-flex items-center gap-2 min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
                 style={{ borderColor: INK }}
               >
-                Contact us →
+                Contact us
+                <Arrow />
               </Link>
             </div>
           </Reveal>
         </div>
       </section>
     </>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+      <path d="M5 12h13" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

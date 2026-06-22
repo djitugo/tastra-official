@@ -41,6 +41,16 @@ function Sparkle({ size = 16, className = "" }: { size?: number; className?: str
   );
 }
 
+function GlobeIcon({ size = 14, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" />
+    </svg>
+  );
+}
+
 export default function Design3Layout({ children }: { children: React.ReactNode }) {
   const { count, ready } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,7 +69,7 @@ export default function Design3Layout({ children }: { children: React.ReactNode 
 
         {/* HEADER */}
         <header className="sticky top-0 z-40 backdrop-blur" style={{ background: `${PEACH}E6`, borderBottom: "1px solid #ffd9c7" }}>
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8 py-3 flex items-center gap-3">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 flex items-center gap-3">
             <Link href="/design-3" className="text-2xl font-extrabold tracking-tight flex items-center gap-1.5 shrink-0" style={{ color: INK }}>
               tastra
               <motion.span
@@ -188,8 +198,8 @@ export default function Design3Layout({ children }: { children: React.ReactNode 
 
         {/* FOOTER */}
         <footer style={{ background: INK, color: PEACH }}>
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8 py-16">
-            <div className="grid gap-10 md:grid-cols-4">
+          <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20">
+            <div className="grid gap-12 md:grid-cols-4">
               <div className="md:col-span-2">
                 <p className="text-3xl font-extrabold flex items-center gap-2">
                   tastra
@@ -226,7 +236,7 @@ export default function Design3Layout({ children }: { children: React.ReactNode 
             </div>
             <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs opacity-50">
               <span>© {new Date().getFullYear()} Tastra. Made with love in Indonesia.</span>
-              <span>Love your skin, love the planet 🌎</span>
+              <span className="inline-flex items-center gap-1.5">Love your skin, love the planet <GlobeIcon size={13} /></span>
             </div>
           </div>
         </footer>

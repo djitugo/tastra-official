@@ -57,7 +57,8 @@ export default function Design6Checkout() {
   if (placedId) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 md:py-32 text-center">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-28 md:py-36 text-center">
+          <div className="mx-auto max-w-3xl">
           <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
             ⸻ With Thanks
           </p>
@@ -84,6 +85,7 @@ export default function Design6Checkout() {
               View Dashboard
             </Link>
           </div>
+          </div>
         </div>
       </section>
     );
@@ -92,7 +94,8 @@ export default function Design6Checkout() {
   if (ready && items.length === 0) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 md:py-32 text-center">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-28 md:py-36 text-center">
+          <div className="mx-auto max-w-3xl">
           <p className="font-[family-name:var(--font-lora)] text-3xl mb-4">
             <span className="italic" style={{ color: OCHRE }}>Empty,</span> for now.
           </p>
@@ -106,6 +109,7 @@ export default function Design6Checkout() {
           >
             Discover the Range →
           </Link>
+          </div>
         </div>
       </section>
     );
@@ -114,7 +118,7 @@ export default function Design6Checkout() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-28">
           <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
             ⸻ To Complete Your Order
           </p>
@@ -125,8 +129,8 @@ export default function Design6Checkout() {
       </section>
 
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
-          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-16">
+        <div className="w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
+          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-16 lg:gap-24">
             <div className="space-y-12">
               <Fieldset roman="I." legend="Contact">
                 <div className="space-y-8">

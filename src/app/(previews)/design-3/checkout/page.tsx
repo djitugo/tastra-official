@@ -23,6 +23,56 @@ function Sparkle({ size = 16, className = "" }: { size?: number; className?: str
   );
 }
 
+const ICON_PROPS = {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.7,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": "true" as const,
+};
+
+function MailIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="m3.5 7 8.5 6 8.5-6" />
+    </svg>
+  );
+}
+
+function BoxIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
+      <path d="m4 7.5 8 4.5 8-4.5" />
+      <path d="M12 12v9" />
+    </svg>
+  );
+}
+
+function CardIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+      <path d="M3 9.5h18" />
+      <path d="M6.5 14.5h4" />
+    </svg>
+  );
+}
+
+function FlowerIcon({ size = 48 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...ICON_PROPS}>
+      <circle cx="12" cy="12" r="2.4" />
+      <path d="M12 9.6c.9-2.3-.3-4.6-2.3-4.6S7.6 7.3 9.6 9.6" />
+      <path d="M14.4 12c2.3-.9 4.6.3 4.6 2.3s-2.3 3.1-4.6 1.1" />
+      <path d="M12 14.4c-.9 2.3.3 4.6 2.3 4.6s2.1-2.3.1-4.6" />
+      <path d="M9.6 12c-2.3.9-4.6-.3-4.6-2.3s2.3-3.1 4.6-1.1" />
+    </svg>
+  );
+}
+
 const fieldClass = "w-full rounded-2xl bg-white px-4 py-3 text-base outline-none";
 const fieldStyle = { border: "2px solid #ffe0d0" };
 
@@ -70,15 +120,16 @@ export default function Design3Checkout() {
   if (placedId) {
     return (
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-20 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-16 py-24 text-center">
           <motion.div
             initial={{ scale: 0, rotate: -20 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 16 }}
-            className="text-6xl mb-6"
+            className="mx-auto mb-6 w-20 h-20 rounded-full flex items-center justify-center text-white"
+            style={{ background: ROSE }}
             aria-hidden
           >
-            🎉
+            <Sparkle size={36} />
           </motion.div>
           <p className="text-sm font-bold mb-2 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Order placed <Sparkle size={14} />
@@ -107,8 +158,8 @@ export default function Design3Checkout() {
   if (ready && items.length === 0) {
     return (
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-20 text-center">
-          <div className="text-5xl mb-4" aria-hidden>🌸</div>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-16 py-24 text-center">
+          <div className="flex justify-center mb-4" style={{ color: ROSE }} aria-hidden><FlowerIcon size={48} /></div>
           <h1 className="text-4xl font-extrabold tracking-tight mb-3">Your bag is empty</h1>
           <p className="mb-6" style={{ color: `${INK}99` }}>Add a product before checking out.</p>
           <Link href="/design-3/shop" className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm transition-transform hover:scale-105" style={{ background: INK, color: PEACH }}>
@@ -121,8 +172,8 @@ export default function Design3Checkout() {
 
   return (
     <>
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
+      <section className="py-16 md:py-24">
+        <div className="w-full max-w-3xl mx-auto px-5 sm:px-8 lg:px-16 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
             <Sparkle size={14} /> Checkout <Sparkle size={14} />
           </p>
@@ -132,18 +183,18 @@ export default function Design3Checkout() {
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-6">
+      <section className="pb-24">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16">
+          <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_360px] gap-6 lg:gap-12">
             <div className="space-y-6">
-              <Fieldset legend="Contact" emoji="💌">
+              <Fieldset legend="Contact" icon={<MailIcon size={20} />}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <Input name="name" label="Full name" required autoComplete="name" />
                   <Input name="email" type="email" label="Email" required autoComplete="email" />
                   <Input name="phone" label="Phone / WhatsApp" required autoComplete="tel" />
                 </div>
               </Fieldset>
-              <Fieldset legend="Shipping" emoji="📦">
+              <Fieldset legend="Shipping" icon={<BoxIcon size={20} />}>
                 <div className="space-y-4">
                   <Input name="address" label="Full address" required autoComplete="street-address" />
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -154,7 +205,7 @@ export default function Design3Checkout() {
                 </div>
               </Fieldset>
               <div className="rounded-3xl p-6" style={{ background: PEACH_DEEP }}>
-                <p className="text-lg font-extrabold flex items-center gap-2">💳 Payment</p>
+                <p className="text-lg font-extrabold flex items-center gap-2"><span style={{ color: ROSE_DEEP }}><CardIcon size={20} /></span> Payment</p>
                 <p className="mt-2 text-sm" style={{ color: `${INK}99` }}>
                   Testing mode: payment is auto approved on submit. The order goes straight to the dashboard.
                 </p>
@@ -201,11 +252,11 @@ export default function Design3Checkout() {
   );
 }
 
-function Fieldset({ legend, emoji, children }: { legend: string; emoji: string; children: React.ReactNode }) {
+function Fieldset({ legend, icon, children }: { legend: string; icon: React.ReactNode; children: React.ReactNode }) {
   return (
     <fieldset className="rounded-3xl p-6" style={{ background: "#fff" }}>
       <legend className="text-lg font-extrabold px-2 flex items-center gap-2">
-        <span aria-hidden>{emoji}</span> {legend}
+        <span aria-hidden style={{ color: ROSE_DEEP }}>{icon}</span> {legend}
       </legend>
       <div className="mt-3">{children}</div>
     </fieldset>

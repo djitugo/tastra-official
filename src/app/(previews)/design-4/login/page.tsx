@@ -47,7 +47,7 @@ export default function Design4Login() {
               name="username"
               required
               autoComplete="username"
-              className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none focus:ring-2"
+              className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none"
               style={{ borderColor: "#d6e0d6", color: INK }}
             />
           </label>
@@ -58,7 +58,7 @@ export default function Design4Login() {
               type="password"
               required
               autoComplete="current-password"
-              className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none focus:ring-2"
+              className="w-full rounded-xl border-2 bg-white px-4 py-3 text-base focus:outline-none"
               style={{ borderColor: "#d6e0d6", color: INK }}
             />
           </label>

@@ -3,10 +3,9 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
-const CREAM_DEEP = "#ebe2cf";
 const INK = "#2a1f17";
 const OCHRE = "#b8956a";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -17,7 +16,7 @@ export default function Design6Blog() {
   return (
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-32">
           <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-8" style={{ color: OCHRE }}>
             ⸻ Letters, Sent Occasionally
           </p>
@@ -33,11 +32,11 @@ export default function Design6Blog() {
 
       {/* FEATURED */}
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
           <Reveal>
-            <Link href={`/design-6/blog/${featured.slug}`} className="group grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-              <div className="relative aspect-[4/3] overflow-hidden" style={{ background: CREAM_DEEP }}>
-                <SmartImage src={featured.cover} alt={featured.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+            <Link href={`/design-6/blog/${featured.slug}`} className="group grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <PlaceholderGraphic bg="#ebe2cf" fg="#2a1f17" label={featured.title} />
                 <span className="absolute top-6 left-6 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase" style={{ color: OCHRE }}>N° 01</span>
               </div>
               <div>
@@ -55,13 +54,13 @@ export default function Design6Blog() {
 
       {/* REST */}
       <section>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
-          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 gap-x-12 gap-y-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-28">
+          <RevealStagger stagger={0.1} className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-16">
             {rest.map((post, i) => (
               <RevealItem key={post.slug}>
                 <Link href={`/design-6/blog/${post.slug}`} className="group block">
-                  <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3, ease: EASE }} className="relative aspect-[16/10] mb-6 overflow-hidden" style={{ background: CREAM_DEEP }}>
-                    <SmartImage src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.3, ease: EASE }} className="relative aspect-[16/10] mb-6 overflow-hidden">
+                    <PlaceholderGraphic bg="#ebe2cf" fg="#2a1f17" label={post.title} />
                   </motion.div>
                   <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: OCHRE }}>
                     N° 0{i + 2} · {post.category} · {post.readMinutes} min

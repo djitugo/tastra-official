@@ -19,7 +19,7 @@ export default function Design6() {
     <>
       {/* HERO */}
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-32 grid lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 md:py-36 grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-7">
             <motion.p
               className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-10"
@@ -96,9 +96,10 @@ export default function Design6() {
         </div>
       </section>
 
-      {/* PHILOSOPHY ESSAY */}
+      {/* PHILOSOPHY ESSAY (reading column kept narrow inside full-width section) */}
       <section id="philosophy" className="border-b" style={{ borderColor: `${INK}1F`, background: CREAM_DEEP }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 md:py-32">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-28 md:py-36">
+          <div className="mx-auto max-w-3xl">
           <Reveal>
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-10 text-center" style={{ color: OCHRE }}>
               ⸻ A Note on Practice ⸻
@@ -116,12 +117,13 @@ export default function Design6() {
               <p>Because a ritual only works if it is, in fact, kept.</p>
             </div>
           </Reveal>
+          </div>
         </div>
       </section>
 
       {/* RANGE */}
       <section id="range" className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-32">
           <Reveal>
             <div className="grid md:grid-cols-12 gap-8 mb-16">
               <div className="md:col-span-5">
@@ -172,7 +174,7 @@ export default function Design6() {
 
       {/* INGREDIENTS */}
       <section className="border-b" style={{ borderColor: `${INK}1F`, background: CREAM_DEEP }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-28">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-32">
           <Reveal>
             <div className="text-center mb-16">
               <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-4" style={{ color: OCHRE }}>
@@ -201,9 +203,10 @@ export default function Design6() {
         </div>
       </section>
 
-      {/* READING ROOM */}
+      {/* READING ROOM (reading column kept narrow inside full-width section) */}
       <section id="read" className="border-b" style={{ borderColor: `${INK}1F` }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 text-center">
+        <div className="w-full px-5 sm:px-8 lg:px-16 py-28">
+          <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.4em] uppercase mb-6" style={{ color: OCHRE }}>The Reading Room</p>
             <h3 className="font-[family-name:var(--font-lora)] text-3xl md:text-5xl leading-[1.2] mb-6">
@@ -226,6 +229,7 @@ export default function Design6() {
               </Link>
             </div>
           </Reveal>
+          </div>
         </div>
       </section>
     </>

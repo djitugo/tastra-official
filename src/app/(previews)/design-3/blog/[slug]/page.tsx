@@ -5,7 +5,7 @@ import { use } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { getPost, POSTS } from "@/lib/blog";
-import { SmartImage } from "@/components/shared/smart-image";
+import { PlaceholderGraphic } from "@/components/shared/placeholder-graphic";
 
 const PEACH = "#fff5ee";
 const PEACH_DEEP = "#ffe0d0";
@@ -24,7 +24,7 @@ export default function Design3BlogPost({ params }: { params: Params }) {
   return (
     <>
       <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-4 text-xs font-semibold" style={{ color: `${INK}99` }}>
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-16 py-6 text-xs font-semibold" style={{ color: `${INK}99` }}>
           <Link href="/design-3/blog" className="hover:opacity-60">Blog</Link>
           <span className="mx-2">·</span>
           <span style={{ color: INK }}>{post.category}</span>
@@ -32,7 +32,7 @@ export default function Design3BlogPost({ params }: { params: Params }) {
       </section>
 
       <article>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-8 md:py-12">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-16 py-10 md:py-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
             <p className="text-xs font-bold uppercase tracking-wider" style={{ color: ROSE_DEEP }}>
               {post.category} · {post.readMinutes} min read
@@ -44,9 +44,8 @@ export default function Design3BlogPost({ params }: { params: Params }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
             className="relative aspect-[16/9] rounded-[36px] overflow-hidden mt-8"
-            style={{ background: PEACH_DEEP }}
           >
-            <SmartImage src={post.cover} alt={post.title} fill sizes="(max-width: 768px) 100vw, 768px" className="object-cover" />
+            <PlaceholderGraphic bg={PEACH_DEEP} fg={INK} label={post.category} />
           </motion.div>
           <div className="mt-10 space-y-6 text-lg leading-relaxed" style={{ color: `${INK}CC` }}>
             {post.body.map((para, i) => <p key={i}>{para}</p>)}
@@ -55,7 +54,7 @@ export default function Design3BlogPost({ params }: { params: Params }) {
       </article>
 
       <section style={{ background: "#fff" }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-12 md:py-16">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 lg:px-16 py-16 md:py-20">
           <h2 className="text-2xl font-extrabold tracking-tight mb-6">Keep reading</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {more.map((p) => (

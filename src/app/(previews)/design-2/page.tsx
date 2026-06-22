@@ -18,7 +18,7 @@ export default function Design2Home() {
     <>
       {/* HERO */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-32 grid lg:grid-cols-12 gap-12 items-end">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 pt-24 pb-28 md:pt-32 md:pb-40 grid lg:grid-cols-12 gap-16 items-end">
           <div className="lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 12 }}
@@ -62,10 +62,11 @@ export default function Design2Home() {
               </Link>
               <Link
                 href="/design-2/about"
-                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+                className="inline-flex items-center gap-2 min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
                 style={{ borderColor: INK }}
               >
-                Read our philosophy →
+                Read our philosophy
+                <Arrow />
               </Link>
             </motion.div>
           </div>
@@ -108,7 +109,7 @@ export default function Design2Home() {
 
       {/* COLLECTION */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-32">
+        <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-36">
           <Reveal>
             <div className="grid md:grid-cols-2 gap-8 items-end mb-16">
               <div>
@@ -162,10 +163,11 @@ export default function Design2Home() {
             <div className="mt-16 text-center">
               <Link
                 href="/design-2/shop"
-                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+                className="inline-flex items-center gap-2 min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
                 style={{ borderColor: INK }}
               >
-                View all products →
+                View all products
+                <Arrow />
               </Link>
             </div>
           </Reveal>
@@ -174,7 +176,7 @@ export default function Design2Home() {
 
       {/* PHILOSOPHY */}
       <section className="border-b" style={{ borderColor: `${INK}1A`, background: "#fff" }}>
-        <div className="mx-auto max-w-4xl px-6 lg:px-8 py-24 md:py-32 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-28 md:py-40 text-center">
           <Reveal>
             <p className="text-[11px] tracking-[0.4em] uppercase mb-8" style={{ color: GOLD }}>
               ⸻ Philosophy ⸻
@@ -196,7 +198,7 @@ export default function Design2Home() {
 
       {/* PILLARS */}
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
-        <RevealStagger stagger={0.18} className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-28 grid md:grid-cols-3 gap-12">
+        <RevealStagger stagger={0.18} className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-28 md:py-32 grid md:grid-cols-3 gap-12 lg:gap-20">
           {[
             { roman: "I.", title: "Sourced", body: "Active ingredients traced to their origin, chosen not for a name but for proven efficacy." },
             { roman: "II.", title: "Tested", body: "Trialed on real Indonesian skin, in real climate, not a dry lab." },
@@ -219,7 +221,7 @@ export default function Design2Home() {
 
       {/* JOURNAL CTA */}
       <section style={{ borderColor: `${INK}1A`, background: CREAM }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 text-center">
+        <div className="mx-auto max-w-3xl px-5 sm:px-8 py-28 md:py-32 text-center">
           <Reveal>
             <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
               The Journal
@@ -242,15 +244,25 @@ export default function Design2Home() {
               </Link>
               <Link
                 href="/design-2/contact"
-                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+                className="inline-flex items-center gap-2 min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
                 style={{ borderColor: INK }}
               >
-                Get in touch →
+                Get in touch
+                <Arrow />
               </Link>
             </div>
           </Reveal>
         </div>
       </section>
     </>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="square" aria-hidden>
+      <path d="M5 12h13" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
   );
 }

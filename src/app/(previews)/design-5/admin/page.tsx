@@ -35,7 +35,7 @@ export default function Design5Admin() {
 
   return (
     <section>
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-16 md:py-20">
+      <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-16 md:py-20">
         <div className="flex items-end justify-between flex-wrap gap-6 border-b border-black/10 pb-8">
           <div>
             <p className="text-[10px] tracking-[0.4em] uppercase opacity-50 mb-4">Dashboard</p>
