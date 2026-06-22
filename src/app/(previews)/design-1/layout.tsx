@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/shared/logo";
 import { useState } from "react";
 import { Loader1 } from "@/components/preview/loader-1";
 import { useCart } from "@/lib/cart";
@@ -58,8 +59,8 @@ export default function Design1Layout({ children }: { children: React.ReactNode 
         {/* NAV */}
         <header className="bg-white border-b-2 border-black sticky top-0 z-30">
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 h-16 flex items-center justify-between gap-4">
-            <Link href="/design-1" className="font-[family-name:var(--font-display)] text-2xl sm:text-3xl tracking-tighter shrink-0">
-              TASTRA<span className="inline-block ml-1 w-2 h-2 bg-black align-middle" />
+            <Link href="/design-1" className="shrink-0" aria-label="Tastra home">
+              <Logo height={26} priority />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-7 font-[family-name:var(--font-mono)] text-sm uppercase tracking-widest">
@@ -142,7 +143,7 @@ export default function Design1Layout({ children }: { children: React.ReactNode 
         <footer className="bg-black text-white">
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24 grid gap-12 md:grid-cols-4">
             <div className="md:col-span-2">
-              <p className="font-[family-name:var(--font-display)] uppercase text-5xl tracking-tighter">TASTRA</p>
+              <Logo height={40} invert />
               <p className="mt-4 max-w-md text-white/70 text-sm leading-relaxed">
                 Local skincare formulated for Indonesian skin. Natural ingredients, modern performance. Stay consistent for 28 days and see the difference.
               </p>

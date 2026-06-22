@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/shared/logo";
 import { useState } from "react";
 import { Loader2 } from "@/components/preview/loader-2";
 import { useCart } from "@/lib/cart";
@@ -55,12 +56,8 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
         {/* HEADER */}
         <header className="border-b sticky top-0 z-30" style={{ borderColor: `${INK}1A`, background: CREAM }}>
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-6 flex items-center justify-between gap-6">
-            <Link
-              href="/design-2"
-              className="font-[family-name:var(--font-serif)] text-3xl tracking-[0.15em] shrink-0"
-              style={{ color: INK }}
-            >
-              TASTRA
+            <Link href="/design-2" className="shrink-0" aria-label="Tastra home">
+              <Logo height={26} priority />
             </Link>
 
             {/* PRIMARY NAV */}
@@ -160,7 +157,7 @@ export default function Design2Layout({ children }: { children: React.ReactNode 
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-5">
-                <p className="font-[family-name:var(--font-serif)] text-3xl tracking-[0.15em]">TASTRA</p>
+                <Logo height={38} invert />
                 <p className="mt-5 text-sm leading-[1.9] opacity-70 max-w-sm">
                   Skincare that honors the complexity of Indonesian skin. Composed with patience, presented without excess.
                 </p>

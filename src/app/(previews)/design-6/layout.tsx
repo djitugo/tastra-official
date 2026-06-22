@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/shared/logo";
 import { useState } from "react";
 import { Loader6 } from "@/components/preview/loader-6";
 import { useCart } from "@/lib/cart";
@@ -52,8 +53,8 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
         {/* HEADER */}
         <header className="border-b sticky top-0 z-30" style={{ borderColor: `${INK}1F`, background: CREAM }}>
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-5 flex items-center justify-between gap-6">
-            <Link href="/design-6" className="font-[family-name:var(--font-lora)] text-2xl tracking-tight shrink-0" style={{ color: INK }}>
-              Tastra<span className="italic" style={{ color: OCHRE }}>.</span>
+            <Link href="/design-6" className="shrink-0" aria-label="Tastra home">
+              <Logo height={24} priority />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-9 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.25em] uppercase">
@@ -150,9 +151,7 @@ export default function Design6Layout({ children }: { children: React.ReactNode 
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-24">
             <div className="grid md:grid-cols-12 gap-10">
               <div className="md:col-span-5">
-                <p className="font-[family-name:var(--font-lora)] text-3xl tracking-tight">
-                  Tastra<span className="italic" style={{ color: OCHRE }}>.</span>
-                </p>
+                <Logo height={34} invert />
                 <p className="mt-4 text-sm leading-[1.85] opacity-70 max-w-sm">
                   Of ingredient and restraint. Composed with patience in Indonesia,
                   intended to be worn simply, and for a long time.

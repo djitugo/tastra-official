@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/shared/logo";
 import { useState } from "react";
 import { Loader5 } from "@/components/preview/loader-5";
 import { useCart } from "@/lib/cart";
@@ -72,8 +73,8 @@ export default function Design5Layout({ children }: { children: React.ReactNode 
             </div>
 
             {/* Center: logo */}
-            <Link href="/design-5" className="text-2xl tracking-[0.25em] shrink-0">
-              TASTRA
+            <Link href="/design-5" className="shrink-0" aria-label="Tastra home">
+              <Logo height={24} priority />
             </Link>
 
             {/* Right: search + admin + bag */}
@@ -145,7 +146,7 @@ export default function Design5Layout({ children }: { children: React.ReactNode 
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20">
             <div className="grid md:grid-cols-12 gap-12">
               <div className="md:col-span-5">
-                <p className="text-2xl tracking-[0.25em]">TASTRA</p>
+                <Logo height={34} />
                 <p className="mt-4 text-sm leading-[1.9] opacity-70 max-w-sm">
                   A studio of small, considered skincare made for the rhythm of
                   modern Indonesian women.

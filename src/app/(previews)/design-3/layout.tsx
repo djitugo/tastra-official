@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/shared/logo";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Loader3 } from "@/components/preview/loader-3";
@@ -70,8 +71,8 @@ export default function Design3Layout({ children }: { children: React.ReactNode 
         {/* HEADER */}
         <header className="sticky top-0 z-40 backdrop-blur" style={{ background: `${PEACH}E6`, borderBottom: "1px solid #ffd9c7" }}>
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-4 flex items-center gap-3">
-            <Link href="/design-3" className="text-2xl font-extrabold tracking-tight flex items-center gap-1.5 shrink-0" style={{ color: INK }}>
-              tastra
+            <Link href="/design-3" className="text-2xl font-extrabold tracking-tight flex items-center gap-1.5 shrink-0" style={{ color: INK }} aria-label="Tastra home">
+              <Logo height={22} />
               <motion.span
                 animate={{ rotate: 360 }}
                 transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
@@ -202,7 +203,7 @@ export default function Design3Layout({ children }: { children: React.ReactNode 
             <div className="grid gap-12 md:grid-cols-4">
               <div className="md:col-span-2">
                 <p className="text-3xl font-extrabold flex items-center gap-2">
-                  tastra
+                  <Logo height={28} invert />
                   <motion.span
                     animate={{ rotate: 360 }}
                     transition={{ duration: 6, repeat: Infinity, ease: "linear" }}

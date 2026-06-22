@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Logo } from "@/components/shared/logo";
 import { useState } from "react";
 import { Loader4 } from "@/components/preview/loader-4";
 import { useCart } from "@/lib/cart";
@@ -49,11 +50,8 @@ export default function Design4Layout({ children }: { children: React.ReactNode 
         {/* HEADER */}
         <header className="sticky top-0 z-40 border-b" style={{ background: CREAM, borderColor: `${INK}14` }}>
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 h-20 flex items-center justify-between gap-4">
-            <Link href="/design-4" className="flex items-center gap-2 shrink-0">
-              <span className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: GREEN, color: CREAM }}>
-                <span className="text-lg font-extrabold">T</span>
-              </span>
-              <span className="text-xl font-extrabold tracking-wide" style={{ color: GREEN }}>TASTRA</span>
+            <Link href="/design-4" className="shrink-0" aria-label="Tastra home">
+              <Logo height={26} priority />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold" style={{ color: INK }}>
@@ -147,11 +145,8 @@ export default function Design4Layout({ children }: { children: React.ReactNode 
           <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 lg:px-16 py-20 md:py-24">
             <div className="grid md:grid-cols-4 gap-10 lg:gap-16">
               <div className="md:col-span-1">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-9 h-9 rounded-full flex items-center justify-center" style={{ background: GREEN }}>
-                    <span className="text-lg font-extrabold">T</span>
-                  </span>
-                  <span className="text-xl font-extrabold tracking-wide">TASTRA</span>
+                <div className="mb-4">
+                  <Logo height={34} invert />
                 </div>
                 <p className="text-sm opacity-70 leading-relaxed max-w-xs">
                   Halal and natural skincare for Indonesian skin, made in Indonesia. Safe, tested, and affordable.
