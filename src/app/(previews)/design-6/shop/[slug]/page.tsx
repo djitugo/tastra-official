@@ -2,12 +2,12 @@
 
 import { notFound } from "next/navigation";
 import { use, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { PRODUCTS, getProduct } from "@/lib/products";
 import { discountPercent, formatRupiah } from "@/lib/format";
 import { useCart } from "@/lib/cart";
+import { SmartImage } from "@/components/shared/smart-image";
 
 const CREAM = "#f7f1e6";
 const CREAM_DEEP = "#ebe2cf";
@@ -33,7 +33,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
     <>
       <section className="border-b" style={{ borderColor: `${INK}1F` }}>
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase opacity-60">
-          <Link href="/design-6#range" className="hover:opacity-100">Range</Link>
+          <Link href="/design-6/shop" className="hover:opacity-100">Range</Link>
           <span className="mx-3">⸻</span>
           <span style={{ color: INK }}>{product.name}</span>
         </div>
@@ -49,7 +49,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
           >
             <div className="relative aspect-[3/4]" style={{ background: CREAM_DEEP }}>
               <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0">
-                <Image src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12 md:p-16" />
+                <SmartImage src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12 md:p-16" />
               </motion.div>
               {off > 0 && (
                 <span className="absolute top-6 left-6 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase" style={{ color: OCHRE }}>
@@ -61,7 +61,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
               <div className="mt-4 grid grid-cols-4 gap-3">
                 {product.images.map((src, i) => (
                   <div key={i} className="relative aspect-square" style={{ background: CREAM_DEEP }}>
-                    <Image src={src} alt={`${product.name} ${i + 1}`} fill sizes="100px" className="object-contain p-2" />
+                    <SmartImage src={src} alt={`${product.name} ${i + 1}`} fill sizes="100px" className="object-contain p-2" />
                   </div>
                 ))}
               </div>
@@ -95,7 +95,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
                   ⸻ Best for
                 </p>
                 <ul className="space-y-1.5 text-sm leading-relaxed">
-                  {product.bestFor.map((b) => <li key={b} className="italic" style={{ color: SAGE }}>— {b}</li>)}
+                  {product.bestFor.map((b) => <li key={b} className="italic" style={{ color: SAGE }}>⸻ {b}</li>)}
                 </ul>
               </div>
               <div className="border-t pt-8" style={{ borderColor: `${INK}33` }}>
@@ -103,7 +103,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
                   ⸻ Hero Ingredients
                 </p>
                 <ul className="space-y-1.5 text-sm leading-relaxed">
-                  {product.ingredients.map((b) => <li key={b} className="italic" style={{ color: SAGE }}>— {b}</li>)}
+                  {product.ingredients.map((b) => <li key={b} className="italic" style={{ color: SAGE }}>⸻ {b}</li>)}
                 </ul>
               </div>
               <div className="border-t pt-8" style={{ borderColor: `${INK}33` }}>
@@ -132,7 +132,7 @@ export default function Design6ProductPage({ params }: { params: Params }) {
               {related.map((p, i) => (
                 <Link key={p.slug} href={`/design-6/shop/${p.slug}`} className="group block">
                   <div className="relative aspect-[3/4] mb-5 overflow-hidden" style={{ background: CREAM_DEEP }}>
-                    <Image src={p.images[0]} alt={p.name} fill sizes="33vw" className="object-contain p-8 transition-transform duration-700 group-hover:scale-105" />
+                    <SmartImage src={p.images[0]} alt={p.name} fill sizes="33vw" className="object-contain p-8 transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase mb-1.5" style={{ color: OCHRE }}>
                     N° 0{i + 1}
@@ -172,14 +172,14 @@ function ActionButtons({ slug }: { slug: string }) {
         type="button"
         onClick={onAdd}
         disabled={adding}
-        className="py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase transition-opacity disabled:opacity-50"
+        className="min-h-11 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase transition-opacity disabled:opacity-50"
         style={{ background: INK, color: CREAM }}
       >
         {done ? "✓ Added to Cart" : "Add to Cart"}
       </button>
       <Link
         href="/design-6/cart"
-        className="py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase text-center border transition-colors hover:bg-[#2a1f17] hover:text-[#f7f1e6]"
+        className="min-h-11 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase text-center border transition-colors hover:bg-[#2a1f17] hover:text-[#f7f1e6] flex items-center justify-center"
         style={{ borderColor: INK, color: INK }}
       >
         View Cart

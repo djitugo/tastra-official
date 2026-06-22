@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
 import { formatRupiah } from "@/lib/format";
+import { SmartImage } from "@/components/shared/smart-image";
 
 const PEACH = "#fff5ee";
 const PEACH_DEEP = "#ffe0d0";
@@ -37,10 +37,10 @@ export default function Design3Cart() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 text-center">
           <p className="text-sm font-bold mb-3 inline-flex items-center gap-2" style={{ color: ROSE_DEEP }}>
-            <Sparkle size={14} /> Tas kamu <Sparkle size={14} />
+            <Sparkle size={14} /> Your bag <Sparkle size={14} />
           </p>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            Yang lagi <em className="italic" style={{ color: ROSE_DEEP }}>masuk tas</em>
+            What is <em className="italic" style={{ color: ROSE_DEEP }}>in the bag</em>
           </h1>
         </div>
       </section>
@@ -52,17 +52,16 @@ export default function Design3Cart() {
           ) : items.length === 0 ? (
             <div className="rounded-3xl p-12 text-center" style={{ background: "#fff" }}>
               <div className="text-5xl mb-4" aria-hidden>🌸</div>
-              <p className="text-2xl font-extrabold mb-3">Tasnya masih kosong nih</p>
+              <p className="text-2xl font-extrabold mb-3">Your bag is empty</p>
               <p className="text-base mb-6 max-w-md mx-auto" style={{ color: `${INK}99` }}>
-                Yuk pilih dulu yang sesuai sama kulit kamu — ada bundle hemat
-                buat yang baru mulai.
+                Pick something that suits your skin. There are budget friendly bundles for anyone just starting out.
               </p>
               <Link
-                href="/design-3#shop"
+                href="/design-3/shop"
                 className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm transition-transform hover:scale-105"
                 style={{ background: INK, color: PEACH }}
               >
-                Mulai pilih <span aria-hidden>→</span>
+                Start shopping <span aria-hidden>→</span>
               </Link>
             </div>
           ) : (
@@ -75,7 +74,7 @@ export default function Design3Cart() {
                       className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-2xl overflow-hidden"
                       style={{ background: PEACH_DEEP }}
                     >
-                      <Image src={product.images[0]} alt={product.name} fill sizes="112px" className="object-contain p-2" />
+                      <SmartImage src={product.images[0]} alt={product.name} fill sizes="112px" className="object-contain p-2" />
                     </Link>
                     <div className="flex-1 min-w-0">
                       <p className="text-[11px] font-bold uppercase tracking-wider" style={{ color: `${INK}80` }}>
@@ -85,12 +84,12 @@ export default function Design3Cart() {
                         {product.name}
                       </Link>
                       <div className="mt-3 flex items-center justify-between flex-wrap gap-3">
-                        <div className="inline-flex rounded-full p-1" style={{ background: PEACH }}>
+                        <div className="inline-flex rounded-full p-1" style={{ background: PEACH }} role="group" aria-label="Quantity">
                           <button
                             type="button"
                             onClick={() => setQty(line.slug, line.qty - 1)}
                             className="w-9 h-9 rounded-full flex items-center justify-center font-bold transition-colors hover:bg-white"
-                            aria-label="Kurangi"
+                            aria-label="Decrease"
                           >
                             −
                           </button>
@@ -101,7 +100,7 @@ export default function Design3Cart() {
                             type="button"
                             onClick={() => setQty(line.slug, line.qty + 1)}
                             className="w-9 h-9 rounded-full flex items-center justify-center font-bold transition-colors hover:bg-white"
-                            aria-label="Tambah"
+                            aria-label="Increase"
                           >
                             +
                           </button>
@@ -113,7 +112,7 @@ export default function Design3Cart() {
                             onClick={() => remove(line.slug)}
                             className="rounded-full w-9 h-9 flex items-center justify-center text-white text-xs font-bold transition-transform hover:scale-110"
                             style={{ background: ROSE }}
-                            aria-label={`Hapus ${product.name}`}
+                            aria-label={`Remove ${product.name}`}
                           >
                             ✕
                           </button>
@@ -126,7 +125,7 @@ export default function Design3Cart() {
 
               <aside className="rounded-3xl p-6 h-fit lg:sticky lg:top-24" style={{ background: "#fff" }}>
                 <h2 className="text-xl font-extrabold mb-4 flex items-center gap-2">
-                  <Sparkle size={18} /> Ringkasan
+                  <Sparkle size={18} /> Summary
                 </h2>
                 <dl className="space-y-3 text-sm">
                   <div className="flex justify-between">
@@ -134,7 +133,7 @@ export default function Design3Cart() {
                     <dd className="font-bold">{formatRupiah(subtotal)}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt style={{ color: `${INK}99` }}>Ongkir</dt>
+                    <dt style={{ color: `${INK}99` }}>Shipping</dt>
                     <dd className="font-bold uppercase" style={{ color: ROSE_DEEP }}>Free 🎉</dd>
                   </div>
                   <div className="border-t pt-3 flex justify-between items-baseline" style={{ borderColor: `${INK}1A` }}>
@@ -143,18 +142,18 @@ export default function Design3Cart() {
                   </div>
                 </dl>
                 <Link
-                  href="/checkout"
+                  href="/design-3/checkout"
                   className="block w-full text-center mt-6 rounded-full px-7 py-4 font-bold text-sm transition-transform hover:scale-[1.02]"
                   style={{ background: INK, color: PEACH }}
                 >
-                  Lanjut bayar <span aria-hidden>→</span>
+                  Checkout <span aria-hidden>→</span>
                 </Link>
                 <Link
-                  href="/design-3#shop"
-                  className="block w-full text-center mt-3 rounded-full px-7 py-3 font-bold text-sm border-2 transition-colors"
+                  href="/design-3/shop"
+                  className="block w-full text-center mt-3 rounded-full px-7 py-3 font-bold text-sm border-2 transition-colors hover:bg-white"
                   style={{ borderColor: INK, color: INK }}
                 >
-                  Cari yang lain
+                  Keep shopping
                 </Link>
               </aside>
             </div>

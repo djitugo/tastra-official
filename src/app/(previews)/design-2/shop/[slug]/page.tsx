@@ -2,12 +2,12 @@
 
 import { notFound } from "next/navigation";
 import { use, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { PRODUCTS, getProduct } from "@/lib/products";
 import { discountPercent, formatRupiah } from "@/lib/format";
 import { useCart } from "@/lib/cart";
+import { SmartImage } from "@/components/shared/smart-image";
 
 const CREAM = "#f5f1ea";
 const INK = "#1a1a1a";
@@ -30,8 +30,10 @@ export default function Design2ProductPage({ params }: { params: Params }) {
     <>
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 text-[10px] tracking-[0.3em] uppercase opacity-60">
-          <Link href="/design-2#collection" className="hover:opacity-100">Collection</Link>
-          <span className="mx-2">⸺</span>
+          <Link href="/design-2/shop" className="hover:opacity-100">
+            Shop
+          </Link>
+          <span className="mx-2">/</span>
           <span style={{ color: INK }}>{product.name}</span>
         </div>
       </section>
@@ -50,7 +52,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
-                <Image src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12 md:p-16" />
+                <SmartImage src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12 md:p-16" />
               </motion.div>
               {off > 0 && (
                 <span className="absolute top-6 left-6 text-[10px] tracking-[0.3em] uppercase" style={{ color: GOLD }}>
@@ -62,7 +64,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
               <div className="mt-4 grid grid-cols-4 gap-3">
                 {product.images.map((src, i) => (
                   <div key={i} className="relative aspect-square" style={{ background: "#fff" }}>
-                    <Image src={src} alt={`${product.name} ${i + 1}`} fill sizes="100px" className="object-contain p-2" />
+                    <SmartImage src={src} alt={`${product.name} view ${i + 1}`} fill sizes="100px" className="object-contain p-2" />
                   </div>
                 ))}
               </div>
@@ -85,9 +87,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
 
             <div className="mt-10 flex items-baseline gap-4">
               <span className="font-[family-name:var(--font-serif)] text-3xl">{formatRupiah(product.price)}</span>
-              {off > 0 && (
-                <span className="text-base line-through opacity-40">{formatRupiah(product.originalPrice)}</span>
-              )}
+              {off > 0 && <span className="text-base line-through opacity-40">{formatRupiah(product.originalPrice)}</span>}
             </div>
 
             <ActionButtons slug={product.slug} />
@@ -103,26 +103,32 @@ export default function Design2ProductPage({ params }: { params: Params }) {
                 </p>
                 <ul className="space-y-1.5 text-sm leading-relaxed">
                   {product.bestFor.map((b) => (
-                    <li key={b} className="font-[family-name:var(--font-serif-alt)] italic">— {b}</li>
+                    <li key={b} className="font-[family-name:var(--font-serif-alt)] italic">
+                      {b}
+                    </li>
                   ))}
                 </ul>
               </div>
               <div>
                 <p className="text-[10px] tracking-[0.4em] uppercase mb-3" style={{ color: GOLD }}>
-                  ⸻ Hero Ingredients
+                  ⸻ Hero ingredients
                 </p>
                 <ul className="space-y-1.5 text-sm leading-relaxed">
                   {product.ingredients.map((b) => (
-                    <li key={b} className="font-[family-name:var(--font-serif-alt)] italic">— {b}</li>
+                    <li key={b} className="font-[family-name:var(--font-serif-alt)] italic">
+                      {b}
+                    </li>
                   ))}
                 </ul>
               </div>
               <div>
                 <p className="text-[10px] tracking-[0.4em] uppercase mb-3" style={{ color: GOLD }}>
-                  ⸻ How to Apply
+                  ⸻ How to apply
                 </p>
                 <ol className="space-y-2 text-sm leading-relaxed list-decimal list-inside">
-                  {product.howTo.map((h) => <li key={h}>{h}</li>)}
+                  {product.howTo.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
                 </ol>
               </div>
             </div>
@@ -143,7 +149,7 @@ export default function Design2ProductPage({ params }: { params: Params }) {
               {related.map((p, i) => (
                 <Link key={p.slug} href={`/design-2/shop/${p.slug}`} className="group block">
                   <div className="relative aspect-[4/5] mb-5 overflow-hidden" style={{ background: "#fff" }}>
-                    <Image src={p.images[0]} alt={p.name} fill sizes="33vw" className="object-contain p-8 transition-transform duration-700 group-hover:scale-105" />
+                    <SmartImage src={p.images[0]} alt={p.name} fill sizes="33vw" className="object-contain p-8 transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <p className="text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: GOLD }}>
                     N° 0{i + 1}
@@ -182,17 +188,17 @@ function ActionButtons({ slug }: { slug: string }) {
         type="button"
         onClick={onAdd}
         disabled={adding}
-        className="text-[12px] tracking-[0.3em] uppercase py-4 transition-colors disabled:opacity-50"
+        className="min-h-[48px] text-[12px] tracking-[0.3em] uppercase py-4 transition-colors disabled:opacity-50"
         style={{ background: INK, color: CREAM }}
       >
-        {done ? "✓ Added to Bag" : "Add to Bag"}
+        {done ? "✓ Added to bag" : "Add to bag"}
       </button>
       <Link
         href="/design-2/cart"
-        className="text-[12px] tracking-[0.3em] uppercase py-4 text-center border-2 transition-colors hover:bg-[#1a1a1a] hover:text-[#f5f1ea]"
+        className="min-h-[48px] text-[12px] tracking-[0.3em] uppercase py-4 text-center border-2 transition-colors hover:bg-[#1a1a1a] hover:text-[#f5f1ea] flex items-center justify-center"
         style={{ borderColor: INK, color: INK }}
       >
-        View Bag
+        View bag
       </Link>
     </div>
   );

@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { PRODUCTS } from "@/lib/products";
 import { formatRupiah } from "@/lib/format";
+import { SmartImage } from "@/components/shared/smart-image";
 import { Reveal, RevealStagger, RevealItem, LineRise } from "@/components/preview/reveal";
 
 const CREAM = "#f5f1ea";
@@ -12,7 +12,7 @@ const INK = "#1a1a1a";
 const GOLD = "#9a7b4f";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function Design2() {
+export default function Design2Home() {
   const featured = PRODUCTS.slice(0, 3);
   return (
     <>
@@ -27,11 +27,13 @@ export default function Design2() {
               className="text-[11px] tracking-[0.4em] uppercase mb-8"
               style={{ color: GOLD }}
             >
-              Vol. I — A New Indonesian Standard
+              Vol. I, A New Indonesian Standard
             </motion.p>
             <h1 className="font-[family-name:var(--font-serif)] text-5xl md:text-7xl lg:text-8xl leading-[1.02] tracking-tight">
               <LineRise delay={0.4} duration={1.0}>
-                <span>The art of <em className="font-[family-name:var(--font-serif-alt)] font-light">caring</em></span>
+                <span>
+                  The art of <em className="font-[family-name:var(--font-serif-alt)] font-light">caring</em>
+                </span>
               </LineRise>
               <LineRise delay={0.55} duration={1.0}>for skin you</LineRise>
               <LineRise delay={0.7} duration={1.0}>live in.</LineRise>
@@ -43,9 +45,7 @@ export default function Design2() {
               className="mt-10 max-w-md text-base md:text-lg leading-[1.7]"
               style={{ color: `${INK}B3` }}
             >
-              Tastra meracik formula yang menghormati kerumitan kulit
-              Indonesia — diuji di iklim sebenarnya, dirancang untuk ritual
-              yang berkelanjutan.
+              Tastra composes formulas that honor the complexity of Indonesian skin. Tested in real climate, designed for a ritual you can keep.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -53,20 +53,20 @@ export default function Design2() {
               transition={{ delay: 1.3, duration: 0.7, ease: EASE }}
               className="mt-10 flex flex-wrap gap-6 items-center"
             >
-              <a
-                href="#collection"
+              <Link
+                href="/design-2/shop"
                 className="inline-flex items-center min-h-[48px] px-8 py-3 text-[12px] tracking-[0.3em] uppercase transition-colors"
                 style={{ background: INK, color: CREAM }}
               >
                 Explore the collection
-              </a>
-              <a
-                href="#philosophy"
-                className="text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+              </Link>
+              <Link
+                href="/design-2/about"
+                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
                 style={{ borderColor: INK }}
               >
                 Read our philosophy →
-              </a>
+              </Link>
             </motion.div>
           </div>
           <motion.div
@@ -80,9 +80,9 @@ export default function Design2() {
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <Image
+              <SmartImage
                 src="/products/uv-protector.webp"
-                alt="UV Protector"
+                alt="The UV Protector"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 500px"
@@ -107,7 +107,7 @@ export default function Design2() {
       </section>
 
       {/* COLLECTION */}
-      <section id="collection" className="border-b" style={{ borderColor: `${INK}1A` }}>
+      <section className="border-b" style={{ borderColor: `${INK}1A` }}>
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-32">
           <Reveal>
             <div className="grid md:grid-cols-2 gap-8 items-end mb-16">
@@ -116,14 +116,13 @@ export default function Design2() {
                   The Collection
                 </p>
                 <h2 className="font-[family-name:var(--font-serif)] text-4xl md:text-6xl leading-[1.05]">
-                  Tiga produk inti.<br />
-                  <em className="font-[family-name:var(--font-serif-alt)] font-light">Tanpa berlebihan.</em>
+                  Three essentials.
+                  <br />
+                  <em className="font-[family-name:var(--font-serif-alt)] font-light">Nothing in excess.</em>
                 </h2>
               </div>
               <p className="text-base leading-[1.8]" style={{ color: `${INK}B3` }}>
-                Setiap formula dipilih karena alasan yang dapat dipertanggungjawabkan.
-                Bukan tren, bukan demi rak yang penuh — hanya yang benar-benar
-                kulit Anda butuhkan.
+                Every formula is chosen for a reason we can stand behind. Not trends, not a full shelf, only what your skin truly needs.
               </p>
             </div>
           </Reveal>
@@ -138,7 +137,7 @@ export default function Design2() {
                     className="relative aspect-[4/5] mb-6 overflow-hidden"
                     style={{ background: "#fff" }}
                   >
-                    <Image
+                    <SmartImage
                       src={p.images[0]}
                       alt={p.name}
                       fill
@@ -158,11 +157,23 @@ export default function Design2() {
               </RevealItem>
             ))}
           </RevealStagger>
+
+          <Reveal delay={0.2}>
+            <div className="mt-16 text-center">
+              <Link
+                href="/design-2/shop"
+                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+                style={{ borderColor: INK }}
+              >
+                View all products →
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* PHILOSOPHY */}
-      <section id="philosophy" className="border-b" style={{ borderColor: `${INK}1A`, background: "#fff" }}>
+      <section className="border-b" style={{ borderColor: `${INK}1A`, background: "#fff" }}>
         <div className="mx-auto max-w-4xl px-6 lg:px-8 py-24 md:py-32 text-center">
           <Reveal>
             <p className="text-[11px] tracking-[0.4em] uppercase mb-8" style={{ color: GOLD }}>
@@ -171,16 +182,13 @@ export default function Design2() {
           </Reveal>
           <Reveal delay={0.15} y={20}>
             <blockquote className="font-[family-name:var(--font-serif)] text-3xl md:text-5xl leading-[1.25]">
-              &ldquo;Kulit Indonesia tidak meminta produk yang lebih banyak.
-              Ia meminta yang <em className="font-[family-name:var(--font-serif-alt)] font-light">lebih tepat.</em>&rdquo;
+              &ldquo;Indonesian skin does not ask for more products. It asks for the{" "}
+              <em className="font-[family-name:var(--font-serif-alt)] font-light">more precise.</em>&rdquo;
             </blockquote>
           </Reveal>
           <Reveal delay={0.3}>
             <p className="mt-12 max-w-2xl mx-auto leading-[1.8]" style={{ color: `${INK}B3` }}>
-              Setiap formula Tastra disusun dari premis yang sederhana: hormati
-              kompleksitas kulit, gunakan bahan yang sudah terbukti, dan
-              sajikan dalam tekstur yang ingin dipakai setiap hari. Tidak ada
-              jalan pintas, tidak ada janji ajaib.
+              Every Tastra formula begins from a simple premise: respect the complexity of skin, use ingredients that are proven, and present them in a texture you want to wear every day. No shortcuts, no miracle promises.
             </p>
           </Reveal>
         </div>
@@ -190,9 +198,9 @@ export default function Design2() {
       <section className="border-b" style={{ borderColor: `${INK}1A` }}>
         <RevealStagger stagger={0.18} className="mx-auto max-w-6xl px-6 lg:px-8 py-24 md:py-28 grid md:grid-cols-3 gap-12">
           {[
-            { roman: "I.", title: "Sourced", body: "Bahan aktif yang ditelusuri asalnya, dipilih bukan karena nama tapi karena efikasi." },
-            { roman: "II.", title: "Tested", body: "Diujikan di kulit Indonesia sungguhan, di iklim asli — bukan ruang lab kering." },
-            { roman: "III.", title: "Refined", body: "Tekstur ringan yang ingin Anda pakai berulang. Karena ritual hanya bekerja jika dilakukan." },
+            { roman: "I.", title: "Sourced", body: "Active ingredients traced to their origin, chosen not for a name but for proven efficacy." },
+            { roman: "II.", title: "Tested", body: "Trialed on real Indonesian skin, in real climate, not a dry lab." },
+            { roman: "III.", title: "Refined", body: "A light texture you want to reach for again. A ritual only works when it is kept." },
           ].map((x) => (
             <RevealItem key={x.title}>
               <div>
@@ -210,34 +218,36 @@ export default function Design2() {
       </section>
 
       {/* JOURNAL CTA */}
-      <section id="journal" style={{ borderColor: `${INK}1A`, background: CREAM }}>
+      <section style={{ borderColor: `${INK}1A`, background: CREAM }}>
         <div className="mx-auto max-w-3xl px-6 lg:px-8 py-24 text-center">
           <Reveal>
             <p className="text-[11px] tracking-[0.4em] uppercase mb-6" style={{ color: GOLD }}>
               The Journal
             </p>
             <h3 className="font-[family-name:var(--font-serif)] text-3xl md:text-5xl">
-              Surat berkala. Tanpa promosi yang gaduh.
+              Quiet letters. No noisy promotions.
             </h3>
             <p className="mt-6 leading-[1.8] max-w-xl mx-auto" style={{ color: `${INK}B3` }}>
-              Esai pendek tentang ritual, bahan, dan kulit. Dikirim sekali sebulan.
+              Short essays on ritual, ingredients, and skin. Read more in our journal.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <form className="mt-10 max-w-md mx-auto flex border-b" style={{ borderColor: INK }}>
-              <input
-                type="email"
-                placeholder="alamat@email.com"
-                aria-label="Email address"
-                className="flex-1 bg-transparent py-3 text-sm tracking-wider outline-none placeholder:opacity-40"
-              />
-              <button
-                type="button"
-                className="text-[11px] tracking-[0.3em] uppercase px-4 hover:opacity-60"
+            <div className="mt-10 flex flex-wrap gap-6 items-center justify-center">
+              <Link
+                href="/design-2/blog"
+                className="inline-flex items-center min-h-[48px] px-8 py-3 text-[12px] tracking-[0.3em] uppercase"
+                style={{ background: INK, color: CREAM }}
               >
-                Subscribe →
-              </button>
-            </form>
+                Read the journal
+              </Link>
+              <Link
+                href="/design-2/contact"
+                className="inline-flex items-center min-h-[48px] text-[12px] tracking-[0.3em] uppercase border-b pb-1 hover:opacity-60"
+                style={{ borderColor: INK }}
+              >
+                Get in touch →
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
 import { formatRupiah } from "@/lib/format";
+import { SmartImage } from "@/components/shared/smart-image";
 
 const GREEN = "#2d5a3d";
 const GREEN_LIGHT = "#e8efe8";
@@ -28,29 +28,27 @@ export default function Design4Cart() {
     <>
       <section className="py-12 md:py-16" style={{ background: GREEN_LIGHT }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Keranjang Belanja</p>
-          <h1 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Belanjaan kamu</h1>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Shopping Cart</p>
+          <h1 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Your cart</h1>
         </div>
       </section>
 
-      <section className="py-12 md:py-16">
+      <section className="py-12 md:py-16" style={{ background: CREAM }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {!ready ? (
-            <p className="text-sm font-semibold opacity-60">Memuat...</p>
+            <p className="text-sm font-semibold opacity-60">Loading...</p>
           ) : items.length === 0 ? (
             <div className="rounded-2xl p-12 text-center" style={{ background: GREEN_SOFT }}>
-              <div className="text-5xl mb-4" aria-hidden>🌿</div>
-              <p className="text-2xl font-extrabold mb-3" style={{ color: INK }}>Keranjang masih kosong</p>
+              <p className="text-2xl font-extrabold mb-3" style={{ color: INK }}>Your cart is empty</p>
               <p className="text-base mb-6 max-w-md mx-auto" style={{ color: `${INK}99` }}>
-                Yuk pilih produk yang halal dan alami buat kulitmu. Kami punya
-                paket hemat hingga 50% off.
+                Pick a halal and natural product for your skin. We have value bundles with up to 50 percent off.
               </p>
               <Link
-                href="/design-4#shop"
+                href="/design-4/shop"
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-transform hover:scale-105"
                 style={{ background: GREEN, color: CREAM }}
               >
-                Mulai belanja →
+                Start shopping →
               </Link>
             </div>
           ) : (
@@ -63,7 +61,7 @@ export default function Design4Cart() {
                       className="relative w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-xl overflow-hidden"
                       style={{ background: GREEN_LIGHT }}
                     >
-                      <Image src={product.images[0]} alt={product.name} fill sizes="112px" className="object-contain p-2" />
+                      <SmartImage src={product.images[0]} alt={product.name} fill sizes="112px" className="object-contain p-2" />
                     </Link>
                     <div className="flex-1 min-w-0">
                       <p className="text-[11px] font-bold uppercase tracking-wider" style={{ color: GREEN }}>
@@ -73,21 +71,21 @@ export default function Design4Cart() {
                         {product.name}
                       </Link>
                       <div className="mt-3 flex items-center justify-between flex-wrap gap-3">
-                        <div className="inline-flex rounded-full p-1" style={{ background: GREEN_LIGHT }}>
+                        <div className="inline-flex rounded-full p-1" style={{ background: GREEN_LIGHT }} role="group" aria-label="Quantity">
                           <button
                             type="button"
                             onClick={() => setQty(line.slug, line.qty - 1)}
-                            className="w-9 h-9 rounded-full flex items-center justify-center font-bold transition-colors hover:bg-white"
-                            aria-label="Kurangi"
+                            className="w-11 h-11 rounded-full flex items-center justify-center font-bold transition-colors hover:bg-white"
+                            aria-label="Decrease quantity"
                           >
                             −
                           </button>
-                          <span className="w-9 h-9 flex items-center justify-center font-bold">{line.qty}</span>
+                          <span className="w-11 h-11 flex items-center justify-center font-bold">{line.qty}</span>
                           <button
                             type="button"
                             onClick={() => setQty(line.slug, line.qty + 1)}
-                            className="w-9 h-9 rounded-full flex items-center justify-center font-bold transition-colors hover:bg-white"
-                            aria-label="Tambah"
+                            className="w-11 h-11 rounded-full flex items-center justify-center font-bold transition-colors hover:bg-white"
+                            aria-label="Increase quantity"
                           >
                             +
                           </button>
@@ -99,10 +97,10 @@ export default function Design4Cart() {
                           <button
                             type="button"
                             onClick={() => remove(line.slug)}
-                            className="text-xs font-semibold underline underline-offset-2 hover:opacity-60"
+                            className="text-xs font-semibold underline underline-offset-2 hover:opacity-60 min-h-11 px-2"
                             style={{ color: `${INK}99` }}
                           >
-                            Hapus
+                            Remove
                           </button>
                         </div>
                       </div>
@@ -112,15 +110,15 @@ export default function Design4Cart() {
               </ul>
 
               <aside className="rounded-2xl p-6 h-fit lg:sticky lg:top-24" style={{ background: GREEN_SOFT }}>
-                <h2 className="text-lg font-extrabold mb-4" style={{ color: INK }}>Ringkasan Pesanan</h2>
+                <h2 className="text-lg font-extrabold mb-4" style={{ color: INK }}>Order Summary</h2>
                 <dl className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <dt style={{ color: `${INK}99` }}>Subtotal</dt>
                     <dd className="font-bold">{formatRupiah(subtotal)}</dd>
                   </div>
                   <div className="flex justify-between">
-                    <dt style={{ color: `${INK}99` }}>Ongkir</dt>
-                    <dd className="font-bold uppercase" style={{ color: GREEN }}>Gratis ✓</dd>
+                    <dt style={{ color: `${INK}99` }}>Shipping</dt>
+                    <dd className="font-bold uppercase" style={{ color: GREEN }}>Free ✓</dd>
                   </div>
                   <div className="border-t pt-3 flex justify-between items-baseline" style={{ borderColor: `${INK}1A` }}>
                     <dt className="font-extrabold text-base">Total</dt>
@@ -128,18 +126,18 @@ export default function Design4Cart() {
                   </div>
                 </dl>
                 <Link
-                  href="/checkout"
+                  href="/design-4/checkout"
                   className="block w-full text-center mt-6 rounded-full px-7 py-3.5 font-bold text-sm transition-transform hover:scale-[1.02]"
                   style={{ background: GREEN, color: CREAM }}
                 >
                   Checkout →
                 </Link>
                 <Link
-                  href="/design-4#shop"
-                  className="block w-full text-center mt-3 rounded-full px-7 py-3 font-bold text-sm border-2 transition-colors"
+                  href="/design-4/shop"
+                  className="block w-full text-center mt-3 rounded-full px-7 py-3 font-bold text-sm border-2 transition-colors hover:bg-white"
                   style={{ borderColor: GREEN, color: GREEN }}
                 >
-                  Lanjut Belanja
+                  Keep shopping
                 </Link>
               </aside>
             </div>

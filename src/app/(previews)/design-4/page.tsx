@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { PRODUCTS, CATEGORIES } from "@/lib/products";
 import { discountPercent, formatRupiah } from "@/lib/format";
+import { SmartImage } from "@/components/shared/smart-image";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const GREEN = "#2d5a3d";
@@ -17,8 +17,8 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const ICON_BADGES = [
   { label: "Halal", path: "M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
-  { label: "Bahan Alami", path: "M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6" },
-  { label: "Tanpa Alkohol", path: "M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" },
+  { label: "Natural", path: "M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6" },
+  { label: "Alcohol Free", path: "M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z" },
   { label: "Cruelty Free", path: "M11 5C5 5 2 9 2 13c0 2 1 4 4 4s5-2 5-2 2 2 5 2 4-2 4-4c0-4-3-8-9-8zM7 10v.01M15 10v.01" },
 ];
 
@@ -30,7 +30,7 @@ function Icon({ d, size = 20, className = "" }: { d: string; size?: number; clas
   );
 }
 
-export default function Design4() {
+export default function Design4Home() {
   const featured = PRODUCTS.slice(0, 4);
   return (
     <>
@@ -49,10 +49,10 @@ export default function Design4() {
             </motion.span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight" style={{ color: INK }}>
               <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8, ease: EASE }} className="block">
-                Halal, alami,
+                Halal, natural,
               </motion.span>
               <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45, duration: 0.8, ease: EASE }} className="block" style={{ color: GREEN }}>
-                dan bisa diandalkan.
+                and dependable.
               </motion.span>
             </h1>
             <motion.p
@@ -62,9 +62,9 @@ export default function Design4() {
               className="mt-6 max-w-md text-base md:text-lg leading-relaxed"
               style={{ color: `${INK}B3` }}
             >
-              Skincare untuk kulit Indonesia, dari Indonesia. Diformulasikan
-              dengan bahan halal pilihan — aman, lembut, dan teruji untuk
-              dipakai setiap hari.
+              Skincare for Indonesian skin, made in Indonesia. Formulated with
+              carefully chosen halal ingredients that are safe, gentle, and
+              tested for everyday use.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -72,12 +72,12 @@ export default function Design4() {
               transition={{ delay: 0.85, duration: 0.7 }}
               className="mt-8 flex flex-wrap gap-3"
             >
-              <a href="#shop" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-transform hover:scale-105" style={{ background: GREEN, color: CREAM }}>
-                Belanja sekarang
-              </a>
-              <a href="#kenapa" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold border-2 transition-colors hover:bg-white" style={{ borderColor: GREEN, color: GREEN }}>
-                Pelajari lebih lanjut
-              </a>
+              <Link href="/design-4/shop" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-transform hover:scale-105" style={{ background: GREEN, color: CREAM }}>
+                Shop now
+              </Link>
+              <Link href="/design-4/about" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold border-2 transition-colors hover:bg-white" style={{ borderColor: GREEN, color: GREEN }}>
+                Learn more
+              </Link>
             </motion.div>
 
             <motion.div
@@ -110,8 +110,8 @@ export default function Design4() {
             className="relative aspect-square max-w-lg mx-auto w-full"
           >
             <div className="absolute inset-0 rounded-full" style={{ background: `linear-gradient(135deg, ${CREAM} 0%, #ffffff 100%)`, boxShadow: "0 20px 60px rgba(45, 90, 61, 0.15)" }} />
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0 flex items-center justify-center">
-              <Image src="/products/uv-protector.webp" alt="Tastra UV Protector" width={420} height={420} priority className="object-contain p-12" />
+            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0">
+              <SmartImage src="/products/uv-protector.webp" alt="Tastra UV Protector" fill priority sizes="(max-width: 1024px) 100vw, 512px" className="object-contain p-12" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0, rotate: -15 }}
@@ -121,7 +121,7 @@ export default function Design4() {
               style={{ background: CREAM, color: GREEN, boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}
             >
               <span className="w-2 h-2 rounded-full" style={{ background: GREEN }} />
-              Sertifikasi MUI
+              MUI Certified
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -138,12 +138,12 @@ export default function Design4() {
       </section>
 
       {/* CATEGORIES */}
-      <section id="kategori" className="py-16 md:py-20" style={{ background: CREAM }}>
+      <section className="py-16 md:py-20" style={{ background: CREAM }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Kategori</p>
-              <h2 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Cari yang sesuai untukmu</h2>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Categories</p>
+              <h2 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Find what fits you</h2>
             </div>
           </Reveal>
           <RevealStagger stagger={0.1} className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -151,14 +151,14 @@ export default function Design4() {
               const sample = PRODUCTS.find((p) => p.category === c.slug);
               return (
                 <RevealItem key={c.slug}>
-                  <Link href={`/design-4#shop`} className="group block text-center">
+                  <Link href="/design-4/shop" className="group block text-center">
                     <motion.div
                       whileHover={{ y: -4, scale: 1.03 }}
                       transition={{ duration: 0.25, ease: EASE }}
                       className="aspect-square rounded-full mb-4 relative overflow-hidden"
                       style={{ background: i % 2 === 0 ? GREEN_LIGHT : GREEN_SOFT }}
                     >
-                      {sample && <Image src={sample.images[0]} alt={c.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-8" />}
+                      {sample && <SmartImage src={sample.images[0]} alt={c.label} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-contain p-8" />}
                     </motion.div>
                     <p className="text-base font-bold" style={{ color: INK }}>{c.label}</p>
                   </Link>
@@ -170,15 +170,15 @@ export default function Design4() {
       </section>
 
       {/* PRODUCTS */}
-      <section id="shop" className="py-16 md:py-20" style={{ background: GREEN_SOFT }}>
+      <section className="py-16 md:py-20" style={{ background: GREEN_SOFT }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: GREEN }}>✦ Best Sellers</p>
-                <h2 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Pilihan favorit pelanggan</h2>
+                <h2 className="text-3xl md:text-5xl font-extrabold" style={{ color: INK }}>Customer favorites</h2>
               </div>
-              <Link href="/design-4#kategori" className="text-sm font-bold underline underline-offset-4" style={{ color: GREEN }}>Lihat semua →</Link>
+              <Link href="/design-4/shop" className="text-sm font-bold underline underline-offset-4" style={{ color: GREEN }}>View all →</Link>
             </div>
           </Reveal>
           <RevealStagger stagger={0.1} className="grid grid-cols-2 lg:grid-cols-4 gap-5">
@@ -193,7 +193,7 @@ export default function Design4() {
                       style={{ background: CREAM, boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
                     >
                       <div className="relative aspect-square overflow-hidden" style={{ background: GREEN_LIGHT }}>
-                        <Image src={p.images[0]} alt={p.name} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-contain p-6 transition-transform duration-300 group-hover:scale-105" />
+                        <SmartImage src={p.images[0]} alt={p.name} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-contain p-6 transition-transform duration-300 group-hover:scale-105" />
                         {off > 0 && <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold" style={{ background: GREEN, color: CREAM }}>-{off}%</span>}
                         <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider" style={{ background: CREAM, color: GREEN }}>Halal</span>
                       </div>
@@ -215,20 +215,20 @@ export default function Design4() {
       </section>
 
       {/* WHY */}
-      <section id="kenapa" className="py-20 md:py-24" style={{ background: GREEN, color: CREAM }}>
+      <section className="py-20 md:py-24" style={{ background: GREEN, color: CREAM }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center mb-14">
-              <p className="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">✦ Kenapa Tastra</p>
-              <h2 className="text-3xl md:text-5xl font-extrabold max-w-3xl mx-auto leading-[1.1]">Komitmen kami untuk kulit kamu</h2>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">✦ Why Tastra</p>
+              <h2 className="text-3xl md:text-5xl font-extrabold max-w-3xl mx-auto leading-[1.1]">Our commitment to your skin</h2>
             </div>
           </Reveal>
           <RevealStagger stagger={0.12} className="grid md:grid-cols-4 gap-6">
             {[
-              { label: "Halal MUI", body: "Tersertifikasi Halal oleh Majelis Ulama Indonesia." },
-              { label: "Bahan Alami", body: "Niacinamide, Centella, Ceramide — bahan aktif yang teruji." },
-              { label: "Tanpa Alkohol", body: "Aman untuk kulit sensitif. Tidak membuat kulit kering." },
-              { label: "Cruelty Free", body: "Tidak diujikan pada hewan. Berkomitmen pada etika produksi." },
+              { label: "Halal MUI", body: "Certified Halal by the Indonesian Council of Ulama (MUI)." },
+              { label: "Natural", body: "Niacinamide, Centella, and Ceramide. Active ingredients that are proven to work." },
+              { label: "Alcohol Free", body: "Safe for sensitive skin. Never leaves your skin dry." },
+              { label: "Cruelty Free", body: "Never tested on animals. Committed to ethical production." },
             ].map((x, i) => (
               <RevealItem key={x.label}>
                 <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.25 }} className="text-center p-7 rounded-2xl h-full" style={{ background: GREEN_DEEP }}>
@@ -249,11 +249,11 @@ export default function Design4() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GREEN }}>✦ Newsletter</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: INK }}>Dapatkan info & promo terbaru</h2>
-            <p className="text-base mb-8" style={{ color: `${INK}99` }}>Berlangganan untuk update produk, tips skincare, dan penawaran khusus.</p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input type="email" placeholder="alamat@email.com" aria-label="Email" className="flex-1 px-5 py-3.5 rounded-full text-sm border-2 focus:outline-none focus:ring-2 focus:ring-offset-2" style={{ borderColor: `${GREEN}33`, background: "#fff" }} />
-              <button type="button" className="rounded-full px-7 py-3.5 text-sm font-bold whitespace-nowrap" style={{ background: GREEN, color: CREAM }}>Berlangganan</button>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: INK }}>Get the latest news and offers</h2>
+            <p className="text-base mb-8" style={{ color: `${INK}99` }}>Subscribe for product updates, skincare tips, and special deals.</p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <input type="email" placeholder="you@email.com" aria-label="Email" className="flex-1 px-5 py-3.5 rounded-full text-sm border-2 focus:outline-none focus:ring-2 focus:ring-offset-2" style={{ borderColor: `${GREEN}33`, background: "#fff" }} />
+              <button type="submit" className="rounded-full px-7 py-3.5 text-sm font-bold whitespace-nowrap" style={{ background: GREEN, color: CREAM }}>Subscribe</button>
             </form>
           </Reveal>
         </div>

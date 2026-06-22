@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useCart } from "@/lib/cart";
 import { PRODUCTS } from "@/lib/products";
 import { formatRupiah } from "@/lib/format";
+import { SmartImage } from "@/components/shared/smart-image";
 
 const CREAM = "#f7f1e6";
 const CREAM_DEEP = "#ebe2cf";
@@ -46,10 +46,11 @@ export default function Design6Cart() {
                 <span className="italic" style={{ color: OCHRE }}>Empty,</span> for now.
               </p>
               <p className="text-[15px] leading-[1.85] max-w-md mx-auto mb-12" style={{ color: `${INK}B3` }}>
-                Mulai dari satu produk yang Anda yakini. Kami percaya pada koleksi yang sedikit dan dipilih dengan teliti.
+                Begin with a single product you trust. We believe in a small
+                collection, chosen with care.
               </p>
               <Link
-                href="/design-6#range"
+                href="/design-6/shop"
                 className="font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase border-b pb-1.5 hover:opacity-60"
                 style={{ borderColor: INK }}
               >
@@ -66,7 +67,7 @@ export default function Design6Cart() {
                       className="relative w-24 h-32 sm:w-32 sm:h-40 flex-shrink-0"
                       style={{ background: CREAM_DEEP }}
                     >
-                      <Image src={product.images[0]} alt={product.name} fill sizes="160px" className="object-contain p-3" />
+                      <SmartImage src={product.images[0]} alt={product.name} fill sizes="160px" className="object-contain p-3" />
                     </Link>
                     <div className="flex-1 min-w-0">
                       <p className="font-[family-name:var(--font-mono)] text-[10px] tracking-[0.3em] uppercase mb-2" style={{ color: OCHRE }}>
@@ -81,8 +82,8 @@ export default function Design6Cart() {
                           <button
                             type="button"
                             onClick={() => setQty(line.slug, line.qty - 1)}
-                            className="w-9 h-9 flex items-center justify-center hover:opacity-60"
-                            aria-label="Kurangi"
+                            className="w-11 h-11 flex items-center justify-center hover:opacity-60"
+                            aria-label={`Reduce quantity of ${product.name}`}
                           >
                             −
                           </button>
@@ -90,8 +91,8 @@ export default function Design6Cart() {
                           <button
                             type="button"
                             onClick={() => setQty(line.slug, line.qty + 1)}
-                            className="w-9 h-9 flex items-center justify-center hover:opacity-60"
-                            aria-label="Tambah"
+                            className="w-11 h-11 flex items-center justify-center hover:opacity-60"
+                            aria-label={`Increase quantity of ${product.name}`}
                           >
                             +
                           </button>
@@ -129,14 +130,14 @@ export default function Design6Cart() {
                   </div>
                 </dl>
                 <Link
-                  href="/checkout"
+                  href="/design-6/checkout"
                   className="block w-full text-center mt-10 py-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase"
                   style={{ background: INK, color: CREAM }}
                 >
                   Proceed to Checkout
                 </Link>
                 <Link
-                  href="/design-6#range"
+                  href="/design-6/shop"
                   className="block w-full text-center mt-4 font-[family-name:var(--font-mono)] text-[11px] tracking-[0.3em] uppercase border-b pb-2 hover:opacity-60"
                   style={{ borderColor: INK }}
                 >

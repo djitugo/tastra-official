@@ -2,12 +2,12 @@
 
 import { notFound } from "next/navigation";
 import { use, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { PRODUCTS, getProduct } from "@/lib/products";
 import { discountPercent, formatRupiah } from "@/lib/format";
 import { useCart } from "@/lib/cart";
+import { SmartImage } from "@/components/shared/smart-image";
 
 const PEACH = "#fff5ee";
 const PEACH_DEEP = "#ffe0d0";
@@ -41,7 +41,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
     <>
       <section>
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-4 text-xs font-semibold" style={{ color: `${INK}99` }}>
-          <Link href="/design-3#shop" className="hover:opacity-60">Produk</Link>
+          <Link href="/design-3/shop" className="hover:opacity-60">Shop</Link>
           <span className="mx-2">·</span>
           <span style={{ color: INK }}>{product.name}</span>
         </div>
@@ -60,7 +60,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute inset-0"
               >
-                <Image src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12" />
+                <SmartImage src={product.images[0]} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 600px" className="object-contain p-12" />
               </motion.div>
               {off > 0 && (
                 <motion.span
@@ -70,7 +70,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
                   className="absolute top-6 left-6 rounded-full px-4 py-2 text-xs font-bold text-white"
                   style={{ background: ROSE }}
                 >
-                  Hemat {off}% 🎉
+                  Save {off}% 🎉
                 </motion.span>
               )}
             </div>
@@ -78,7 +78,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
               <div className="mt-4 grid grid-cols-4 gap-3">
                 {product.images.map((src, i) => (
                   <div key={i} className="relative aspect-square rounded-2xl overflow-hidden" style={{ background: PEACH_DEEP }}>
-                    <Image src={src} alt={`${product.name} ${i + 1}`} fill sizes="100px" className="object-contain p-2" />
+                    <SmartImage src={src} alt={`${product.name} ${i + 1}`} fill sizes="100px" className="object-contain p-2" />
                   </div>
                 ))}
               </div>
@@ -118,7 +118,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
             <div className="mt-8 grid sm:grid-cols-2 gap-3">
               <div className="rounded-3xl p-5" style={{ background: "#fff" }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2" style={{ color: ROSE_DEEP }}>
-                  <Sparkle size={12} /> Cocok untuk
+                  <Sparkle size={12} /> Best for
                 </p>
                 <ul className="space-y-1.5 text-sm">
                   {product.bestFor.map((b) => (
@@ -128,7 +128,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
               </div>
               <div className="rounded-3xl p-5" style={{ background: "#fff" }}>
                 <p className="text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2" style={{ color: ROSE_DEEP }}>
-                  <Sparkle size={12} /> Bahan utama
+                  <Sparkle size={12} /> Hero ingredients
                 </p>
                 <ul className="space-y-1.5 text-sm">
                   {product.ingredients.map((b) => (
@@ -140,7 +140,7 @@ export default function Design3ProductPage({ params }: { params: Params }) {
 
             <div className="mt-3 rounded-3xl p-5" style={{ background: "#fff" }}>
               <p className="text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2" style={{ color: ROSE_DEEP }}>
-                <Sparkle size={12} /> Cara pakai
+                <Sparkle size={12} /> How to use
               </p>
               <ol className="space-y-2 text-sm list-decimal list-inside marker:font-extrabold">
                 {product.howTo.map((h) => <li key={h}>{h}</li>)}
@@ -154,13 +154,13 @@ export default function Design3ProductPage({ params }: { params: Params }) {
         <section style={{ background: "#fff" }}>
           <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
             <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10">
-              Mungkin <em className="italic" style={{ color: ROSE_DEEP }}>cocok juga</em>
+              You might also <em className="italic" style={{ color: ROSE_DEEP }}>love</em>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
               {related.map((p) => (
                 <Link key={p.slug} href={`/design-3/shop/${p.slug}`} className="group rounded-3xl p-3 transition-all hover:-translate-y-1 hover:shadow-xl" style={{ background: PEACH }}>
                   <div className="relative aspect-square rounded-2xl overflow-hidden mb-3" style={{ background: PEACH_DEEP }}>
-                    <Image src={p.images[0]} alt={p.name} fill sizes="25vw" className="object-contain p-4 transition-transform group-hover:scale-110" />
+                    <SmartImage src={p.images[0]} alt={p.name} fill sizes="25vw" className="object-contain p-4 transition-transform group-hover:scale-110" />
                   </div>
                   <div className="px-2 pb-2">
                     <h3 className="font-extrabold text-base">{p.name}</h3>
@@ -203,14 +203,14 @@ function ActionButtons({ slug }: { slug: string }) {
         className="rounded-full px-7 py-4 font-bold text-sm disabled:opacity-50"
         style={{ background: INK, color: PEACH }}
       >
-        {done ? "✓ Masuk tas" : "Masukin ke tas 💕"}
+        {done ? "✓ Added to bag" : "Add to bag 💕"}
       </motion.button>
       <Link
         href="/design-3/cart"
-        className="rounded-full px-7 py-4 font-bold text-sm border-2 text-center transition-colors hover:bg-white"
+        className="rounded-full px-7 py-4 font-bold text-sm border-2 text-center transition-colors hover:bg-white flex items-center justify-center"
         style={{ borderColor: INK, color: INK }}
       >
-        Lihat tas
+        View bag
       </Link>
     </div>
   );

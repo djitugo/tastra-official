@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { PRODUCTS } from "@/lib/products";
 import { discountPercent, formatRupiah } from "@/lib/format";
+import { SmartImage } from "@/components/shared/smart-image";
 import { Reveal, RevealStagger, RevealItem } from "@/components/preview/reveal";
 
 const PEACH = "#fff5ee";
@@ -36,7 +36,7 @@ function Blob({ className = "" }: { className?: string }) {
   );
 }
 
-export default function Design3() {
+export default function Design3Home() {
   const featured = PRODUCTS.slice(0, 4);
   return (
     <>
@@ -70,7 +70,7 @@ export default function Design3() {
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold mb-6"
               style={{ background: "#fff", color: ROSE_DEEP }}
             >
-              <Sparkle size={12} /> Halo, kulit baru
+              <Sparkle size={12} /> Hello, fresh skin
             </motion.span>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
               <motion.span
@@ -79,7 +79,7 @@ export default function Design3() {
                 transition={{ delay: 0.35, duration: 0.7, ease: EASE }}
                 className="block"
               >
-                Skincare yang
+                Skincare that is
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, scale: 0.7, rotate: -8 }}
@@ -88,7 +88,7 @@ export default function Design3() {
                 className="inline-block px-3 py-1 rounded-2xl my-1"
                 style={{ background: ROSE, color: "#fff" }}
               >
-                ramah
+                kind
               </motion.span>{" "}
               <motion.span
                 initial={{ opacity: 0, y: 24 }}
@@ -96,7 +96,7 @@ export default function Design3() {
                 transition={{ delay: 0.7, duration: 0.7, ease: EASE }}
                 className="inline-block"
               >
-                sama kulit kamu.
+                to your skin.
               </motion.span>
             </h1>
             <motion.p
@@ -106,8 +106,8 @@ export default function Design3() {
               className="mt-6 max-w-md text-lg leading-relaxed"
               style={{ color: `${INK}CC` }}
             >
-              Bahan alami, formula yang nggak nyiksa, dan harga yang masuk
-              akal. Buat kulit yang lagi cari teman — bukan musuh baru.
+              Natural ingredients, formulas that never sting, and prices that
+              make sense. For skin that is looking for a friend (not a new enemy).
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -115,26 +115,24 @@ export default function Design3() {
               transition={{ delay: 1.1, duration: 0.7 }}
               className="mt-8 flex flex-wrap gap-3"
             >
-              <motion.a
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2, ease: EASE }}
-                href="#shop"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm"
-                style={{ background: INK, color: PEACH }}
-              >
-                Lihat produknya <span aria-hidden>→</span>
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.2, ease: EASE }}
-                href="#kenapa"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm border-2"
-                style={{ borderColor: INK, color: INK, background: "transparent" }}
-              >
-                Kenapa Tastra?
-              </motion.a>
+              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2, ease: EASE }}>
+                <Link
+                  href="/design-3/shop"
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm"
+                  style={{ background: INK, color: PEACH }}
+                >
+                  Shop the lineup <span aria-hidden>→</span>
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2, ease: EASE }}>
+                <Link
+                  href="/design-3/about"
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm border-2"
+                  style={{ borderColor: INK, color: INK, background: "transparent" }}
+                >
+                  Why Tastra?
+                </Link>
+              </motion.div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -142,9 +140,9 @@ export default function Design3() {
               transition={{ delay: 1.3, duration: 0.7 }}
               className="mt-12 flex flex-wrap gap-6 text-sm"
             >
-              <Pill icon="🌿" text="100% bahan alami" />
-              <Pill icon="✨" text="Cocok kulit sensitif" />
-              <Pill icon="🇮🇩" text="Bikinan lokal" />
+              <Pill icon="🌿" text="100% natural ingredients" />
+              <Pill icon="✨" text="Safe for sensitive skin" />
+              <Pill icon="🇮🇩" text="Made locally" />
             </motion.div>
           </div>
 
@@ -165,9 +163,9 @@ export default function Design3() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <Image
+              <SmartImage
                 src="/products/uv-protector.webp"
-                alt="UV Protector"
+                alt="Tastra UV Protector"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 500px"
@@ -195,14 +193,14 @@ export default function Design3() {
               style={{ background: "#fff", color: INK }}
             >
               <p className="text-xs font-bold opacity-60">Rating ★★★★★</p>
-              <p className="text-sm font-bold">2.847 ulasan</p>
+              <p className="text-sm font-bold">2,847 reviews</p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* PRODUCTS */}
-      <section id="shop" className="relative">
+      <section className="relative">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-24">
           <Reveal>
             <div className="text-center mb-12">
@@ -210,10 +208,10 @@ export default function Design3() {
                 <Sparkle size={14} /> Best sellers <Sparkle size={14} />
               </p>
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-                Pilihan yang lagi <em className="italic" style={{ color: ROSE_DEEP }}>hits</em> banget
+                The picks everyone is <em className="italic" style={{ color: ROSE_DEEP }}>loving</em>
               </h2>
               <p className="mt-4 max-w-md mx-auto" style={{ color: `${INK}99` }}>
-                Mulai dari yang paling banyak dipakai. Aman buat pemula.
+                Start with the most popular ones. Beginner friendly, promise.
               </p>
             </div>
           </Reveal>
@@ -236,7 +234,7 @@ export default function Design3() {
                         className="relative aspect-square rounded-2xl overflow-hidden mb-3"
                         style={{ background: PEACH_DEEP }}
                       >
-                        <Image
+                        <SmartImage
                           src={p.images[0]}
                           alt={p.name}
                           fill
@@ -277,29 +275,41 @@ export default function Design3() {
               );
             })}
           </RevealStagger>
+
+          <Reveal delay={0.1}>
+            <div className="mt-12 text-center">
+              <Link
+                href="/design-3/shop"
+                className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm border-2 transition-transform hover:scale-105"
+                style={{ borderColor: INK, color: INK }}
+              >
+                View all products <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* KENAPA TASTRA */}
-      <section id="kenapa" className="relative" style={{ background: "#fff" }}>
+      {/* WHY TASTRA */}
+      <section className="relative" style={{ background: "#fff" }}>
         <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
           <Reveal>
             <div className="text-center mb-16">
               <p className="text-sm font-bold mb-3" style={{ color: ROSE_DEEP }}>
-                ✨ Kenapa Tastra
+                ✨ Why Tastra
               </p>
               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight max-w-3xl mx-auto leading-[1.1]">
-                Karena kulit kamu deserve<br />
-                yang <em className="italic" style={{ color: ROSE_DEEP }}>lebih dari biasa</em>.
+                Because your skin deserves<br />
+                <em className="italic" style={{ color: ROSE_DEEP }}>more than the usual</em>.
               </h2>
             </div>
           </Reveal>
 
           <RevealStagger stagger={0.15} className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: "🌿", title: "Alami beneran", body: "Bahan aktifnya jelas, bukan cuma bahan pengisi yang nempel di label." },
-              { icon: "💧", title: "Ringan di kulit", body: "Tekstur water-based yang langsung meresap. Nggak lengket, nggak white-cast." },
-              { icon: "💛", title: "Harga jujur", body: "Kualitasnya internasional, harganya tetap masuk akal buat kantong lokal." },
+              { icon: "🌿", title: "Truly natural", body: "Real active ingredients you can name, not just filler that looks nice on a label." },
+              { icon: "💧", title: "Light on skin", body: "Water based textures that absorb fast. No sticky feeling, no white cast." },
+              { icon: "💛", title: "Honest pricing", body: "International quality at prices that still make sense for a local budget." },
             ].map((x) => (
               <RevealItem key={x.title}>
                 <motion.div
@@ -354,21 +364,20 @@ export default function Design3() {
               </motion.div>
               <Sparkle size={24} className="mx-auto mb-6 opacity-90" />
               <p className="text-2xl md:text-4xl font-extrabold leading-tight max-w-3xl mx-auto">
-                &ldquo;Kulit aku biasanya gampang break out tiap pakai sunscreen baru.
-                Sama Tastra? Aman, ringan, dan glowy.&rdquo;
+                &ldquo;My skin usually breaks out with every new sunscreen.
+                With Tastra? Calm, light, and glowy.&rdquo;
               </p>
-              <p className="mt-6 text-sm font-bold opacity-90">— Anya · 23 thn · Jakarta</p>
+              <p className="mt-6 text-sm font-bold opacity-90">Anya, 23, Jakarta</p>
               <div className="mt-10 flex flex-wrap gap-3 justify-center">
-                <motion.a
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ duration: 0.2, ease: EASE }}
-                  href="#shop"
-                  className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm"
-                  style={{ background: "#fff", color: ROSE_DEEP }}
-                >
-                  Coba sekarang <span aria-hidden>→</span>
-                </motion.a>
+                <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ duration: 0.2, ease: EASE }}>
+                  <Link
+                    href="/design-3/shop"
+                    className="inline-flex items-center gap-2 rounded-full px-7 py-4 font-bold text-sm"
+                    style={{ background: "#fff", color: ROSE_DEEP }}
+                  >
+                    Try it now <span aria-hidden>→</span>
+                  </Link>
+                </motion.div>
               </div>
             </div>
           </Reveal>

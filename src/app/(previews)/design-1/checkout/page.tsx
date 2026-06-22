@@ -92,14 +92,14 @@ export default function Design1Checkout() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
           <form onSubmit={onSubmit} className="grid lg:grid-cols-[1fr_400px] gap-8">
             <div className="space-y-8">
-              <Fieldset legend="01 — Contact">
+              <Fieldset legend="01 / Contact">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <Input name="name" label="Full name" required autoComplete="name" />
                   <Input name="email" type="email" label="Email" required autoComplete="email" />
                   <Input name="phone" label="Phone / WhatsApp" required autoComplete="tel" />
                 </div>
               </Fieldset>
-              <Fieldset legend="02 — Shipping">
+              <Fieldset legend="02 / Shipping">
                 <div className="space-y-4">
                   <Input name="address" label="Full address" required autoComplete="street-address" />
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -110,7 +110,7 @@ export default function Design1Checkout() {
                 </div>
               </Fieldset>
               <div className="border-2 border-black p-5">
-                <p className="font-[family-name:var(--font-display)] uppercase text-xl tracking-tight">03 — Payment</p>
+                <p className="font-[family-name:var(--font-display)] uppercase text-xl tracking-tight">03 / Payment</p>
                 <p className="mt-2 text-sm text-black/70 font-[family-name:var(--font-mono)]">Testing mode: payment is auto approved on submit. The order goes straight to the dashboard.</p>
               </div>
             </div>
