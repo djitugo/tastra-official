@@ -20,116 +20,116 @@ export const PRODUCTS: Product[] = [
   {
     slug: "uv-protector",
     name: "UV Protector",
-    tagline: "Tameng matahari yang nggak berasa di kulit.",
+    tagline: "Sun shield so light you forget it is there.",
     description:
-      "Sunscreen broad-spectrum SPF 50+ PA++++ dengan tekstur ringan, no white-cast, dan diformulasikan ulang khusus iklim tropis. Pakai tiap pagi, lupakan kerusakan UV.",
+      "A broad-spectrum SPF 50+ PA++++ sunscreen with a featherlight texture, zero white cast, and a formula rebuilt for tropical weather. Wear it every morning and forget about UV damage.",
     category: "sunscreen",
     price: 150150,
     originalPrice: 273000,
     images: ["/products/uv-protector.webp", "/products/uv-protector-2.webp", "/products/sunscreen-siluet.webp"],
-    bestFor: ["Semua jenis kulit", "Kulit sensitif", "Pemakaian harian"],
+    bestFor: ["All skin types", "Sensitive skin", "Daily wear"],
     ingredients: ["Niacinamide 4%", "Zinc Oxide", "Vitamin E", "Centella Asiatica"],
     howTo: [
-      "Pakai pagi hari, jadi langkah skincare terakhir sebelum makeup.",
-      "Aplikasikan minimal dua ruas jari ke seluruh wajah dan leher.",
-      "Re-apply setiap 2 jam saat aktivitas outdoor.",
+      "Apply in the morning as the last step before makeup.",
+      "Use at least two finger lengths across face and neck.",
+      "Reapply every 2 hours during outdoor activity.",
     ],
     size: "30ml",
   },
   {
     slug: "moisturizer",
     name: "Moisturizer",
-    tagline: "Hidrasi 24 jam tanpa lengket. Titik.",
+    tagline: "24 hour hydration with no sticky finish. Period.",
     description:
-      "Moisturizer water-based yang langsung meresap. Memperkuat skin barrier, mengunci kelembapan, dan bikin kulit bouncy tiap kali bercermin.",
+      "A water based moisturizer that absorbs on contact. It strengthens the skin barrier, locks in moisture, and leaves skin bouncy every time you look in the mirror.",
     category: "moisturizer",
     price: 51150,
     originalPrice: 93000,
     images: ["/products/moisturizer.webp", "/products/moisturizer-2.webp"],
-    bestFor: ["Kulit kering", "Kulit kombinasi", "Setelah eksfoliasi"],
+    bestFor: ["Dry skin", "Combination skin", "After exfoliation"],
     ingredients: ["Hyaluronic Acid", "Ceramide", "Squalane", "Panthenol"],
     howTo: [
-      "Apply pagi & malam setelah toner/serum.",
-      "Tepuk-tepuk halus, jangan digosok.",
-      "Lanjut sunscreen di pagi hari.",
+      "Apply morning and night after toner or serum.",
+      "Pat gently, do not rub.",
+      "Follow with sunscreen in the morning.",
     ],
     size: "50ml",
   },
   {
     slug: "facial-wash",
     name: "Facial Wash",
-    tagline: "Cuci muka yang nggak nyiksa.",
+    tagline: "A cleanse that never leaves skin tight.",
     description:
-      "Cleanser low-pH dengan busa lembut. Bersih maksimal tanpa bikin kulit ketarik. Aman untuk pemakaian dua kali sehari.",
+      "A low pH cleanser with a soft foam. It clears the day without stripping your skin, gentle enough for twice daily use.",
     category: "cleanser",
     price: 55000,
     originalPrice: 100000,
     images: ["/products/facial-wash.webp", "/products/facial-wash-2.webp"],
-    bestFor: ["Pagi & malam", "Setelah olahraga", "Semua jenis kulit"],
+    bestFor: ["Morning and night", "After workouts", "All skin types"],
     ingredients: ["Amino Acid Surfactant", "Aloe Vera", "Glycerin", "Green Tea"],
     howTo: [
-      "Basahi wajah dengan air biasa.",
-      "Tuang seukuran kacang, busakan di tangan.",
-      "Pijat lembut 30 detik, bilas bersih.",
+      "Wet your face with lukewarm water.",
+      "Dispense a pea sized amount and lather in your hands.",
+      "Massage gently for 30 seconds, then rinse clean.",
     ],
     size: "100ml",
   },
   {
     slug: "complete-glow-collection",
     name: "Complete Glow Collection",
-    tagline: "Satu paket, kulit kelar.",
+    tagline: "One set, skin sorted.",
     description:
-      "Bundle lengkap: cleanser, moisturizer, dan sunscreen dalam satu set. Ritual pagi-malam yang gampang diingat dan susah dilewatin.",
+      "The full routine in one box: cleanser, moisturizer, and sunscreen. A morning and night ritual that is easy to remember and hard to skip.",
     category: "package",
     price: 233000,
     originalPrice: 466000,
     images: ["/products/complete-glow.webp", "/products/design-1.webp"],
-    bestFor: ["Pemula skincare", "Hadiah", "Travel-friendly"],
-    ingredients: ["Bundle isi 3 produk full-size"],
+    bestFor: ["Skincare beginners", "Gifting", "Travel friendly"],
+    ingredients: ["Bundle of 3 full size products"],
     howTo: [
-      "Pagi: Facial Wash → Moisturizer → UV Protector.",
-      "Malam: Facial Wash → Moisturizer.",
-      "Konsisten 28 hari, lihat bedanya.",
+      "Morning: Facial Wash, Moisturizer, UV Protector.",
+      "Night: Facial Wash, Moisturizer.",
+      "Stay consistent for 28 days and see the difference.",
     ],
-    size: "3 produk",
+    size: "3 products",
     bundle: ["facial-wash", "moisturizer", "uv-protector"],
   },
   {
     slug: "fresh-sunsafe-combo",
-    name: "Fresh & SunSafe Combo",
-    tagline: "Cuci muka + tameng matahari. Done.",
+    name: "Fresh and SunSafe Combo",
+    tagline: "Cleanse plus sun shield. Done.",
     description:
-      "Duo esensial: Facial Wash buat bersihin, UV Protector buat melindungi. Kombo paling masuk akal buat yang baru mulai.",
+      "The two essentials: Facial Wash to clear, UV Protector to defend. The most sensible duo for anyone just starting out.",
     category: "package",
     price: 186500,
     originalPrice: 373000,
     images: ["/products/fresh-sunsafe.webp", "/products/design-2.webp"],
-    bestFor: ["Pemula", "Daily kit", "Travel set"],
-    ingredients: ["Bundle isi 2 produk full-size"],
+    bestFor: ["Beginners", "Daily kit", "Travel set"],
+    ingredients: ["Bundle of 2 full size products"],
     howTo: [
-      "Pagi: Facial Wash → UV Protector.",
-      "Malam: Facial Wash.",
+      "Morning: Facial Wash, then UV Protector.",
+      "Night: Facial Wash.",
     ],
-    size: "2 produk",
+    size: "2 products",
     bundle: ["facial-wash", "uv-protector"],
   },
   {
     slug: "daily-essentials-pack",
     name: "Daily Essentials Pack",
-    tagline: "Hidrasi + bersih. Ritual minimum.",
+    tagline: "Hydrate plus cleanse. The minimum ritual.",
     description:
-      "Moisturizer + Facial Wash. Pasangan dasar yang dipakai tiap pagi dan malam. Nggak ribet, nggak banyak step.",
+      "Moisturizer plus Facial Wash. The base pair you reach for morning and night. No fuss, no extra steps.",
     category: "package",
     price: 96500,
     originalPrice: 193000,
     images: ["/products/daily-essentials.webp", "/products/design-3.webp"],
-    bestFor: ["Minimalist routine", "Cocok semua usia", "Refill bulanan"],
-    ingredients: ["Bundle isi 2 produk full-size"],
+    bestFor: ["Minimalist routine", "Suits all ages", "Monthly refill"],
+    ingredients: ["Bundle of 2 full size products"],
     howTo: [
-      "Pagi: Facial Wash → Moisturizer.",
-      "Malam: Facial Wash → Moisturizer.",
+      "Morning: Facial Wash, then Moisturizer.",
+      "Night: Facial Wash, then Moisturizer.",
     ],
-    size: "2 produk",
+    size: "2 products",
     bundle: ["facial-wash", "moisturizer"],
   },
 ];
@@ -140,6 +140,17 @@ export function getProduct(slug: string): Product | undefined {
 
 export function getByCategory(cat: Category): Product[] {
   return PRODUCTS.filter((p) => p.category === cat);
+}
+
+export function searchProducts(query: string): Product[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  return PRODUCTS.filter((p) =>
+    [p.name, p.tagline, p.category, p.description, ...p.ingredients]
+      .join(" ")
+      .toLowerCase()
+      .includes(q),
+  );
 }
 
 export const CATEGORIES: { slug: Category; label: string }[] = [
