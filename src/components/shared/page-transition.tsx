@@ -2,7 +2,10 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+
+// Run before paint on the client so the cover is up before the new page shows.
+const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 type Theme = { bg: string; fg: string; label: string };
 
@@ -20,24 +23,25 @@ function designOf(pathname: string): string | null {
   return m ? m[1] : null;
 }
 
-// A quick branded wipe between pages. The big first visit loader is handled
-// separately by each design (Loader1..6, gated per session).
+// Quick branded cover shown between pages. It covers the freshly rendered page
+// immediately (before paint), holds briefly, then wipes away to reveal it.
+// The big first visit loader is handled separately by each design.
 export function PageTransition() {
   const pathname = usePathname();
   const reduced = useReducedMotion();
   const firstMount = useRef(true);
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     if (firstMount.current) {
       firstMount.current = false;
       return;
     }
     if (reduced) return;
     setActive(true);
-    const t = setTimeout(() => setActive(false), 620);
+    const t = setTimeout(() => setActive(false), 480);
     return () => clearTimeout(t);
-  }, [pathname, reduced]);
+  }, [pathname]);
 
   const design = designOf(pathname);
   if (!design) return null;
@@ -50,17 +54,17 @@ export function PageTransition() {
           key="page-transition"
           className="fixed inset-0 z-[150] flex items-center justify-center pointer-events-none"
           style={{ background: theme.bg, color: theme.fg }}
-          initial={{ clipPath: "inset(0 0 100% 0)" }}
-          animate={{ clipPath: "inset(0 0 0% 0)" }}
-          exit={{ clipPath: "inset(100% 0 0 0)" }}
+          initial={{ clipPath: "inset(0 0 0 0)" }}
+          animate={{ clipPath: "inset(0 0 0 0)" }}
+          exit={{ clipPath: "inset(0 0 100% 0)" }}
           transition={{ duration: 0.5, ease: [0.85, 0, 0.15, 1] }}
           aria-hidden
         >
           <motion.span
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, delay: 0.12 }}
+            transition={{ duration: 0.25 }}
             className="text-2xl tracking-[0.3em] uppercase"
           >
             {theme.label}
